@@ -1,0 +1,242 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+/* user default layout page*/
+
+body {
+	font-family: 'source sans pro',serif;
+	font-size: 13px;
+}
+
+.sidebar {
+	background-color: #43425D;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	min-height: 100%;
+	width: 15%;
+}
+
+.sidebar ul {
+	list-style: none;
+}
+
+#site-title {
+	font-size: 16px;
+	color: #ffffff;
+	text-transform: uppercase;
+	background-color: #3C3B54;
+	padding-top: 27px;
+	padding-left: 26px;
+	padding-bottom: 27px;
+	font-weight: bold;
+
+}
+
+.nav-items {
+	font-size: 15px;
+	color: #ffffff;
+	text-transform: capitalize;
+	background-color: #43425D;
+	padding-top: 19px;
+	padding-left: 26px;
+	padding-bottom: 19px;
+}
+
+.nav-icons {
+	color: #A5A4BF;
+	height: 16px;
+	width: 16px;
+	margin-right: 10px;
+}
+
+.nav-item-active {
+	background-color: #3C3B54;
+	border-left: 3px solid #A3A0FB;
+}
+
+.nav-icon-active {
+	color: #A3A0FB;
+}
+
+.content {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 85%;
+	height: 100%;
+	background: #F0F0F7;
+}
+
+.header {
+	height: 70px;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: #ffffff;
+}
+
+.header-profile-photo{
+	float: right;
+	margin: 16px 16px 16px 0px;
+	right: 15px;
+	height: 38px;
+	width: 38px;
+	border-radius: 50%;
+}
+
+.header-user-image {
+	height: inherit;
+	width: inherit;
+	border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.menu-dropdown-icon {
+	float: right;
+	margin: 26.5px 15px 26.5px 0px;
+	width: 11px;
+	height: 17px;
+	color: #BCBCCB;
+}
+
+.name {
+	float: right;
+	margin: 26.5px 15px 26.5px 0px;
+	width: auto;
+	height: 17px;
+	font-size: 15px;
+}
+
+.header-separator {
+	float: right;
+	margin: 15px 15px 15px 0px;
+	width: 1px;
+	height: 40px;
+	background-color: #BCBCCB;
+	border: 0px solid #BCBCCB;
+}
+
+.header-notification {
+	float: right;
+	margin: 26.5px 15px 26.5px 0px;
+	width: 20px;
+	height: 20px;
+	color: #BCBCCB;
+}
+
+.page-title {
+	position: absolute;
+	top: 97px;
+	left: 10%;
+	text-transform: capitalize;
+	color: #43425D;
+	text-decoration: none;
+	width: auto;
+}
+
+.main-content {
+	background-color: #ffffff;
+	position: absolute;
+	top: 160px;
+	left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	height: auto;
+}
+
+
+/* sign up page */
+
+.sign-up-image {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('sign-up-page/resources/wallpaper.jpg');
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	height: 100%;
+  	width: 50%;
+  	display: inline-block;
+}
+
+.signup-container {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	width: 50%;
+	display: inline-block;
+}
+
+.signup-content {
+	position: inherit;
+	top: 150px;
+	left:20%;
+	height: auto;
+	width: 60%;
+}
+
+.signup-content h1 {
+	width: auto;
+	height: auto;
+	text-align: center;
+	margin-bottom: 8px;
+	color: #43425D;
+	text-transform: uppercase;
+}
+
+.signup-content h3 {
+	text-align: center;
+	width: auto;
+	height: auto;
+	margin-bottom: 15px;
+	color: #43425D;
+}
+
+.sign-in-alt {
+	text-align: center;
+}
+
+.signup-content input {
+	width: 62%;
+	height: 33px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	float: left;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.signup-content input[type = submit] {
+	float: none;
+	width: 120px;
+	border-radius: 25px;
+	color: #43425D;
+	text-transform: uppercase;
+	border: 4px double #43425D;
+	background-color: #ffffff;
+	margin-left: 35%;
+	margin-bottom: 20px;
+	margin-top: 8px;
+}
+
+label p {
+	display: inline-block;
+	width: 30%;
+	height: 25px;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	float: left;
+	text-align: center;
+	margin: 8px 0px 8px 0px;
+	padding-top: 10px;
+	font-size: 12px
+}
