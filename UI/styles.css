@@ -10,7 +10,7 @@ body {
 	font-size: 13px;
 }
 
-.sidebar {
+#sidebar {
 	background-color: #43425D;
 	position: absolute;
 	top: 0px;
@@ -62,7 +62,7 @@ body {
 	color: #A3A0FB;
 }
 
-.content {
+#content {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -71,7 +71,7 @@ body {
 	background: #F0F0F7;
 }
 
-.header {
+#header {
 	height: 70px;
 	width: 100%;
 	position: absolute;
@@ -107,7 +107,7 @@ body {
 
 .name {
 	float: right;
-	margin: 26.5px 15px 26.5px 0px;
+	margin: 23.5px 15px 26.5px 0px;
 	width: auto;
 	height: 17px;
 	font-size: 15px;
@@ -130,9 +130,9 @@ body {
 	color: #BCBCCB;
 }
 
-.page-title {
+#page-title {
 	position: absolute;
-	top: 97px;
+	top: 100px;
 	left: 10%;
 	text-transform: capitalize;
 	color: #43425D;
@@ -140,14 +140,14 @@ body {
 	width: auto;
 }
 
-.main-content {
+#main-content {
 	background-color: #ffffff;
 	position: absolute;
-	top: 160px;
+	top: 150px;
 	left: 10%;
 	margin-right: 10%;
 	width: 80%;
-	height: auto;
+	height: 100px;
 }
 
 
@@ -157,7 +157,7 @@ body {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('sign-up-page/resources/wallpaper.jpg');
+	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('resources/signup-image.jpg');
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
