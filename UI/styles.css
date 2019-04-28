@@ -11,10 +11,6 @@ body {
 	line-height: 1.6;
 }
 
-h2 {
-	text-transform: capitalize;
-}
-
 #sidebar {
 	background-color: #43425D;
 	position: absolute;
@@ -152,7 +148,7 @@ h2 {
 	left: 10%;
 	margin-right: 10%;
 	width: 80%;
-	height: auto;
+	height: 100px;
 }
 
 
