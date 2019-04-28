@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Dashboard
+		</title>
+        <link rel = "stylesheet" href = "../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+					<div class = 'dashboard-incomplete-profile'>
+						<div class = 'dashboard-modal-content'>
+							<div class = 'dashboard-modal-content-header'>
+								<h2 class = 'dashboard-modal-content-header'></h2>
+							</div>
+							<div class = 'dashboard-modal-content-body'>
+								<h3>Kindly complete your profile for verification, to make you eligible to apply for a loan.</h3>
+								<a href = './profile/completeProfile.html'><button class = 'btn dashboard-modal-content-button'>complete profile</button></a>
+							</div>
+						</div>
+						
+					</div>
+					<div class = 'dashboard-pending-verification'>
+						<h2>Your profile is being verified!</h2>
+						<h3>Sorry you cannot apply for a loan now, your profile is yet to be verified. Kindly check back in a few minutes.</h3>
+						<button></button>
+					</div>
+					<div class = 'dashboard-verified-profile'>
+						
+					</div>
+					<div class = 'dashboard-verified-plus-loan'>
+						
+					</div>
+					<div class = 'dashboard-verified-minus-loan'>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../layouts/header.js">
+		</script>
+		<script type = "module" src = "../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../components/dashboardModal.js">
+		</script>
+	</body>
+</html>
