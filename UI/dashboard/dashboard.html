@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Dashboard
+		</title>
+        <link rel = "stylesheet" href = "../styles.css">
+        <link rel = "import" href = "../default-user-layout/userDefaultLayout.html" id = "layout-import">
+	</head>
+	<body>
+		grnrg
+
+
+		<script>
+			console.log ('working');
+			let getImport = document.querySelector('#layout-import')
+			let temp = getImport.import;
+			let getContent = temp.querySelector('#layout-content');
+			document.body.appendChild(getContent.cloneNode(true));
+
+		</script>
+	</body>
+</html>
