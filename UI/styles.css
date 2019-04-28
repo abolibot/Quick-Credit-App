@@ -6,11 +6,16 @@
 /* user default layout page*/
 
 body {
-	font-family: 'source sans pro',serif;
+	font-family: 'source sans pro', serif, helvetica;
 	font-size: 13px;
+	line-height: 1.6;
 }
 
-.sidebar {
+h2 {
+	text-transform: capitalize;
+}
+
+#sidebar {
 	background-color: #43425D;
 	position: absolute;
 	top: 0px;
@@ -62,7 +67,7 @@ body {
 	color: #A3A0FB;
 }
 
-.content {
+#content {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -71,7 +76,7 @@ body {
 	background: #F0F0F7;
 }
 
-.header {
+#header {
 	height: 70px;
 	width: 100%;
 	position: absolute;
@@ -107,7 +112,7 @@ body {
 
 .name {
 	float: right;
-	margin: 26.5px 15px 26.5px 0px;
+	margin: 23.5px 15px 26.5px 0px;
 	width: auto;
 	height: 17px;
 	font-size: 15px;
@@ -130,9 +135,9 @@ body {
 	color: #BCBCCB;
 }
 
-.page-title {
+#page-title {
 	position: absolute;
-	top: 97px;
+	top: 100px;
 	left: 10%;
 	text-transform: capitalize;
 	color: #43425D;
@@ -140,10 +145,10 @@ body {
 	width: auto;
 }
 
-.main-content {
+#main-content {
 	background-color: #ffffff;
 	position: absolute;
-	top: 160px;
+	top: 150px;
 	left: 10%;
 	margin-right: 10%;
 	width: 80%;
@@ -157,7 +162,7 @@ body {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('sign-up-page/resources/wallpaper.jpg');
+	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('resources/signup-image.jpg');
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
@@ -217,14 +222,22 @@ body {
 .signup-content input[type = submit] {
 	float: none;
 	width: 120px;
-	border-radius: 25px;
-	color: #43425D;
-	text-transform: uppercase;
-	border: 4px double #43425D;
-	background-color: #ffffff;
 	margin-left: 35%;
 	margin-bottom: 20px;
 	margin-top: 8px;
+}
+
+.btn {
+	text-transform: uppercase;
+	border-radius: 25px;
+	padding: 8px;
+	background-color: #43425D;
+	color: #ffffff;
+	box-shadow: none;
+}
+
+.btn:focus {
+	outline: 0;
 }
 
 label p {
@@ -240,3 +253,70 @@ label p {
 	padding-top: 10px;
 	font-size: 12px
 }
+
+
+/* Dashboard */
+.dashboard-incomplete-profile {
+	position: fixed;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	display: none;
+}
+
+.dashboard-modal-content {
+	background-color: #ffffff;
+	margin: 20% auto;
+	padding: 30px;
+	width: 500px;
+	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2), 0px 7px 20px 0px rgba(0,0,0,0.17);
+	animation-name: modalContent;
+	animation-duration: 1s;
+}
+
+@keyframes modalContent {
+	from{ opacity: 0 }
+	to{ opacity: 1 }
+}
+
+.dashboard-modal-content-button {
+	width: 150px;
+	margin-left: 175px;
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+
+
+.dashboard-modal-content-header {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.dashboard-modal-content-body h3 {
+	text-align: center;
+	font-weight: lighter;
+	padding: 0px 20px 0px 20px;
+}
+
+.dashboard-pending-verification {
+	display: block;
+}
+
+.dashboard-verified-profile {
+	display: none;
+}
+
+.dashboard-verified-plus-loan {
+	display: none;
+}
+
+.dashboard-verified-minus-loan {
+	display: none;
+}
+
