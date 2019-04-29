@@ -307,25 +307,26 @@ label p {
 }
 
 .dashboard-pending-verification {
-	display: block;
+	display: none;
 	height: auto;
 	padding: 70px;
 }
 
-.dashboard-pending-verification h2
+.dashboard-pending-verification h2, .dashboard-unverified-profile h2
 {
 	font-weight: lighter;
 	font-size: 18px;
+	margin-bottom: 3px;
 }
 
-.dashboard-pending-verification p
+.dashboard-pending-verification p, .dashboard-unverified-profile p
 {
 	font-weight: lighter;
 	width: 300px;
 	display: inline-block;
 }
 
-.dashboard-pending-verification button
+.dashboard-pending-verification button, .dashboard-unverified-profile-apply-button
 {
 	position: absolute;
 	right: 70px;
@@ -333,8 +334,16 @@ label p {
 	background-color: #838296;
 }
 
-.dashboard-verified-profile {
-	display: none;
+.dashboard-unverified-profile {
+	display: block;
+	height: auto;
+	padding: 70px;
+}
+
+.dashboard-unverified-profile-update-button {
+	position: absolute;
+	left: 70px;
+	bottom: 20px;
 }
 
 .dashboard-verified-plus-loan {
