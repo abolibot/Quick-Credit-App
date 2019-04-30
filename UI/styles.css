@@ -594,6 +594,53 @@ label p {
 }
 
 .dashboard-verified-minus-loan {
-	display: none;
+	display: block;
+	background-image: url('resources/dashboard-background.jpg');
+	background-position: top;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	height: auto;
+  	width: 100%;
+  	position: absolute;
 }
 
+.dashboard-verified-minus-loan h1 {
+	color: #43425D;
+	font-size: 50px;
+	width: 40%;
+	line-height: 50px;
+	margin-top: 60px;
+	margin-left: 60px;
+}
+
+.up-to {
+	font-size: 20px;
+	margin-left: 60px;
+	line-height: 40px;
+}
+
+.dashboard-verified-minus-loan-amount{
+	font-size: 60px;
+	font-weight: bold;
+	line-height: 40px;
+	display: inline-block;
+}
+
+.dashboard-verified-minus-loan-naira {
+	font-size: 20px;
+	display: inline-block;
+	margin-left: 60px;
+	position: relative;
+	bottom: 20px;
+}
+
+.dashboard-verified-minus-loan-duration {
+	font-size: 20px;
+	margin-left: 60px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+.dashboard-verified-minus-loan button {
+	margin: 10px 0px 60px 60px;
+}
