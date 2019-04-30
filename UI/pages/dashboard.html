@@ -7,6 +7,7 @@
 		</title>
         <link rel = "stylesheet" href = "../styles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	</head>
 	<body id = 'container'>
 		<div id = 'layout-content'>
@@ -31,21 +32,82 @@
 						
 					</div>
 					<div class = 'dashboard-pending-verification'>
-						<h2>Your profile is being verified!</h2>
+						<h2 class = 'card-header'>Your profile is being verified!</h2>
 						<p>Sorry you cannot apply for a loan now, your profile is yet to be verified. Kindly check back in a few minutes.</p>
-						<button class = 'btn' disabled>apply for loan</button>
+						<button class = 'btn disabled' disabled>apply for loan</button>
 					</div>
 					<div class = 'dashboard-unverified-profile'>
-						<h2>Oops! We couldn't verify your account</h2>
+						<h2 class = 'card-header'>Oops! We couldn't verify your account</h2>
 						<p>Sorry you cannot apply for a loan now, we couldn't confirm your details. Kindly review and update your profile.</p>
-						<button class = 'btn dashboard-unverified-profile-apply-button' disabled>apply for loan</button>
+						<button class = 'btn dashboard-unverified-profile-apply-button disabled' disabled>apply for loan</button>
 						<a href = './profile/updateProfile.html'><button class = 'btn dashboard-unverified-profile-update-button'>update profile</button></a>
 					</div>
 					<div class = 'dashboard-verified-plus-loan'>
-						
+						<div class = 'dashboard-repayment-countdown'>
+							<div class = 'dashboard-exclamation-placeholder'>
+								<i class="fas fa-exclamation-circle"></i>
+							</div>
+							<h2 class = 'card-header'>Payment of &#8358;8,333 Due in 20 Days</h2>
+							<p>Please ensure you log repayments on time to maintain uninterrupted access to our service. Click the log repayment button to log a repayment transaction.</p>
+							<a href = './loan/logRepayment.html'><button class = 'btn'>log repayment</button></a>
+						</div>
+						<hr class = 'hr'>
+						<div class = 'dashboard-loan-overview'>
+							<h2 class = 'card-header'>Loan Overview</h2>
+							<p class = 'dashboard-loan-overview-amount'>Amount</p>
+							<p class = 'dashboard-loan-overview-amount-in-digit'><span id = 'money'>&#8358;50,000</span></p>
+							<hr id = 'line-separator'>
+							<div id = 'repayment-chart'>
+								
+							</div>
+							<i class="fas fa-circle dashboard-loan-overview-legend-pending-i"></i>
+							<p class = 'dashboard-loan-overview-legend-pending'>Pending</p>
+							<i class="fas fa-circle dashboard-loan-overview-legend-logged-i"></i>
+							<p class = 'dashboard-loan-overview-legend-logged'>Logged</p>
+							<p class = 'dashboard-loan-overview-legend-posted'>Posted</p>
+							<i class="fas fa-circle dashboard-loan-overview-legend-posted-i"></i>
+							<br />
+							<p class = 'dashboard-loan-overview-legend-pending-amount'>&#8358;25,000</p>
+							<p class = 'dashboard-loan-overview-legend-logged-amount'>&#8358;16,667</p>
+							<p class = 'dashboard-loan-overview-legend-posted-amount'>&#8358;8,333</p>
+							<hr class = 'dashboard-loan-overview-hr2'>
+							<a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View Loan Details</a>
+						</div>
+						<hr class = 'dashboard-vr'>
+						<div class = 'dashboard-repayment-post-pending'>
+							<h2 class = 'card-header'>Repayments Awaiting Admin's Posting</h2>
+							<table>
+								<tr>
+									<th>Repayment Log ID</th>
+									<th>Amount</th>
+								</tr>
+								<tr>
+									<td>101</td>
+									<td class = 'amount-column'>&#8358;8,333</td>
+								</tr>
+								<tr>
+									<td>102</td>
+									<td class = 'amount-column'>&#8358;8,333</td>
+								</tr>
+							</table>
+						</div>
+						<hr class = 'dashboard-vr'>
+						<div class = 'usage-hint'>
+							<i class="fas fa-lightbulb"></i>
+							<h2 class = 'card-header'>Usage Hint</h2>
+							<hr id = 'line-separator'>
+							<p></p>
+						</div>
 					</div>
 					<div class = 'dashboard-verified-minus-loan'>
-						
+						<div class = 'dashboard-verified-minus-loan-form'>
+						</div>
+						<div id = 'info'>
+							
+						</div>
+					</div>
+					<div class = 'dashboard-admin'>
+
 					</div>
 				</div>
 			</div>
@@ -57,6 +119,8 @@
 		<script type = "module" src = "../layouts/sidebar.js">
 		</script>
 		<script type = "module" src = "../components/dashboardModal.js">
+		</script>
+		<script type = "module" src = "../components/repaymentChart.js">
 		</script>
 	</body>
 </html>
