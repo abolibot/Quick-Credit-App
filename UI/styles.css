@@ -75,6 +75,7 @@ h2 {
 	width: 85%;
 	height: 100%;
 	background: #F0F0F7;
+	overflow: auto;
 }
 
 #header {
@@ -247,7 +248,7 @@ h2 {
 	cursor: pointer;
 }
 
-label p {
+.signup-content label p {
 	display: inline-block;
 	width: 30%;
 	height: 25px;
@@ -922,3 +923,105 @@ label p {
 	float: left;
 	height: 322px;
 }
+
+
+
+
+/* complete profile page */
+
+fieldset {
+	margin: 20px 40px;
+	padding: 20px 30px;
+	border: 3px solid #F5F6FA;
+}
+
+fieldset h3 {
+	margin: 0px 5px;
+}
+
+.complete-profile-form label {
+	width: 15%;
+	display: inline-block;
+}
+
+.complete-profile-form p {
+	display: inline-block;
+	width: 100%;
+	height: 25px;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 8px 0px 8px 0px;
+	padding-top: 10px;
+	font-size: 12px
+}
+
+.complete-profile-form input[type = 'text'],
+.complete-profile-form input[type = 'number'],
+.complete-profile-form input[type = 'email'],
+.complete-profile-form input[type = 'date'],
+.complete-profile-form input[type = 'file'],
+.complete-profile-form input[type = 'tel'] {
+	display: inline-block;
+	width: calc(35% - 104px);
+	height: 33px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.complete-profile-form select {
+	display: inline-block;
+	width: calc(35% - 72px);
+	height: 35px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.complete-profile-form input[type = 'file'] {
+	border: none;
+	padding-top: 7px;
+}
+
+option {
+	width: 100%;
+	height: 100%;
+}
+
+
+#label-float-right {
+	margin-left: 40px;
+	float: right;
+}
+
+#label-float-left, #complete-profile-firstname,
+#complete-profile-sex, #complete-profile-valid-id,
+#complete-profile-phone, #complete-profile-home-address,
+#complete-profile-city, #complete-profile-employment-status,
+#complete-profile-work-address, #complete-profile-work-city, 
+#complete-profile-bvn, #complete-profile-bank{
+	float: left;
+}
+
+#complete-profile-lastname, #complete-profile-dob, 
+#complete-profile-display-picture, #complete-profile-email,
+#complete-profile-state, #complete-profile-employer-name,
+#complete-profile-work-state, #complete-profile-account-number {
+	float: right;
+}
+
+#complete-profile-home-address,
+#complete-profile-work-address {
+	width: calc(85% - 104px);
+}
+
+.complete-profile-form input[type = 'submit']{
+	margin: 20px auto;
+	display: block;
+	width: 10%;
+}
+
