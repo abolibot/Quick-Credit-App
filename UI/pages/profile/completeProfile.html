@@ -1,1 +1,213 @@
-completeProfile
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Complete Profile
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+					<form class="complete-profile-form">
+						<fieldset class="complete-profile-personal-details">
+						  <legend><h3>Personal Details:</h3></legend>
+						  <label for = 'complete-profile-firstname' id = 'label-float-left'><p>first name</p></label>
+						  <input type = 'text' name = 'firstname' id = 'complete-profile-firstname' required>
+
+						  <input type = 'text' name = 'lastname' id = 'complete-profile-lastname' required>
+						  <label for = 'complete-profile-lastname' id = 'label-float-right'><p>last name</p></label>
+
+						  <label for = 'complete-profile-sex' id = 'label-float-left'><p>sex</p></label>
+						  <select name="sex" size="1" id = 'complete-profile-sex' required>
+							  <option value="male">male</option>
+							  <option value="female">female</option>
+						  </select>
+
+						  <input type = 'date' name = 'dob' id = 'complete-profile-dob' max = "2000-12-31" min = '1919-12-31' required>
+						  <label for = 'complete-profile-dob' id = 'label-float-right'><p>date of birth</p></label>
+
+						  <label for = 'complete-profile-valid-id' id = 'label-float-left'><p>valid id</p></label>
+						  <input type = 'file' name = 'validId' id = 'complete-profile-valid-id' required>
+
+						  <input type = 'file' name = 'validId' id = 'complete-profile-display-picture' required>
+						  <label for = 'complete-profile-display-picture' id = 'label-float-right'><p>display picture</p></label>
+						  
+
+						  
+						</fieldset>
+						<fieldset>
+							<legend><h3>Contact Details:</h3></legend>
+							<label for = 'complete-profile-phone' id = 'label-float-left'><p>phone number</p></label>
+							<input type = 'tel' name = 'phone' id = 'complete-profile-phone' required>
+
+							<input type = 'email' name = 'email' id = 'complete-profile-email' required>
+							<label for = 'complete-profile-email' id = 'label-float-right'><p>email address</p></label>
+							
+							<label for = 'complete-profile-home-address' id = 'label-float-left'><p>home address</p></label>
+							<input type = 'text' name = 'homeAddress' id = 'complete-profile-home-address' required>
+
+							<label for = 'complete-profile-city' id = 'label-float-left'><p>city</p></label>
+							<input type = 'text' name = 'city' id = 'complete-profile-city' required>
+
+							<select name="state" size="1" id = 'complete-profile-state' required>
+							  <option value="abia">Abia</option>
+							  <option value="adamawa">Adamawa</option>
+							  <option value="akwaIbom">Akwa-Ibom</option>
+							  <option value="anambra">Anambra</option>
+							  <option value="bauchi">Bauchi</option>
+							  <option value="bayelsa">Bayelsa</option>
+							  <option value="benue">Benue</option>
+							  <option value="bornu">Bornu</option>
+							  <option value="crossRiver">Cross-River</option>
+							  <option value="delta">Delta</option>
+							  <option value="ebonyi">Ebonyi</option>
+							  <option value="enugu">Enugu</option>
+							  <option value="edo">Edo</option>
+							  <option value="ekiti">Ekiti</option>
+							  <option value="gombe">Gombe</option>
+							  <option value="imo">Imo</option>
+							  <option value="jigawa">Jigawa</option>
+							  <option value="kaduna">Kaduna</option>
+							  <option value="katsina">Katsina</option>
+							  <option value="kano">Kano</option>
+							  <option value="kebbi">Kebbi</option>
+							  <option value="kogi">Kogi</option>
+							  <option value="kwara">Kwara</option>
+							  <option value="lagos">Lagos</option>
+							  <option value="nasarawa">Nasarawa</option>
+							  <option value="niger">Niger</option>
+							  <option value="ogun">Ogun</option>
+							  <option value="ondo">Ondo</option>
+							  <option value="osun">Osun</option>
+							  <option value="oyo">Oyo</option>
+							  <option value="plateau">Plateau</option>
+							  <option value="rivers">Rivers</option>
+							  <option value="sokoto">Sokoto</option>
+							  <option value="taraba">Taraba</option>
+							  <option value="yobe">Yobe</option>
+							  <option value="zamfara">Zamfara</option>
+							  <option value="fct">FCT</option>
+							</select>
+							<label for = 'complete-profile-state' id = 'label-float-right'><p>state</p></label>
+							
+						</fieldset>
+						<fieldset>
+							<legend><h3>Employment Details:</h3></legend>
+							<label for = 'complete-profile-employment-status' id = 'label-float-left'><p>employment status</p></label>
+							<select name="employmentStatus" size="1" id = 'complete-profile-employment-status' required>
+							  <option value="employed">employed</option>
+							  <option value="unemployed">unemployed</option>
+							</select>
+
+							<input type = 'text' name = 'employerName' id = 'complete-profile-employer-name' required>
+							<label for = 'complete-profile-employer-name' id = 'label-float-right'><p>employer name</p></label>
+							
+
+							<label for = 'complete-profile-work-address' id = 'label-float-left'><p>work address</p></label>
+							<input type = 'text' name = 'workAddress' id = 'complete-profile-work-address' required>
+
+							<label for = 'complete-profile-work-city' id = 'label-float-left'><p>city</p></label>
+							<input type = 'text' name = 'workCity' id = 'complete-profile-work-city' required>
+
+							<select name="workState" size="1" id = 'complete-profile-work-state' required>
+							  <option value="abia">Abia</option>
+							  <option value="adamawa">Adamawa</option>
+							  <option value="akwaIbom">Akwa-Ibom</option>
+							  <option value="anambra">Anambra</option>
+							  <option value="bauchi">Bauchi</option>
+							  <option value="bayelsa">Bayelsa</option>
+							  <option value="benue">Benue</option>
+							  <option value="bornu">Bornu</option>
+							  <option value="crossRiver">Cross-River</option>
+							  <option value="delta">Delta</option>
+							  <option value="ebonyi">Ebonyi</option>
+							  <option value="enugu">Enugu</option>
+							  <option value="edo">Edo</option>
+							  <option value="ekiti">Ekiti</option>
+							  <option value="gombe">Gombe</option>
+							  <option value="imo">Imo</option>
+							  <option value="jigawa">Jigawa</option>
+							  <option value="kaduna">Kaduna</option>
+							  <option value="katsina">Katsina</option>
+							  <option value="kano">Kano</option>
+							  <option value="kebbi">Kebbi</option>
+							  <option value="kogi">Kogi</option>
+							  <option value="kwara">Kwara</option>
+							  <option value="lagos">Lagos</option>
+							  <option value="nasarawa">Nasarawa</option>
+							  <option value="niger">Niger</option>
+							  <option value="ogun">Ogun</option>
+							  <option value="ondo">Ondo</option>
+							  <option value="osun">Osun</option>
+							  <option value="oyo">Oyo</option>
+							  <option value="plateau">Plateau</option>
+							  <option value="rivers">Rivers</option>
+							  <option value="sokoto">Sokoto</option>
+							  <option value="taraba">Taraba</option>
+							  <option value="yobe">Yobe</option>
+							  <option value="zamfara">Zamfara</option>
+							  <option value="fct">FCT</option>
+							</select>
+							<label for = 'complete-profile-work-state' id = 'label-float-right'><p>state</p></label>
+							
+						</fieldset>
+						<fieldset>
+							<legend><h3>Bank Details:</h3></legend>
+							<label for = 'complete-profile-bvn' id = 'label-float-left'><p>bvn</p></label>
+							<input type = 'number' name = 'bvn' id = 'complete-profile-bvn' size = '11' required>
+
+							<input type = 'number' name = 'accountNumber' id = 'complete-profile-account-number' size = '10' required>
+							<label for = 'complete-profile-account-number' id = 'label-float-right'><p>account number</p></label>
+							
+
+							<label for = 'complete-profile-bank' id = 'label-float-left'><p>bank</p></label>
+							<select name="bank" size="1" id = 'complete-profile-bank' required>
+							  <option value="access">Access Bank</option>
+							  <option value="citi">Citibank</option>
+							  <option value="eco">Ecobank</option>
+							  <option value="fidelity">Fidelity Bank</option>
+							  <option value="fcmb">First City Monument Bank</option>
+							  <option value="first">First Bank</option>
+							  <option value="gtb">Guaranty Trust Bank</option>
+							  <option value="heritage">Heritage Bank</option>
+							  <option value="jaiz">Jaiz Bank</option>
+							  <option value="keystone">Keystone Bank</option>
+							  <option value="polaris">Polaris Bank</option>
+							  <option value="providus">Providus Bank</option>
+							  <option value="stanbic">Stanbic IBTC Bank</option>
+							  <option value="standardChartered">Standard Chartered</option>
+							  <option value="sterling">Sterling Bank</option>
+							  <option value="SunTrust">SunTrust Bank</option>
+							  <option value="union">Union Bank</option>
+							  <option value="uba">United Bank of Africa</option>
+							  <option value="unity">Unity Bank</option>
+							  <option value="wema">Wema Bank</option>
+							  <option value="zenith">Zenith Bank</option>
+							</select>
+						</fieldset>
+						<input type="submit" value = 'save' class="btn">
+					</form>
+				</div>
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../../components/dashboardModal.js">
+		</script>
+	</body>
+</html>
