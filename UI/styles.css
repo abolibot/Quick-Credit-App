@@ -1025,3 +1025,79 @@ option {
 	width: 10%;
 }
 
+
+/* update profile */
+.update-profile-form label {
+	width: 15%;
+	display: inline-block;
+}
+
+.update-profile-form p {
+	display: inline-block;
+	width: 100%;
+	height: 25px;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 8px 0px 8px 0px;
+	padding-top: 10px;
+	font-size: 12px
+}
+
+.update-profile-form input[type = 'text'],
+.update-profile-form input[type = 'number'],
+.update-profile-form input[type = 'email'],
+.update-profile-form input[type = 'date'],
+.update-profile-form input[type = 'file'],
+.update-profile-form input[type = 'tel'] {
+	display: inline-block;
+	width: calc(35% - 104px);
+	height: 33px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.update-profile-form select {
+	display: inline-block;
+	width: calc(35% - 72px);
+	height: 35px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.update-profile-form input[type = 'file'] {
+	border: none;
+	padding-top: 7px;
+}
+
+#label-float-left, #update-profile-firstname,
+#update-profile-sex, #update-profile-valid-id,
+#update-profile-phone, #update-profile-home-address,
+#update-profile-city, #update-profile-employment-status,
+#update-profile-work-address, #update-profile-work-city, 
+#update-profile-bvn, #update-profile-bank{
+	float: left;
+}
+
+#update-profile-lastname, #update-profile-dob, 
+#update-profile-display-picture, #update-profile-email,
+#update-profile-state, #update-profile-employer-name,
+#update-profile-work-state, #update-profile-account-number {
+	float: right;
+}
+
+#update-profile-home-address,
+#update-profile-work-address {
+	width: calc(85% - 104px);
+}
+
+.update-profile-form input[type = 'submit']{
+	margin: 20px auto;
+	display: block;
+	width: 10%;
+}
