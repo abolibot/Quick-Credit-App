@@ -593,8 +593,10 @@ label p {
 	display: inline-block;
 }
 
+/*verified minus loan*/
+
 .dashboard-verified-minus-loan {
-	display: block;
+	display: none;
 	background-image: url('resources/dashboard-background.jpg');
 	background-position: top;
   	background-repeat: no-repeat;
@@ -643,4 +645,280 @@ label p {
 
 .dashboard-verified-minus-loan button {
 	margin: 10px 0px 60px 60px;
+}
+
+.dashboard-admin-interest {
+	width: calc(23.5% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+} 
+
+.dashboard-admin-interest-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-interest-amount-digit {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+}
+
+.dashboard-admin-interest-interest-digit {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+}
+
+.dashboard-admin-interest-amount {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-interest-interest {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-status {
+	width: calc(23.5% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-loan-status-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-loan-status-current-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-status-repaid-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-status-current {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-status-repaid {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-client {
+	width: calc(23.5% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-client-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-client-verified-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-client-unverified-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-client-verified {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-client-unverified {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-approval {
+	width: calc(23.5% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-loan-approval-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-loan-approval-approved-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-approval-rejected-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-approval-approved {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-approval-rejected {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-vr {
+	width: 2%;
+	border: none;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 108px;
+}
+
+.dashboard-admin-line-separator {
+	width: 100%;
+	background-color: #F0F0F7;
+	height: 47px;
+	border: none;
+}
+
+#dashboard-admin-table-card {
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+	height: 302px;
+	padding: 10px 20px;
+}
+
+#dashboard-admin-table-card-header {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#dashboard-admin-table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+#dashboard-admin-table th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+}
+
+#dashboard-admin-table td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#dashboard-admin-table a {
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-lower-vr {
+	width: 2%;
+	border: none;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 322px;
 }
