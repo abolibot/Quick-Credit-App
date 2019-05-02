@@ -153,6 +153,7 @@ h2 {
 	top: 150px;
 	left: 5%;
 	margin-right: 5%;
+	margin-bottom: 47px;
 	width: 90%;
 	height: auto;
 }
@@ -867,7 +868,7 @@ h2 {
 	height: 108px;
 }
 
-.dashboard-admin-line-separator {
+#dashboard-admin-line-separator {
 	width: 100%;
 	background-color: #F0F0F7;
 	height: 47px;
@@ -1101,3 +1102,162 @@ option {
 	display: block;
 	width: 10%;
 }
+
+.my-profile-verification-status {
+	width: calc(100% - 40px);
+	display: inline-block;
+	height: auto;
+	padding: 20px 20px;
+}
+
+.my-profile-update-profile {
+	float: right;
+}
+
+.my-profile-verification-status h3 {
+	display: inline-block;
+}
+
+.my-profile-verification-status-button {
+	background-color: green;
+	border: none;
+	margin-left: 10px;
+	padding: 5px 12px;
+	color: #ffffff;
+	box-shadow: none;
+	font-size: 12px
+	font-weight: bolder;
+}
+
+.my-profile-personal-and-bank-details {
+	width: 100%;
+	height: auto;
+}
+
+.my-profile-personal-details {
+	width: calc(65.3% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-personal-details-picture-placeholder {
+	float: left;
+	margin: 10px 16px 0px 0px;
+	height: 200px;
+	width: 200px;
+}
+
+.my-profile-personal-details-picture {
+	height: inherit;
+	width: inherit;
+    object-fit: cover;
+}
+
+
+.my-profile-personal-details table {
+	width: calc(100% - 216px);
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin: 10px 0px;
+}
+
+.my-profile-bank-details table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.my-profile-personal-and-bank-details th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+.my-profile-personal-and-bank-details td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
+}
+
+.my-profile-personal-and-bank-details a {
+	text-decoration: none;
+}
+
+
+
+.my-profile-bank-details {
+	width: calc(32.7% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-contact-details {
+	width: calc(49% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-employment-details {
+	width: calc(49% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.my-profile-contact-details table,
+.my-profile-employment-details table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.my-profile-contact-details th,
+.my-profile-employment-details th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+.my-profile-contact-details td,
+.my-profile-employment-details td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
+}
+
+
+.my-profile-vr {
+	width: calc(2% - 2px);
+	border: 1px solid #F0F0F7;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 280px;
+}
+
