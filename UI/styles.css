@@ -911,7 +911,8 @@ h2 {
 	border-bottom: 1px solid #F5F6FA;
 }
 
-#dashboard-admin-table a {
+#dashboard-admin-table a,
+.client-list-table td > a {
 	color: #A3A0FB;
 	text-decoration: none;
 }
@@ -1103,6 +1104,9 @@ option {
 	width: 10%;
 }
 
+
+/* my profile page */
+
 .my-profile-verification-status {
 	width: calc(100% - 40px);
 	display: inline-block;
@@ -1119,7 +1123,7 @@ option {
 }
 
 .my-profile-verification-status-button {
-	background-color: green;
+	background-color: #27AE60;
 	border: none;
 	margin-left: 10px;
 	padding: 5px 12px;
@@ -1225,12 +1229,12 @@ option {
 .my-profile-contact-details table,
 .my-profile-employment-details table {
 	width: 100%;
-	text-align: left;
 	vertical-align: middle;
 	border: none;
 	border-spacing: 0px;
 	border-collapse: collapse;
 	margin-top: 10px;
+	text-align: left;
 }
 
 .my-profile-contact-details th,
@@ -1241,6 +1245,7 @@ option {
 	font-weight: lighter;
 	width: 40%;
 	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
 }
 
 .my-profile-contact-details td,
@@ -1248,7 +1253,6 @@ option {
 	padding: 8px;
 	margin: 0px;
 	border-bottom: 1px solid #F5F6FA;
-	text-align: right;
 }
 
 
@@ -1261,3 +1265,219 @@ option {
 	height: 280px;
 }
 
+/* client list */
+
+.client-list {
+	padding: 20px 20px;
+	height: auto;
+}
+
+.client-list-label-for-filter {
+	float: left;
+	height: 10px;
+	width: auto;
+  	line-height: 12px;
+  	display: inline-block;
+  	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0px 0px 8px 0px;
+	padding: 10px;
+	font-size: 12px;
+}
+
+#client-list-filter {
+	float: left;
+	clear: right;
+}
+
+.client-list select, #client-list-search {
+	display: inline-block;
+	width: auto;
+	height: 30px;
+	border: 1px solid #E9E9F0;
+	margin: 0px 0px 8px 0px;
+	padding: 0px 25px 0px 15px;
+}
+
+#client-list-filter {
+	clear: right;
+}
+
+#client-list-records-per-page {
+	float: left;
+	margin-top: 10px;
+}
+
+.client-list-records-per-page-label {
+	margin-top: 10px;
+	float: left;
+	clear: left;
+}
+
+#client-list-search {
+	width: 200px;
+	float: right;
+	margin-top: 10px;
+	height: 28px;
+}
+
+.client-list-search-label {
+	float: right;
+	margin-top: 10px;
+}
+
+.client-list-table {
+	width: 100%;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.client-list-table th {
+	background-color: #F5F6FA;
+	color: #A3A6B4;
+	font-weight: lighter;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: left;
+	width: auto;
+	height: auto;
+	padding: 10px;
+}
+
+.client-list-table td {
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	padding: 8px;
+}
+
+.activation-status-btn-active,
+.activation-status-btn-inactive,
+.verification-status-btn-pending,
+.verification-status-btn-verified,
+.verification-status-btn-unverified {
+	padding: 6px;
+	border: none;
+	color: #ffffff;
+}
+
+.activation-status-btn-active{
+	background-color: #5DADE2;
+}
+
+.activation-status-btn-inactive,
+.verification-status-btn-unverified {
+	background-color: #E74C3C;
+}
+
+.verification-status-btn-pending {
+	background-color: #E5E7E9;
+	color: #4D4F5C;
+}
+
+.verification-status-btn-verified {
+	background-color: #27AE60;
+}
+
+.activation-status-btn-active:hover,
+.activation-status-btn-active:focus,
+.activation-status-btn-inactive:hover,
+.activation-status-btn-inactive:focus,
+.verification-status-btn-unverified:hover,
+.verification-status-btn-unverified:focus,
+.verification-status-btn-pending:hover,
+.verification-status-btn-pending:focus,
+.verification-status-btn-verified:hover,
+.verification-status-btn-verified:focus {
+	outline: 0;
+	cursor: not-allowed;
+}
+
+
+/* Dropdown Button */
+.client-list-action-dropdown-btn {
+  	cursor: pointer;
+  	background-color: #43425D;
+	border-radius: 25px;
+	padding: 8px 15px 8px 15px;
+	color: #ffffff;
+	box-shadow: none;
+	font-size: 12px;
+	border: 1px solid #43425D;
+	}
+
+/* Dropdown button on hover & focus */
+.client-list-action-dropdown-btn:hover,
+.client-list-action-dropdown-btn:focus {
+  background-color: #2F2E50;
+  border: 1px solid #2F2E50;
+  outline: 0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.client-list-action-dropdown{
+	position: relative;
+	display: inline-block;
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.client-list-action-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.client-list-action-dropdown-content a {
+  color: #4D4F5C;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #ffffff;
+}
+
+/* Change color of dropdown links on hover */
+.client-list-action-dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display:block;
+}
+
+
+.pagination {
+
+}
+
+
+.pagination a {
+  float: right;
+  padding: 2px 8px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  color: #4D4F5C;
+}
+
+.pagination a.active {
+  background-color: #43425D;
+  color: white;
+  border: 1px solid #43425D;
+}
+
+
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
