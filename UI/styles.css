@@ -243,10 +243,12 @@ h2 {
 
 .btn:focus {
 	outline: 0;
+	background-color: #2F2E50;
 }
 
 .btn:hover {
 	cursor: pointer;
+	background-color: #2F2E50;
 }
 
 .signup-content label p {
@@ -345,8 +347,16 @@ h2 {
 	background-color: #838296;
 }
 
-.disabled:hover {
+.disabled:hover,
+.disabled:focus {
 	cursor: not-allowed;
+	background-color: #838296;
+	border-color: #838296;
+}
+
+.disabled {
+	background-color: #838296;
+	border-color: #838296;
 }
 
 /*unverified profile*/
@@ -363,7 +373,7 @@ h2 {
 
 /*verified plus loan*/
 .dashboard-verified-plus-loan {
-	display: none;
+	display: inline-block;
 	height: auto;
 }
 
@@ -650,6 +660,12 @@ h2 {
 
 .dashboard-verified-minus-loan button {
 	margin: 10px 0px 60px 60px;
+}
+
+/*dashboard admin*/
+.dashboard-admin {
+	display: none;
+	height: auto;
 }
 
 .dashboard-admin-interest {
@@ -1589,4 +1605,14 @@ option {
 #close-valid-id-modal:hover,
 #close-valid-id-modal:focus {
 	cursor: pointer;
+}
+
+
+/* my loans page */
+#my-loan-list-records-per-page {
+	float: left;
+}
+
+#my-loan-list-apply-for-loan-btn {
+	float: right;
 }
