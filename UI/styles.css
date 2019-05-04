@@ -267,7 +267,8 @@ h2 {
 /* Dashboard */
 
 /*incomplete profile*/
-.dashboard-incomplete-profile {
+.dashboard-incomplete-profile,
+.valid-id-modal {
 	position: fixed;
 	z-index: 1;
 	background-color: rgba(0,0,0,0.5);
@@ -279,7 +280,8 @@ h2 {
 	display: none;
 }
 
-.dashboard-modal-content {
+.dashboard-modal-content,
+.valid-id-modal-content {
 	background-color: #ffffff;
 	margin: 20% auto;
 	padding: 30px;
@@ -301,7 +303,8 @@ h2 {
 	font-size: 12px;
 }
 
-.dashboard-modal-content-header {
+.dashboard-modal-content-header,
+.valid-id-modal-content-header {
 	text-align: center;
 	font-size: 20px;
 	margin-bottom: 10px;
@@ -1202,7 +1205,8 @@ option {
 
 
 
-.my-profile-bank-details {
+.my-profile-bank-details,
+.a-client-verification-status {
 	width: calc(32.7% - 40px);
 	float: left;
 	display: inline-block;
@@ -1245,7 +1249,7 @@ option {
 	font-weight: lighter;
 	width: 40%;
 	border-bottom: 1px solid #F5F6FA;
-	text-align: right;
+	text-align: left;
 }
 
 .my-profile-contact-details td,
@@ -1253,6 +1257,7 @@ option {
 	padding: 8px;
 	margin: 0px;
 	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
 }
 
 
@@ -1334,7 +1339,7 @@ option {
 	border: none;
 	border-spacing: 0px;
 	border-collapse: collapse;
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	text-align: left;
 }
@@ -1360,7 +1365,10 @@ option {
 .activation-status-btn-inactive,
 .verification-status-btn-pending,
 .verification-status-btn-verified,
-.verification-status-btn-unverified {
+.verification-status-btn-unverified,
+#client-status-btn-pending,
+#client-status-btn-verified,
+#client-status-btn-unverified {
 	padding: 6px;
 	border: none;
 	color: #ffffff;
@@ -1371,16 +1379,19 @@ option {
 }
 
 .activation-status-btn-inactive,
-.verification-status-btn-unverified {
+.verification-status-btn-unverified,
+#client-status-btn-unverified {
 	background-color: #E74C3C;
 }
 
-.verification-status-btn-pending {
+.verification-status-btn-pending,
+#client-status-btn-pending {
 	background-color: #E5E7E9;
 	color: #4D4F5C;
 }
 
-.verification-status-btn-verified {
+.verification-status-btn-verified ,
+#client-status-btn-verified{
 	background-color: #27AE60;
 }
 
@@ -1393,18 +1404,27 @@ option {
 .verification-status-btn-pending:hover,
 .verification-status-btn-pending:focus,
 .verification-status-btn-verified:hover,
-.verification-status-btn-verified:focus {
+.verification-status-btn-verified:focus,
+#client-status-btn-pending:focus,
+#client-status-btn-pending:hover,
+#client-status-btn-verified:focus,
+#client-status-btn-verified:hover,
+#client-status-btn-unverified:focus,
+#client-status-btn-unverified:hover
+ {
 	outline: 0;
 	cursor: not-allowed;
 }
 
 
 /* Dropdown Button */
-.client-list-action-dropdown-btn {
+.client-list-action-dropdown-btn,
+.change-status-dropdown-btn
+ {
   	cursor: pointer;
   	background-color: #43425D;
 	border-radius: 25px;
-	padding: 8px 15px 8px 15px;
+	padding: 6px 15px 6px 15px;
 	color: #ffffff;
 	box-shadow: none;
 	font-size: 12px;
@@ -1413,21 +1433,25 @@ option {
 
 /* Dropdown button on hover & focus */
 .client-list-action-dropdown-btn:hover,
-.client-list-action-dropdown-btn:focus {
+.client-list-action-dropdown-btn:focus,
+.change-status-dropdown-btn:hover,
+.change-status-dropdown-btn:focus {
   background-color: #2F2E50;
   border: 1px solid #2F2E50;
   outline: 0;
 }
 
 /* The container <div> - needed to position the dropdown content */
-.client-list-action-dropdown{
+.client-list-action-dropdown, 
+.change-status-dropdown {
 	position: relative;
 	display: inline-block;
 
 }
 
 /* Dropdown Content (Hidden by Default) */
-.client-list-action-dropdown-content {
+.client-list-action-dropdown-content,
+.change-status-dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -1437,7 +1461,8 @@ option {
 }
 
 /* Links inside the dropdown */
-.client-list-action-dropdown-content a {
+.client-list-action-dropdown-content a,
+.change-status-dropdown-content a {
   color: #4D4F5C;
   padding: 8px 16px;
   text-decoration: none;
@@ -1446,20 +1471,23 @@ option {
 }
 
 /* Change color of dropdown links on hover */
-.client-list-action-dropdown-content a:hover {
+.client-list-action-dropdown-content a:hover,
+.change-status-dropdown-content a:hover {
 	background-color: #ddd;
+	cursor: pointer;
 }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+/* Show the dropdown menu */
 .show {
-	display:block;
+	display: block;
+}
+/* hide the dropdown menu */
+.hide {
+	display: none;
 }
 
 
-.pagination {
-
-}
-
+/* pagination for tables */
 
 .pagination a {
   float: right;
@@ -1480,4 +1508,85 @@ option {
 
 .pagination a:hover:not(.active) {
 	background-color: #ddd;
+}
+
+
+/* A client page */
+
+#client-status-btn-pending,
+#client-status-btn-verified,
+#client-status-btn-unverified {
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+
+#client-status-h3 {
+	float: left;
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#my-profile-bank-details-h3 {
+	clear: both;
+	display: block;
+}
+
+.change-status-dropdown {
+	float: right;
+	margin: 10px 0px;
+}
+
+.my-profile-bank-details hr {
+	clear: both;
+	margin: 10px 0px;
+}
+
+.change-status-dropdown-btn i {
+	margin-right: 3px;
+	height: 12px;
+	width: 12px;
+}
+
+#a-client-page-line-separator {
+	width: 32.7%;
+	float: left;
+	display: inline-block;
+	background-color: #F0F0F7;
+	height: 20px;
+	border: none;
+}
+
+#view-valid-id-btn:hover {
+	cursor: pointer;
+	color: #A3A0FB;
+}
+
+.valid-id-modal-content-body i {
+	float: right;
+}
+
+#valid-id-image-placeholder {
+	margin: 10px auto;
+	height: 90%;
+	width: 100%;
+	display: block;
+}
+
+#valid-id-image {
+	height: inherit;
+	width: inherit;
+    object-fit: cover;
+}
+
+#close-valid-id-modal {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+#close-valid-id-modal:hover,
+#close-valid-id-modal:focus {
+	cursor: pointer;
 }

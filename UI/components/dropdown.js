@@ -10,15 +10,19 @@ for (let j = 0; j < tableRow.length; j++){
   tableRow[j][1].classList.toggle("show");
   });
 
-// Close the dropdown menu if the user clicks outside of 
-  window.onclick = function(event){
-    if (!event.target.matches('.client-list-action-dropdown-btn')) {
-      let dropdowns = document.getElementsByClassName("client-list-action-dropdown-content");
-      for (let k = 0; k < dropdowns.length; k++){
-        let openDropdown = dropdowns[k];
-        if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+
+}
+
+
+
+// Close the dropdown menu if the user clicks outside it 
+window.onclick = function(event){
+  if (!event.target.matches('.client-list-action-dropdown-btn')) {
+    let dropdowns = document.getElementsByClassName("client-list-action-dropdown-content");
+    for (let k = 0; k < dropdowns.length; k++){
+      let openDropdown = dropdowns[k];
+      if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
       }
     }
   }
