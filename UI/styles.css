@@ -1609,10 +1609,18 @@ option {
 
 
 /* my loans page */
-#my-loan-list-records-per-page {
+#my-loan-list-records-per-page{
 	float: left;
 }
 
 #my-loan-list-apply-for-loan-btn {
 	float: right;
 }
+
+#all-loans-list-records-per-page,
+#all-loans-repayment-status-filter,
+#all-loans-approval-status-filter {
+	float: left;
+	margin-right: 30px;
+}
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			My Loans
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+					<div class = 'client-list'>	
+					  	<label for = 'client-list-records-per-page' class = "client-list-label-for-filter"><p>records per page</p></label>
+					  	<select name="records-per-page" size="1" id = 'all-loans-list-records-per-page'>
+						    <option value="ten" selected>10</option>
+						  	<option value="twenty-five">25</option>
+						  	<option value="fifty">50</option>
+						  	<option value="hundred">100</option>
+					  	</select>
+
+					  	<label for = 'client-list-records-per-page' class = "client-list-label-for-filter"><p>filter by repayment status</p></label>
+					  	<select name="records-per-page" size="1" id = 'all-loans-repayment-status-filter'>
+						    <option value="ten" selected>current</option>
+						  	<option value="twenty-five">repaid</option>
+					  	</select>
+
+					  	<label for = 'client-list-records-per-page' class = "client-list-label-for-filter"><p>filter by approval status</p></label>
+					  	<select name="records-per-page" size="1" id = 'all-loans-approval-status-filter'>
+						    <option value="ten" selected>pending</option>
+						  	<option value="twenty-five">approved</option>
+						  	<option value="fifty">rejected</option>
+					  	</select>
+
+					  	<table class = 'client-list-table'>
+							<tr>
+								<th>S/N</th>
+								<th>Loan ID</th>
+								<th>Client Name</th>
+								<th>Date of Application</th>
+								<th>Amount</th>
+								<th>Approval Status</th>
+								<th>Repayment Status</th>
+								<th></th>
+
+							</tr>
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-pending">Current</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="verification-status-btn-pending">Pending</button></td>
+								<td><button class="verification-status-btn-unverified">N/A</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-inactive">rejected</button></td>
+								<td><button class="verification-status-btn-unverified">N/A</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./loanDetails.html">123456</a></td>
+								<td>Oluwatobi Alaran</td>
+								<td>30 April 2019</td>
+								<td>&#8358;50,000</td>
+								<td><button class="activation-status-btn-active">Approved</button></td>
+								<td><button class="verification-status-btn-verified">Repaid</button></td>
+								<td>
+									<a href = './loanDetails.html'>
+										<button class="btn">view details</button>
+									</a>
+								</td>
+							</tr>
+							
+						</table>
+						<p>showing 1 to 10 of 135 entries</p>
+						<div class="pagination">
+						  <a href="#">Next</a>
+						  <a href="#">14</a>
+						  <a href="#">...</a>
+						  <a href="#">5</a>
+						  <a href="#">4</a>
+						  <a href="#">3</a>
+						  <a href="#">2</a>
+						  <a href="#" class="active">1</a>
+						  <a href="#">Previous</a>
+						</div>				
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "text/javascript" src = "../../components/myLoans.js">
+		</script>
+	</body>
+</html>
