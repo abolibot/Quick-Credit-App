@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Loan Details
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+
+					<div class = 'proof-of-payment-modal'>
+						<div class = 'proof-of-payment-content'>
+							<div class = 'proof-of-payment-content-body'>
+								<i class="far fa-window-close" id = 'close-proof-of-payment-modal'></i>
+								<div id = 'proof-of-payment-image-placeholder'>
+									<img src="../../resources/valid-id.png" id = 'proof-of-payment-image'>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+
+					<div class = 'post-repayment-modal'>
+						<div class = 'post-repayment-modal-content'>
+							
+							<div class = 'post-repayment-modal-content-body'>
+								<i class="far fa-window-close" id = 'close-post-repayment-modal'></i>
+								<h3 id = 'post-repayment-modal-h3'>Please enter 'post repayment' in the input box below to confirm your action</h3>
+								<form id= 'post-repayment-modal-form'>
+									<input type = 'text' name = 'confirmationText' id = 'post-repayment-confirmation text' required pattern="post repayment">
+									<input type="submit" value = 'confirm' class="btn" id = 'repayment-submit-btn'>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class = 'approve-loan-modal'>
+						<div class = 'approve-loan-modal-content'>
+							
+							<div class = 'approve-loan-modal-content-body'>
+								<i class="far fa-window-close" id = 'close-approve-loan-modal'></i>
+								<h3 id = 'approve-loan-modal-h3'>Please enter 'approve' in the input box below to confirm your action</h3>
+								<form id= 'approve-loan-modal-form'>
+									<input type = 'text' name = 'confirmationText' id = 'approve-loan-confirmation text' required pattern="approve">
+									<input type="submit" value = 'confirm' class="btn" id = 'approve-loan-submit-btn'>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class = 'reject-loan-modal'>
+						<div class = 'reject-loan-modal-content'>
+							
+							<div class = 'reject-loan-modal-content-body'>
+								<i class="far fa-window-close" id = 'close-reject-loan-modal'></i>
+								<h3 id = 'approve-loan-modal-h3'>Please enter 'reject' in the input box below to confirm your action</h3>
+								<form id= 'reject-loan-modal-form'>
+									<input type = 'text' name = 'confirmationText' id = 'reject-loan-confirmation text' required pattern="reject">
+									<input type="submit" value = 'confirm' class="btn" id = 'reject-loan-submit-btn'>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class = 'repayment-loader-modal'>
+						<div class = 'repayment-loader-content'>
+							<div id = "repayment-loader"></div>
+						</div>
+					</div>
+
+
+					<div class = 'repayment-posted-modal'>
+						<div class = 'repayment-posted-modal-content'>
+							<div class = 'repayment-posted-modal-content-body'>
+								<i class="far fa-check-circle" id = 'posted-successfully'></i>
+								<h3>You posted the repayment successfully!</h3>
+								<p><a href = '../loan/viewALoan.html'>return to loan details page</a>
+							</div>
+						</div>
+					</div>
+
+					<div class = 'approved-loan-modal'>
+						<div class = 'approved-loan-modal-content'>
+							<div class = 'approved-loan-modal-content-body'>
+								<i class="far fa-check-circle" id = 'approved-successfully'></i>
+								<h3>You have approved the loan successfully!</h3>
+								<p><a href = '../loan/viewAllLoans.html'>return to all loans page</a>
+							</div>
+						</div>
+					</div>
+
+					<div class = 'rejected-loan-modal'>
+						<div class = 'rejected-loan-modal-content'>
+							<div class = 'rejected-loan-modal-content-body'>
+								<i class="far fa-check-circle" id = 'rejected-successfully'></i>
+								<h3>You have rejected the loan successfully!</h3>
+								<p><a href = '../loan/viewAllLoans.html'>return to all loans page</a>
+							</div>
+						</div>
+					</div>
+
+					<div id = 'loan-details-page-details-card'>
+						<h3>Loan Overview</h3>
+						<table id = 'loan-page-overview-table-one'>
+							<tr>
+								<th>Loan ID</th>
+								<td>123456</td>
+							</tr>
+							<tr>
+								<th>Amount</th>
+								<td>&#8358;50,000</td>
+							</tr>
+							<tr>
+								<th>Term</th>
+								<td>6 Months</td>
+							</tr>
+							<tr>
+								<th>Total Due</th>
+								<td>&#8358;41,667</td>
+							</tr>
+						</table>
+
+						<table id = 'loan-page-overview-table-two'>
+							<tr>
+								<th>Date of Application</th>
+								<td>30 March 2019</td>
+							</tr>
+							<tr>
+								<th>Repayment Status</th>
+								<td><button class="verification-status-btn-pending" disabled>N/A</button></td>
+							</tr>
+							<tr>
+								<th>Approval Status</th>
+								<td><button class="btn loan-status-btn-approved" id = 'approve-loan-btn'>approve</button>
+								<button class="btn loan-status-btn-rejected " id = 'reject-loan-btn'>reject</button></td>
+							</tr>
+							
+							
+						</table>
+						
+					</div>
+
+					<hr id = 'loan-details-page-vr'>
+
+					<div id = 'loan-details-page-client-details'>
+						<h3>Client's Details</h3>
+						<table>
+							<tr>
+								<th>Name</th>
+								<td>Oluwatobi Alaran</td>
+							</tr>
+							<tr>
+								<th>Email Address</th>
+								<td>alarantobiloba@gmail.com</td>
+							</tr>
+							<tr>
+								<th>Bank</th>
+								<td>Guaranty Trust Bank</td>
+							</tr>
+							<tr>
+								<th>Account Number</th>
+								<td>0987654321</td>
+							</tr>
+						</table>
+					</div>
+					<hr class = 'hr'>
+					<div id = 'loan-details-page-repayment-log-table'>
+						<h3>Repayment History</h3>
+						<table class = 'repayment-list-table'>
+							<tr>
+								<th>S/N</th>
+								<th>Repayment ID</th>
+								<th>Due Date</th>
+								<th>Amount Due</th>
+								<th>Status</th>
+								<th>Proof of Payment</th>
+								<th></th>
+
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-logged">logged</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn'>click to view</a></td>
+								<td><button id = 'post-repayment-btn' class="btn">post repayment</button></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hide'>click to view</a></td>
+								<td><button class="btn hide"></button></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hide'>click to view</a></td>
+								<td><button class="btn hide"></button></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hide'>click to view</a></td>
+								<td><button class="btn hide"></button></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hide'>click to view</a></td>
+								<td><button class="btn hide"></button></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hide'>click to view</a></td>
+								<td><button class="btn hide"></button></td>
+							</tr>
+						</table>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../../components/repaymentChart.js">
+		</script>
+		<script type = "module" src = "../../components/proofOfPaymentModal.js">
+		</script>
+		<script type = "module" src = "../../components/postRepaymentModal.js">
+		</script>
+		<script type = "module" src = "../../components/approveLoanModal.js">
+		</script>
+		<script type = "module" src = "../../components/rejectLoanModal.js">
+		</script>
+	</body>
+</html>
