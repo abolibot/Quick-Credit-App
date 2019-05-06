@@ -270,7 +270,11 @@ h2 {
 
 /*incomplete profile*/
 .dashboard-incomplete-profile,
-.valid-id-modal {
+.valid-id-modal,
+.proof-of-payment-modal,
+.log-repayment-modal,
+.repayment-logged-modal,
+.repayment-loader-modal{
 	position: fixed;
 	z-index: 1;
 	background-color: rgba(0,0,0,0.5);
@@ -283,19 +287,26 @@ h2 {
 }
 
 .dashboard-modal-content,
-.valid-id-modal-content {
+.valid-id-modal-content,
+.proof-of-payment-content,
+.log-repayment-modal-content,
+.repayment-logged-modal-content,
+.repayment-loader-modal-content {
 	background-color: #ffffff;
-	margin: 20% auto;
 	padding: 30px;
-	width: 500px;
+	width: calc(50% - 60px);
 	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2), 0px 7px 20px 0px rgba(0,0,0,0.17);
 	animation-name: modalContent;
 	animation-duration: 1s;
+	height: auto;
+	position: absolute;
+	top: 20%;
+	left: calc((100% - 560px)/2);
 }
 
 @keyframes modalContent {
-	from{ opacity: 0.3 }
-	to{ opacity: 0.8 }
+	from{ opacity: 0 }
+	to{ opacity: 1 }
 }
 
 .dashboard-modal-content-button {
@@ -403,7 +414,8 @@ h2 {
 	color: #FFCA83;
 }
 
-.dashboard-repayment-countdown h2 {
+.dashboard-repayment-countdown h2,
+.dashboard-repayment-countdown h3{
 	display: inline-block;
 	margin-left: 10px;
 	width: auto; 
@@ -931,7 +943,8 @@ h2 {
 }
 
 #dashboard-admin-table a,
-.client-list-table td > a {
+.client-list-table td > a,
+.repayment-list-table td > a {
 	color: #A3A0FB;
 	text-decoration: none;
 }
@@ -1003,7 +1016,7 @@ fieldset h3 {
 	padding: 0px 15px;
 }
 
-.complete-profile-form input[type = 'file'] {
+.complete-profile-form input[type = 'file']{
 	border: none;
 	padding-top: 7px;
 }
@@ -1293,7 +1306,7 @@ option {
 	height: auto;
 }
 
-.client-list-label-for-filter {
+.client-list-label-for-filter, {
 	float: left;
 	height: 10px;
 	width: auto;
@@ -1349,7 +1362,8 @@ option {
 	margin-top: 10px;
 }
 
-.client-list-table {
+.client-list-table,
+.repayment-list-table {
 	width: 100%;
 	vertical-align: middle;
 	border: none;
@@ -1360,7 +1374,8 @@ option {
 	text-align: left;
 }
 
-.client-list-table th {
+.client-list-table th,
+.repayment-list-table th {
 	background-color: #F5F6FA;
 	color: #A3A6B4;
 	font-weight: lighter;
@@ -1371,7 +1386,8 @@ option {
 	padding: 10px;
 }
 
-.client-list-table td {
+.client-list-table td,
+.repayment-list-table td {
 	margin: 0px;
 	border-bottom: 1px solid #F5F6FA;
 	padding: 8px;
@@ -1384,7 +1400,8 @@ option {
 .verification-status-btn-unverified,
 #client-status-btn-pending,
 #client-status-btn-verified,
-#client-status-btn-unverified {
+#client-status-btn-unverified,
+.repayment-status-btn {
 	padding: 6px;
 	border: none;
 	color: #ffffff;
@@ -1426,8 +1443,9 @@ option {
 #client-status-btn-verified:focus,
 #client-status-btn-verified:hover,
 #client-status-btn-unverified:focus,
-#client-status-btn-unverified:hover
- {
+#client-status-btn-unverified:hover,
+.repayment-status-btn:focus,
+.repayment-status-btn:hover {
 	outline: 0;
 	cursor: not-allowed;
 }
@@ -1584,26 +1602,42 @@ option {
 	float: right;
 }
 
-#valid-id-image-placeholder {
+#valid-id-image-placeholder,
+#proof-of-payment-image-placeholder {
 	margin: 10px auto;
 	height: 90%;
 	width: 100%;
 	display: block;
 }
 
-#valid-id-image {
+#valid-id-image,
+#proof-of-payment-image {
 	height: inherit;
 	width: inherit;
     object-fit: cover;
 }
 
-#close-valid-id-modal {
+#close-valid-id-modal,
+#close-proof-of-payment-modal {
 	font-size: 30px;
 	margin-bottom: 10px;
+	float: right;
+	clear: 
+}
+
+#close-log-repayment-modal {
+	font-size: 30px;
+	position: absolute;
+	top: 30px;
+	right: 30px;
 }
 
 #close-valid-id-modal:hover,
-#close-valid-id-modal:focus {
+#close-valid-id-modal:focus,
+#close-proof-of-payment-modal:hover,
+#close-proof-of-payment-modal:focus,
+#close-log-repayment-modal:hover,
+#close-log-repayment-modal:focus {
 	cursor: pointer;
 }
 
@@ -1624,3 +1658,184 @@ option {
 	margin-right: 30px;
 }
 
+
+/* loan details page */
+#loan-details-page-details-card {
+	padding: 20px;
+	width: calc(65.7% - 40px);
+	height: auto;
+	float: left;
+}
+
+#loan-details-page-repayment-stats {
+	padding: 20px;
+	width: calc(32.3% - 40px);
+	height: auto;
+	float: left;
+}
+
+#loan-details-page-repayment-log-table {
+	padding: 20px;
+	width: calc(100% - 40px);
+	height: auto;
+}
+
+#loan-page-overview-table-one {
+	float: left;
+	display: inline-block;
+	width: calc(40% - 40px);
+	margin-right: 20px;
+}
+
+#loan-page-overview-table-two {
+	display: inline-block;
+	float: right;
+	width: calc(60% - 40px);
+	margin-left: 20px;
+}
+
+#loan-page-overview-table-one th,
+#loan-page-overview-table-two th {
+	text-align: left;
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#loan-page-overview-table-one td,
+#loan-page-overview-table-two td {
+	text-align: right;
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+
+#loan-page-overview-table-one,
+#loan-page-overview-table-two {
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#loan-details-page-vr {
+	width: calc(2% - 2px);
+	border: 1px solid #F0F0F7;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 255px;
+}
+
+.repayment-status {
+
+}
+
+.repayment-status-btn-pending {
+	background-color: #EDECFE;
+	color: #4D4F5C;
+}
+
+.repayment-status-btn-logged {
+	background-color: #A3A1FB;
+}
+
+.repayment-status-btn-posted {
+	background-color: #6F6DCE;
+}
+
+.hidden {
+	display: none;
+}
+
+.log-repayment-modal label {
+	height: 10px;
+	width: auto;
+  	line-height: 12px;
+  	display: inline-block;
+  	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0px 0px 10px 0px;
+	padding: 10px;
+	font-size: 12px;
+	float: left;
+	clear: left;
+}
+
+.log-repayment-modal input[type='text'],
+.log-repayment-modal input[type='file'] {
+	float: left;
+	display: inline-block;
+	width: auto;
+	height: 26px;
+	padding-left: 15px;
+	margin-bottom: 10px;
+	clear: right;
+}
+
+#log-repayment-modal-form {
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding-left: 18%;
+}
+
+.log-repayment-modal-content h3 {
+	margin-bottom: 10px;
+}
+
+#log-repayment-modal-form input[type = 'file']{
+	border: none;
+	padding-top: 4px;
+}
+
+#log-repayment-modal-form input[type='submit'] {
+	display: block;
+	margin: 0px auto;
+	float: left;
+	clear: left;
+	width: 80px;
+	margin-left: 120px;
+}
+
+.log-repayment-modal-content,
+.repayment-logged-modal-content {
+	width: calc(40% - 60px);
+}
+
+#repayment-loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #43425D; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+  display: block;
+  margin: 15% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.repayment-logged-modal h3,
+.repayment-logged-modal p,
+.repayment-logged-modal i {
+	text-align: center;
+}
+
+.repayment-logged-modal i {
+	font-size: 100px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	animation-name: modalContent;
+	animation-duration: 2s;
+}
