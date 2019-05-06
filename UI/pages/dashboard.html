@@ -29,8 +29,38 @@
 								<a href = './profile/completeProfile.html'><button class = 'btn dashboard-modal-content-button'>complete profile</button></a>
 							</div>
 						</div>
+					</div>
+
+					<div class = 'dashboard-apply-for-loan-modal'>
+						<div class = 'dashboard-apply-for-loan-modal-content'>
+							
+							<div class = 'dashboard-apply-for-loan-modal-content-body'>
+								<i class="far fa-window-close" id = 'dashboard-close-apply-for-loan-modal'></i>
+								<h3 id = 'dashboard-apply-for-loan-modal-h3'>Loan Application</h3>
+								<form id= 'dashboard-apply-for-loan-modal-form'>
+									<input type="submit" value = 'submit' class="btn" id = 'dashboard-apply-for-loan-submit-btn'>
+								</form>
+							</div>
+						</div>
 						
 					</div>
+
+					<div class = 'repayment-loader-modal'>
+						<div class = 'repayment-loader-content'>
+							<div id = "repayment-loader"></div>
+						</div>
+					</div>
+
+					<div class = 'dashboard-loan-applied-modal'>
+						<div class = 'dashboard-loan-applied-modal-content'>
+							<div class = 'dashboard-loan-applied-modal-content-body'>
+								<i class="far fa-check-circle" id = 'dashboard-loan-applied-successfully'></i>
+								<h3>Your loan application was submitted successfully!</h3>
+								<p>The admin will review your loan and your loan status will be updated shortly<a href = '../loan/loanDetails.html'>go to the loan details page</a>
+							</div>
+						</div>
+					</div>
+
 					<div class = 'dashboard-pending-verification'>
 						<h2 class = 'card-header'>Your profile is being verified!</h2>
 						<p>Sorry you cannot apply for a loan now, your profile is yet to be verified. Kindly check back in a few minutes.</p>
@@ -235,10 +265,14 @@
 
 					</div>
 					<div class = 'dashboard-verified-plus-pending-loan-approval'>
-
+						<h2 class = 'card-header'>Your loan application is being reviewed!</h2>
+						<p>Your loan application is being reviewed and pending Admin's approval, please check back in a few minutes.</p>
+						<button class = 'btn disabled' disabled>apply for loan</button>
 					</div>
 					<div class = 'dashboard-verified-plus-rejected-loan'>
-
+						<h2 class = 'card-header'>Oops! Your loan application was rejected</h2>
+						<p>Sorry your loan application was rejected. You can reapply in another 24 hours.</p>
+						<button class = 'btn dashboard-unverified-profile-apply-button disabled' disabled>apply for loan</button>
 					</div>
 				</div>
 			</div>

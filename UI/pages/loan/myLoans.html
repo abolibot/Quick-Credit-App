@@ -19,6 +19,44 @@
 				<h2 id = 'page-title'>
 				</h2>
 				<div id = 'main-content'>
+					<div class = 'apply-for-loan-modal'>
+						<div class = 'apply-for-loan-modal-content'>
+							
+							<div class = 'apply-for-loan-modal-content-body'>
+								<i class="far fa-window-close" id = 'close-apply-for-loan-modal'></i>
+								<h3 id = 'apply-for-loan-modal-h3'>Loan Application</h3>
+								<form id= 'apply-for-loan-modal-form'>
+									
+									<label for = 'apply-for-loan-modal-amount'><p>Amount</p></label>
+								    <input type = 'number' name = 'amount' id = 'apply-for-loan-modal-amount' required min = '5000' max = '100000'>
+								    
+								    <label for = 'apply-for-loan-modal-term'><p>Term (in months)</p></label><input type = 'number' name = 'term' id = 'apply-for-loan-modal-term' required min = '3' max = '12'>
+								  	
+								  	<input type="submit" value = 'submit' class="btn" id = 'apply-for-loan-submit-btn'>
+
+								</form>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class = 'repayment-loader-modal'>
+						<div class = 'repayment-loader-content'>
+							<div id = "repayment-loader"></div>
+						</div>
+					</div>
+
+					<div class = 'loan-applied-modal'>
+						<div class = 'loan-applied-modal-content'>
+							<div class = 'loan-applied-modal-content-body'>
+								<i class="far fa-check-circle" id = 'loan-applied-successfully'></i>
+								<h3>Your loan application was submitted successfully!</h3>
+								<p>The admin will review your loan and your loan status will be updated shortly<a href = '../loan/loanDetails.html'>go to the loan details page</a>
+							</div>
+						</div>
+					</div>
+
+
 					<div class = 'client-list'>	
 					  	<label for = 'client-list-records-per-page' class = "client-list-label-for-filter"><p>records per page</p></label>
 					  	<select name="records-per-page" size="1" id = 'my-loan-list-records-per-page'>

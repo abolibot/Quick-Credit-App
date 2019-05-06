@@ -1,6 +1,8 @@
 let viewProofOfPaymentBtn = document.querySelector('.view-proof-of-payment-btn');
 let proofOfPaymentModal = document.querySelector('.proof-of-payment-modal');
 let closeProofOfPaymentModal = document.querySelector('#close-proof-of-payment-modal');
+
+/*
 let tableRow = [];
 
 let repaymentListTable = document.querySelector('.repayment-list-table');
@@ -13,6 +15,18 @@ for (let j = 0; j < tableRow.length; j++){
   });
 }
 
+
+*/
+
+let allViewProofOfPaymentBtns = document.getElementsByClassName('view-proof-of-payment-btn');
+console.log(allViewProofOfPaymentBtns);
+for (let i = 0; i < allViewProofOfPaymentBtns.length; i++){
+	allViewProofOfPaymentBtns[i].addEventListener('click', () => {
+  	proofOfPaymentModal.style.display = 'block';
+  });
+}
+
+
 closeProofOfPaymentModal.addEventListener('click', () => {
 	proofOfPaymentModal.style.display = 'none';
-})
+});
