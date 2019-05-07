@@ -27,12 +27,17 @@
 								<h3 id = 'apply-for-loan-modal-h3'>Loan Application</h3>
 								<form id= 'apply-for-loan-modal-form'>
 									
-									<label for = 'apply-for-loan-modal-amount'><p>Amount</p></label>
-								    <input type = 'number' name = 'amount' id = 'apply-for-loan-modal-amount' required min = '5000' max = '100000'>
+									<label for = 'apply-for-loan-modal-amount'><p>Amount (&#8358;)</p></label>
+								    <input type = 'number' name = 'amount' id = 'apply-for-loan-modal-amount' required min = '5000' max = '100000' step = '500' value = '50000'><br />
 								    
-								    <label for = 'apply-for-loan-modal-term'><p>Term (in months)</p></label><input type = 'number' name = 'term' id = 'apply-for-loan-modal-term' required min = '3' max = '12'>
+								    <label for = 'apply-for-loan-modal-term'><p>Term (months)</p></label><input type = 'number' name = 'term' id = 'apply-for-loan-modal-term' required min = '3' max = '6' value = '3'>
+
+								    <table id = 'apply-for-loan-modal-table'>
+										<th>Monthly repayment</th>
+										<td id = 'apply-for-loan-modal-td'>&#8358;17,500</td>
+									</table>
 								  	
-								  	<input type="submit" value = 'submit' class="btn" id = 'apply-for-loan-submit-btn'>
+								  	<input type="submit" value = 'apply' class="btn" id = 'apply-for-loan-submit-btn'><br />
 
 								</form>
 							</div>
@@ -51,7 +56,7 @@
 							<div class = 'loan-applied-modal-content-body'>
 								<i class="far fa-check-circle" id = 'loan-applied-successfully'></i>
 								<h3>Your loan application was submitted successfully!</h3>
-								<p>The admin will review your loan and your loan status will be updated shortly<a href = '../loan/loanDetails.html'>go to the loan details page</a>
+								<p>The admin will review your application and your loan status will be updated shortly. <a href = '../loan/loanDetails.html'>go to the loan details page</a>
 							</div>
 						</div>
 					</div>
@@ -66,7 +71,7 @@
 						  	<option value="hundred">100</option>
 					  	</select>
 
-					  	<a href = './applyForLoan.html'><button class = 'btn' id = 'my-loan-list-apply-for-loan-btn'>apply for loan</button></a>
+					  	<a><button class = 'btn' id = 'my-loan-list-apply-for-loan-btn'>apply for loan</button></a>
 
 					  	<table class = 'client-list-table'>
 							<tr>
@@ -243,6 +248,10 @@
 		<script type = "module" src = "../../layouts/sidebar.js">
 		</script>
 		<script type = "text/javascript" src = "../../components/myLoans.js">
+		</script>
+		<script type = "text/javascript" src = "../../components/loanApplicationModal.js">
+		</script>
+		<script type = "text/javascript" src = "../../components/monthlyRepaymentCalculator.js">
 		</script>
 	</body>
 </html>

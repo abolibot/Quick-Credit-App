@@ -38,8 +38,20 @@
 								<i class="far fa-window-close" id = 'dashboard-close-apply-for-loan-modal'></i>
 								<h3 id = 'dashboard-apply-for-loan-modal-h3'>Loan Application</h3>
 								<form id= 'dashboard-apply-for-loan-modal-form'>
-									<input type="submit" value = 'submit' class="btn" id = 'dashboard-apply-for-loan-submit-btn'>
+
+									<label for = 'apply-for-loan-modal-amount'><p>Amount (&#8358;)</p></label>
+								    <input type = 'number' name = 'amount' id = 'dashboard-apply-for-loan-modal-amount' required min = '5000' max = '100000' step = '500' value = '50000'> <br />
+								    
+								    <label for = 'apply-for-loan-modal-term'><p>Term (months)</p></label><input type = 'number' name = 'term' id = 'dashboard-apply-for-loan-modal-term' required min = '3' max = '6' value = '3'><br />
+
+								    <table id = 'dashboard-apply-for-loan-modal-table'>
+										<th>Monthly repayment</th>
+										<td id = 'dashboard-apply-for-loan-modal-td'>&#8358;17,500</td>
+									</table>
+
+									<input type="submit" value = 'apply' class="btn" id = 'dashboard-apply-for-loan-submit-btn'>
 								</form>
+								
 							</div>
 						</div>
 						
@@ -56,7 +68,7 @@
 							<div class = 'dashboard-loan-applied-modal-content-body'>
 								<i class="far fa-check-circle" id = 'dashboard-loan-applied-successfully'></i>
 								<h3>Your loan application was submitted successfully!</h3>
-								<p>The admin will review your loan and your loan status will be updated shortly<a href = '../loan/loanDetails.html'>go to the loan details page</a>
+								<p>The admin will review your application and your loan status will be updated shortly. <a href = './loan/loanDetails.html'>go to the loan details page</a>
 							</div>
 						</div>
 					</div>
@@ -135,7 +147,7 @@
 						<p class = 'dashboard-verified-minus-loan-naira'>&#8358;</p>
 						<p class = 'dashboard-verified-minus-loan-amount'>100,000</p>
 						<p class = 'dashboard-verified-minus-loan-duration'>repay in 3 to 6 months</p>
-						<a href = './loan/applyForLoan.html'><button class = 'btn'>Apply for loan</button></a>
+						<button class = 'btn' id = 'dashboard-apply-for-loan-btn'>Apply for loan</button>
 					</div>
 					<div class = 'dashboard-admin'>
 						<div class = 'dashboard-admin-interest'>
@@ -286,6 +298,10 @@
 		<script type = "module" src = "../components/dashboardModal.js">
 		</script>
 		<script type = "module" src = "../components/repaymentChart.js">
+		</script>
+		<script type = "module" src = "../components/dashboardLoanApplicationModal.js">
+		</script>
+		<script type = "module" src = "../components/dashboardMonthlyRepaymentCalculator.js">
 		</script>
 	</body>
 </html>
