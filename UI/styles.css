@@ -280,7 +280,11 @@ h2 {
 .approve-loan-modal,
 .reject-loan-modal,
 .approved-loan-modal,
-.rejected-loan-modal{
+.rejected-loan-modal,
+.apply-for-loan-modal,
+.dashboard-apply-for-loan-modal,
+.loan-applied-modal,
+.dashboard-loan-applied-modal {
 	position: fixed;
 	z-index: 1;
 	background-color: rgba(0,0,0,0.5);
@@ -303,7 +307,11 @@ h2 {
 .approve-loan-modal-content,
 .approved-loan-modal-content,
 .reject-loan-modal-content,
-.rejected-loan-modal-content{
+.rejected-loan-modal-content,
+.apply-for-loan-modal-content,
+.dashboard-apply-for-loan-modal-content,
+.loan-applied-modal-content,
+.dashboard-loan-applied-modal-content {
 	background-color: #ffffff;
 	padding: 30px;
 	width: calc(50% - 60px);
@@ -342,7 +350,9 @@ h2 {
 }
 
 /*pending verification*/
-.dashboard-pending-verification {
+.dashboard-pending-verification,
+.dashboard-verified-plus-pending-loan-approval,
+.dashboard-verified-plus-rejected-loan {
 	display: none;
 	height: auto;
 	padding: 70px;
@@ -355,15 +365,19 @@ h2 {
 	text-transform: none;
 }
 
-.dashboard-pending-verification p, .dashboard-unverified-profile p
-{
+.dashboard-pending-verification p,
+.dashboard-verified-plus-rejected-loan p,
+.dashboard-verified-plus-pending-loan-approval p,
+.dashboard-unverified-profile p {
 	font-weight: lighter;
 	width: 300px;
 	display: inline-block;
 }
 
-.dashboard-pending-verification button, .dashboard-unverified-profile-apply-button
-{
+.dashboard-pending-verification button,
+.dashboard-verified-plus-pending-loan-approval button,
+.dashboard-verified-plus-rejected-loan button, 
+.dashboard-unverified-profile-apply-button {
 	position: absolute;
 	right: 70px;
 	top: 70px;
@@ -396,7 +410,7 @@ h2 {
 
 /*verified plus loan*/
 .dashboard-verified-plus-loan {
-	display: inline-block;
+	display: none;
 	height: auto;
 }
 
@@ -635,7 +649,7 @@ h2 {
 /*verified minus loan*/
 
 .dashboard-verified-minus-loan {
-	display: none;
+	display: block;
 	background-image: url('resources/dashboard-background.jpg');
 	background-position: top;
   	background-repeat: no-repeat;
@@ -1651,7 +1665,9 @@ option {
 
 #close-post-repayment-modal,
 #close-approve-loan-modal,
-#close-reject-loan-modal {
+#close-reject-loan-modal,
+#close-apply-for-loan-modal,
+#dashboard-close-apply-for-loan-modal {
 	float: right;
 	display: block;
 	font-size: 30px;
@@ -1672,7 +1688,11 @@ option {
 #close-approve-loan-modal:hover,
 #close-approve-loan-modal:focus,
 #close-reject-loan-modal:hover,
-#close-reject-loan-modal:focus, {
+#close-reject-loan-modal:focus,
+#close-apply-for-loan-modal:focus,
+#close-apply-for-loan-modal:hover,
+#dashboard-close-apply-for-loan-modal:focus,
+#dashboard-close-apply-for-loan-modal:hover{
 	cursor: pointer;
 }
 
@@ -1791,7 +1811,8 @@ option {
 	display: none;
 }
 
-.log-repayment-modal label {
+.log-repayment-modal label
+{
 	height: 10px;
 	width: auto;
   	line-height: 12px;
@@ -1807,8 +1828,60 @@ option {
 	clear: left;
 }
 
+.apply-for-loan-modal label,
+.dashboard-apply-for-loan-modal label {
+	height: 10px;
+	width: 100px;
+  	line-height: 12px;
+  	display: inline-block;
+  	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px;
+	font-size: 12px;
+	margin: 10px 0px 10px calc((100% - 289px)/2);
+}
+
+#dashboard-apply-for-loan-modal-table,
+#apply-for-loan-modal-table {
+	width: 289px;
+	margin: 10px calc((100% - 289px)/2) 10px calc((100% - 289px)/2);
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#dashboard-apply-for-loan-modal-table th,
+#apply-for-loan-modal-table th {
+	text-align: left;
+	font-size: 14px;
+	display: inline-block;
+}
+
+#dashboard-apply-for-loan-modal-table th:hover,
+#apply-for-loan-modal-table th:hover,
+#dashboard-apply-for-loan-modal-table th:focus,
+#apply-for-loan-modal-table th:focus {
+	cursor: default;
+}
+
+#dashboard-apply-for-loan-modal-table td:hover,
+#apply-for-loan-modal-table td:hover,
+#dashboard-apply-for-loan-modal-table td:focus,
+#apply-for-loan-modal-table td:focus {
+	cursor: default;
+}
+
+#dashboard-apply-for-loan-modal-table td,
+#apply-for-loan-modal-table td{
+	text-align: right;
+	vertical-align: middle;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
 .log-repayment-modal input[type='text'],
-.log-repayment-modal input[type='file'] {
+.log-repayment-modal input[type='file']
+ {
 	float: left;
 	display: inline-block;
 	width: auto;
@@ -1820,18 +1893,30 @@ option {
 
 .post-repayment-modal input[type='text'],
 .approve-loan-modal input[type='text'],
-.reject-loan-modal input[type='text']{
+.reject-loan-modal input[type='text'] {
 	height: 26px;
 	padding-left: 15px;
 	width: 150px;
 	margin: 10px auto;
-	display: block;
+	display: inline-block;
+}
+
+.apply-for-loan-modal input[type='number'],
+.dashboard-apply-for-loan-modal input[type='number'] {
+	height: 26px;
+	padding-left: 15px;
+	width: 150px;
+	margin: 10px calc((100% - 289px)/2) 10px 0px;
+	display: inline-block;
+	float: right;
 }
 
 #log-repayment-modal-form,
 #post-repayment-modal-form,
 #approve-loan-modal-form,
-#reject-loan-modal-form {
+#reject-loan-modal-form,
+#apply-for-loan-modal-form,
+#dashboard-apply-for-loan-modal-form {
 	width: calc(100% - 60px);
 	height: 100%;
 	display: block;
@@ -1841,7 +1926,9 @@ option {
 .log-repayment-modal-content h3,
 .post-repayment-modal-content h3,
 .approve-loan-modal-content h3,
-.reject-loan-modal-content h3{
+.reject-loan-modal-content h3,
+.apply-for-loan-modal-content h3,
+.dashboard-apply-for-loan-modal-content h3 {
 	margin-bottom: 10px;
 }
 
@@ -1860,7 +1947,9 @@ option {
 }
 
 #post-repayment-modal-form input[type='submit'],
-#approve-loan-modal-form input[type='submit'], 
+#approve-loan-modal-form input[type='submit'],
+#apply-for-loan-modal-form input[type='submit'],
+#dashboard-apply-for-loan-modal-form input[type='submit'], 
 #reject-loan-modal-form input[type='submit'] {
 	display: block;
 	margin: 0 auto;
@@ -1874,7 +1963,11 @@ option {
 .approve-loan-modal-content,
 .approved-loan-modal-content,
 .reject-loan-modal-content,
-.rejected-loan-modal-content{
+.rejected-loan-modal-content,
+.apply-for-loan-modal-content,
+.dashboard-apply-for-loan-modal-content,
+.loan-applied-modal-content,
+.dashboard-loan-applied-modal-content{
 	width: calc(40% - 60px);
 }
 
@@ -1908,14 +2001,24 @@ option {
 .rejected-loan-modal h3,
 .reject-loan-modal h3,
 .rejected-loan-modal p,
-.rejected-loan-modal i{
+.rejected-loan-modal i,
+.apply-for-loan-modal h3,
+.dashboard-apply-for-loan-modal h3,
+.loan-applied-modal h3,
+.loan-applied-modal p,
+.loan-applied-modal i,
+.dashboard-loan-applied-modal h3,
+.dashboard-loan-applied-modal p,
+.dashboard-loan-applied-modal i{
 	text-align: center;
 }
 
 .repayment-logged-modal i,
 #posted-successfully,
 #approved-successfully,
-#rejected-successfully {
+#rejected-successfully,
+#loan-applied-successfully,
+#dashboard-loan-applied-successfully {
 	font-size: 100px;
 	display: block;
 	margin: 0 auto;
