@@ -1,0 +1,42 @@
+{
+  "name": "quick-credit-app",
+  "version": "1.0.0",
+  "description": "package dot json file for quick-credit-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint .",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abolibot/Quick-Credit-App.git"
+  },
+  "author": "abolibot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abolibot/Quick-Credit-App/issues"
+  },
+  "homepage": "https://github.com/abolibot/Quick-Credit-App#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "mocha": "^6.1.4"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.19.0"
+  }
+}
