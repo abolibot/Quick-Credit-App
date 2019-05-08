@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			My Profile
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+					<div class = 'my-profile-verification-status'>
+						<h3>Verification Status</h3>
+						<button class="my-profile-verification-status-button" disabled>verified</button>
+
+						<a href="updateProfile.html"><button class="my-profile-update-profile btn">update profile</button></a>
+					</div>
+					<hr id = 'dashboard-admin-line-separator'>
+					
+					<div class = 'my-profile-personal-and-bank-details'>
+						<div class = 'my-profile-personal-details'>
+							<div class = 'my-profile-personal-details-picture-placeholder'>
+								<img src="../resources/profile-photo.jpg" class = 'my-profile-personal-details-picture'>
+							</div>
+					
+							<h3>Personal Details</h3>
+							<table>
+								<tr>
+									<th>Firstname</th>
+									<td>Oluwatobi</td>
+								</tr>
+								<tr>
+									<th>Lastname</th>
+									<td>Alaran</td>
+								</tr>
+								<tr>
+									<th>Sex</th>
+									<td>Male</td>
+								</tr>
+								<tr>
+									<th>Date of Birth</th>
+									<td>11/27/1960</td>
+								</tr>
+								<tr>
+									<th>ID card</th>
+									<td><a href="">click to view</a></td>
+								</tr>
+								
+							</table>
+						</div>
+
+						<hr class = 'my-profile-vr'>
+
+						<div class = 'my-profile-bank-details'>
+							<h3>Bank Details</h3>
+							<table>
+								<tr>
+									<th>BVN</th>
+									<td>12345678910</td>
+								</tr>
+								<tr>
+									<th>Bank</th>
+									<td>Guaranty Trust Bank</td>
+								</tr>
+								<tr>
+									<th>Account Number</th>
+									<td>0987654321</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					
+					<hr id = 'dashboard-admin-line-separator'>
+					<div class="my-profile-contact-details">
+						<h3>Contact Details</h3>
+							<table>
+								<tr>
+									<th>Phone Number</th>
+									<td>09012345678</td>
+								</tr>
+								<tr>
+									<th>Email Address</th>
+									<td>alarantobiloba@gmail.com</td>
+								</tr>
+								<tr>
+									<th>Home Address</th>
+									<td>Plot 4, Road 6. Banana Island</td>
+								</tr>
+								<tr>
+									<th>City</th>
+									<td>Ikoyi</td>
+								</tr>
+								<tr>
+									<th>State</th>
+									<td>Lagos</td>
+								</tr>
+							</table>
+					</div>
+					<hr class = 'my-profile-vr'>
+					<div class="my-profile-employment-details">
+						<h3>Employment Details</h3>
+							<table>
+								<tr>
+									<th>Employment Status</th>
+									<td>Employed</td>
+								</tr>
+								<tr>
+									<th>Employer Name</th>
+									<td>wowoti enterprises</td>
+								</tr>
+								<tr>
+									<th>Work Address</th>
+									<td>52, Admiralty Way.</td>
+								</tr>
+								<tr>
+									<th>City</th>
+									<td>Lekki</td>
+								</tr>
+								<tr>
+									<th>State</th>
+									<td>Lagos</td>
+								</tr>
+							</table>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../../components/dashboardModal.js">
+		</script>
+	</body>
+</html>
