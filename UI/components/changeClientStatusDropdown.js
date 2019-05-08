@@ -1,4 +1,4 @@
-let changeStatusBtn = document.querySelector('.change-status-dropdown-btn');
+const changeStatusBtn = document.querySelector('.change-status-dropdown-btn');
 let changeStatusDropdown = document.querySelector('.change-status-dropdown-content');
 let dropdown = document.querySelector(".change-status-dropdown-content");
 changeStatusBtn.addEventListener('click', () => {
