@@ -15,7 +15,7 @@
 			<div class = 'signup-content'>
 				<h1>Quick Credit</h1>
 				<h3>Welcome back! Please sign-in to your account</h3>
-				<form action='.UI/pages/dashboard.html'>
+				<form action='UI/pages/dashboard.html'>
 				  <label for = 'signup-email'><p>email address</p></label>
 				  <input type = 'email' name = 'email' id = 'signup-email'><br />
 				  <label for = 'signup-password'><p>password</p></label>
