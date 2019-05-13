@@ -4,7 +4,7 @@
 		<title>
 			Sign-in Page
 		</title>
-        <link rel = "stylesheet" href = "./UI/styles.css">
+        <link rel = "stylesheet" href = "UI/styles.css">
 	</head>
 	<body>
 
@@ -22,7 +22,7 @@
 				  <input type = 'password' name = 'password' id = 'signup-password'><br />
 				  <input type="submit" value="Sign in" class = 'btn'>
 				</form>
-				<p class = 'sign-in-alt'><a href="./UI/pages/signup.html" >Don't have an account? sign up</a></p>
+				<p class = 'sign-in-alt'><a href="UI/pages/signup.html" >Don't have an account? sign up</a></p>
 	
 			</div>
 		</div>
