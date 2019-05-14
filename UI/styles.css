@@ -576,11 +576,12 @@ h3 {
 	
 }
 
-.dashboard-loan-overview-a {
-	font-size: 12px;
+.dashboard-loan-overview-a,
+#card-view-more-links {
+	font-size: 13px;
 	display: block;
 	clear: both;
-	text-align: center
+	text-align: center;
 }
 
 .dashboard-loan-overview-hr2 {
@@ -606,6 +607,7 @@ h3 {
 	border: none;
 	border-spacing: 0px;
 	border-collapse: collapse;
+	margin-bottom: 10px;
 }
 
 .dashboard-my-details-card th {
