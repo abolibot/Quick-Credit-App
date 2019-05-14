@@ -16,6 +16,12 @@ h2 {
 	text-transform: capitalize;
 }
 
+h3 {
+	font-size: 14px;
+	text-transform: capitalize;
+	margin-bottom: 10px;
+}
+
 #sidebar {
 	background-color: #43425D;
 	position: absolute;
@@ -584,7 +590,7 @@ h2 {
 }
 
 /*dashboard repayment awaiting admin's posting*/
-.dashboard-repayment-post-pending {
+.dashboard-my-details-card {
 	height: 300px;
 	padding: 20px;
 	width: calc(32% - 40px);
@@ -593,27 +599,27 @@ h2 {
 }
 
 
-.dashboard-repayment-post-pending table {
+.dashboard-my-details-card table {
 	width: 100%;
 	text-align: left;
 	vertical-align: middle;
-	margin-top: 20px;
 	border: none;
 	border-spacing: 0px;
 	border-collapse: collapse;
 }
 
-.dashboard-repayment-post-pending th {
+.dashboard-my-details-card th {
 	background-color: #F5F6FA;
 	padding: 10px;
 	color: #A3A6B4;
 	font-weight: lighter;
 }
 
-.dashboard-repayment-post-pending td {
+.dashboard-my-details-card td {
 	padding: 8px;
 	margin: 0px;
 	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
 }
 
 /*usage hint*/
@@ -1430,7 +1436,8 @@ option {
 #client-status-btn-unverified,
 .repayment-status-btn,
 .loan-status-btn-approved,
-.loan-status-btn-rejected {
+.loan-status-btn-rejected ,
+#my-details-status-btn-verified {
 	padding: 6px;
 	border: none;
 	color: #ffffff;
@@ -1455,7 +1462,8 @@ option {
 
 .verification-status-btn-verified ,
 #client-status-btn-verified,
-.loan-status-btn-approved {
+.loan-status-btn-approved,
+#my-details-status-btn-verified {
 	background-color: #27AE60;
 }
 
@@ -1476,7 +1484,9 @@ option {
 #client-status-btn-unverified:focus,
 #client-status-btn-unverified:hover,
 .repayment-status-btn:focus,
-.repayment-status-btn:hover {
+.repayment-status-btn:hover,
+#my-details-status-btn-verified:focus,
+#my-details-status-btn-verified:hover {
 	outline: 0;
 	cursor: not-allowed;
 }
