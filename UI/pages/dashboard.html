@@ -94,8 +94,8 @@
 							<a href = './loan/logRepayment.html'><button class = 'btn'>log repayment</button></a>
 						</div>
 						<hr class = 'hr'>
-						<div class = 'dashboard-loan-overview'>
-							<h2 class = 'card-header'>Loan Overview</h2>
+						<div class = 'dashboard-loan-overview-card'>
+							<h3>Current Loan</h3>
 							<p class = 'dashboard-loan-overview-amount'>Amount</p>
 							<p class = 'dashboard-loan-overview-amount-in-digit'><span id = 'money'>&#8358;50,000</span></p>
 							<hr id = 'line-separator'>
@@ -112,9 +112,7 @@
 							<p class = 'dashboard-loan-overview-legend-pending-amount'>&#8358;25,000</p>
 							<p class = 'dashboard-loan-overview-legend-logged-amount'>&#8358;16,667</p>
 							<p class = 'dashboard-loan-overview-legend-posted-amount'>&#8358;8,333</p>
-							<hr class = 'dashboard-loan-overview-hr2'>
-							<a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View Loan Details</a>
-						</div>
+					</div>
 						<hr class = 'dashboard-vr'>
 						<div class = 'dashboard-repayment-post-pending'>
 							<h2 class = 'card-header'>Repayments Awaiting Admin's Posting</h2>
@@ -286,6 +284,7 @@
 						<p>Sorry your loan application was rejected. You can reapply in another 24 hours.</p>
 						<button class = 'btn dashboard-unverified-profile-apply-button disabled' disabled>apply for loan</button>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -302,6 +301,8 @@
 		<script type = "module" src = "../components/dashboardLoanApplicationModal.js">
 		</script>
 		<script type = "module" src = "../components/dashboardMonthlyRepaymentCalculator.js">
+		</script>
+		<script type = "text/javascript" src = "../components/dashboardViews.js">
 		</script>
 	</body>
 </html>
