@@ -239,7 +239,7 @@ h3 {
 .btn {
 	text-transform: capitalize;
 	border-radius: 25px;
-	padding: 8px;
+	padding: 6px 8px;
 	background-color: #43425D;
 	color: #ffffff;
 	box-shadow: none;
@@ -451,6 +451,7 @@ h3 {
 	display: inline-block;
 	margin-left: 10px;
 	width: auto; 
+	margin-bottom: 10px;
 }
 
 .dashboard-repayment-countdown p {
