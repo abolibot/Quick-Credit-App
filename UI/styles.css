@@ -410,7 +410,7 @@ h2 {
 
 /*verified plus loan*/
 .dashboard-verified-plus-loan {
-	display: none;
+	display: block;
 	height: auto;
 }
 
@@ -467,7 +467,7 @@ h2 {
 }
 
 /*dashboard loan overview */
-.dashboard-loan-overview{
+.dashboard-loan-overview-card{
 	height: 300px;
 	padding: 20px;
 	width: calc(32% - 40px);
@@ -649,14 +649,14 @@ h2 {
 /*verified minus loan*/
 
 .dashboard-verified-minus-loan {
-	display: block;
+	display: none;
 	background-image: url('resources/dashboard-background.jpg');
 	background-position: top;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-  	height: auto;
-  	width: 100%;
-  	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: auto;
+	width: 100%;
+	position: absolute;
 }
 
 .dashboard-verified-minus-loan h1 {
