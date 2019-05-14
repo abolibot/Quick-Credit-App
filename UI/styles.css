@@ -571,9 +571,10 @@ h2 {
 }
 
 .dashboard-loan-overview-a {
-	margin-top: 10px;
 	font-size: 12px;
-	margin-left: 100px;
+	display: block;
+	clear: both;
+	text-align: center
 }
 
 .dashboard-loan-overview-hr2 {
