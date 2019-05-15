@@ -126,27 +126,10 @@ h3 {
 
 .name {
 	float: right;
-	margin: 23.5px 15px 26.5px 0px;
+	margin: 23.5px 15px 26.5px 15px;
 	width: auto;
-	height: 17px;
+	height: auto;
 	font-size: 15px;
-}
-
-.header-separator {
-	float: right;
-	margin: 15px 15px 15px 0px;
-	width: 1px;
-	height: 40px;
-	background-color: #BCBCCB;
-	border: 0px solid #BCBCCB;
-}
-
-.header-notification {
-	float: right;
-	margin: 26.5px 15px 26.5px 0px;
-	width: 20px;
-	height: 20px;
-	color: #BCBCCB;
 }
 
 #page-title {
@@ -1464,10 +1447,6 @@ option {
 	color: #ffffff;
 }
 
-.activation-status-btn-active{
-	background-color: #5DADE2;
-}
-
 .activation-status-btn-inactive,
 .verification-status-btn-unverified,
 #client-status-btn-unverified,
@@ -1481,7 +1460,8 @@ option {
 	color: #4D4F5C;
 }
 
-.verification-status-btn-verified ,
+.verification-status-btn-verified,
+.activation-status-btn-active,
 #client-status-btn-verified,
 .loan-status-btn-approved,
 #my-details-status-btn-verified {
@@ -1515,8 +1495,7 @@ option {
 
 /* Dropdown Button */
 .client-list-action-dropdown-btn,
-.change-status-dropdown-btn
- {
+.change-status-dropdown-btn {
 	cursor: pointer;
 	background-color: #43425D;
 	border-radius: 25px;
@@ -1547,7 +1526,8 @@ option {
 
 /* Dropdown Content (Hidden by Default) */
 .client-list-action-dropdown-content,
-.change-status-dropdown-content {
+.change-status-dropdown-content,
+.sign-out-dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -1568,8 +1548,9 @@ option {
 
 /* Change color of dropdown links on hover */
 .client-list-action-dropdown-content a:hover,
-.change-status-dropdown-content a:hover {
-	background-color: #ddd;
+.change-status-dropdown-content a:hover,
+.sign-out-dropdown-content:hover {
+	color: #A3A0FB;
 	cursor: pointer;
 }
 
@@ -2080,5 +2061,31 @@ option {
 
 .loan-status-btn-approved {
 	margin-right: 10px;
+}
+
+.sign-out-dropdown-btn {
+	background-color: #ffffff;
+	color: #4D4F5C;
+	border: none;
+	width: auto;
+	height: auto;
+}
+
+.sign-out-dropdown-btn:hover,
+.sign-out-dropdown-btn:focus {
+	outline: 0;
+}
+
+.name-and-dropdown-icon {
+	float: right;
+	display: inline-block;
+}
+
+.sign-out-dropdown-content {
+	margin-top: -6px;
+	color: #4D4F5C;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #ffffff;
 }
 
