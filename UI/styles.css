@@ -281,6 +281,7 @@ h3 {
 .log-repayment-modal,
 .repayment-logged-modal,
 .repayment-loader-modal,
+.apply-loader-modal,
 .post-repayment-modal,
 .repayment-posted-modal,
 .approve-loan-modal,
@@ -308,6 +309,7 @@ h3 {
 .log-repayment-modal-content,
 .repayment-logged-modal-content,
 .repayment-loader-modal-content,
+.apply-loader-content,
 .post-repayment-modal-content,
 .repayment-posted-modal-content,
 .approve-loan-modal-content,
@@ -410,12 +412,12 @@ h3 {
 }
 
 .dashboard-unverified-profile-update-button {
-	display: none;
+	display: block;
 	margin-top: 15px;
 }
 
 /*verified plus loan*/
-.dashboard-verified-plus-loan {
+#client-dashboard {
 	display: block;
 	height: auto;
 }
@@ -455,15 +457,21 @@ h3 {
 }
 
 .dashboard-repayment-countdown p {
-	width: 80%;
+	width: calc(100% - 88px);
 	margin-left: 48px;
 	font-weight: lighter;
 }
 
-.dashboard-repayment-countdown button {
-	position: absolute;
-	right: 20px;
-	top: 30px;
+#dashboard-apply-button {
+	float: right;
+	margin-right: 40px;
+}
+
+#dashboard-log-repayment-btn,
+#notification-update-profile,
+#notification-view-loan {
+	float: right;
+	margin-right: 10px;
 }
 
 .hr {
@@ -474,12 +482,16 @@ h3 {
 }
 
 /*dashboard loan overview */
-.dashboard-loan-overview-card{
+.dashboard-loan-overview-card {
 	height: 300px;
 	padding: 20px;
 	width: calc(32% - 40px);
 	float: left;
 	display: inline-block;
+}
+
+#current-loan-overview-content {
+	width: 100%;
 }
 
 .dashboard-loan-overview-amount{
@@ -711,13 +723,13 @@ h3 {
 }
 
 /*dashboard admin*/
-.dashboard-admin {
-	display: none;
+#dashboard-admin {
+	display: block;
 	height: auto;
 }
 
 .dashboard-admin-interest {
-	width: calc(23.5% - 40px);
+	width: calc(32% - 40px);
 	float: left;
 	display: inline-block;
 	height: 88px;
@@ -768,7 +780,7 @@ h3 {
 }
 
 .dashboard-admin-loan-status {
-	width: calc(23.5% - 40px);
+	width: calc(20.6% - 40px);
 	float: left;
 	display: inline-block;
 	height: 88px;
@@ -821,7 +833,7 @@ h3 {
 }
 
 .dashboard-admin-client {
-	width: calc(23.5% - 40px);
+	width: calc(20.6% - 40px);
 	float: left;
 	display: inline-block;
 	height: 88px;
@@ -874,7 +886,7 @@ h3 {
 }
 
 .dashboard-admin-loan-approval {
-	width: calc(23.5% - 40px);
+	width: calc(20.6% - 40px);
 	float: left;
 	display: inline-block;
 	height: 88px;
@@ -1561,7 +1573,7 @@ option {
 }
 /* hide the dropdown menu */
 .hide {
-	display: none;
+	display: none !important;
 }
 
 
@@ -1821,9 +1833,7 @@ option {
 	background-color: #6F6DCE;
 }
 
-.hidden {
-	display: none;
-}
+
 
 .log-repayment-modal label
 {
@@ -1985,7 +1995,8 @@ option {
 	width: calc(40% - 60px);
 }
 
-#repayment-loader {
+#repayment-loader,
+#apply-loader {
   border: 16px solid #f3f3f3;
   border-top: 16px solid #43425D; /* Blue */
   border-radius: 50%;
@@ -2064,3 +2075,4 @@ option {
 .loan-status-btn-approved {
 	margin-right: 10px;
 }
+
