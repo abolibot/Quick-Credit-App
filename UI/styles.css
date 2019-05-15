@@ -1360,13 +1360,13 @@ option {
 	height: auto;
 }
 
-.client-list-label-for-filter, {
+.client-list-label-for-filter {
 	float: left;
 	height: 10px;
 	width: auto;
-  	line-height: 12px;
-  	display: inline-block;
-  	background-color: #43425D;
+	line-height: 12px;
+	display: inline-block;
+	background-color: #43425D;
 	color: #ffffff;
 	text-transform: uppercase;
 	text-align: center;
@@ -1517,8 +1517,8 @@ option {
 .client-list-action-dropdown-btn,
 .change-status-dropdown-btn
  {
-  	cursor: pointer;
-  	background-color: #43425D;
+	cursor: pointer;
+	background-color: #43425D;
 	border-radius: 25px;
 	padding: 6px 15px 6px 15px;
 	color: #ffffff;
