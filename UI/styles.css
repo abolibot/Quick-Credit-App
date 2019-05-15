@@ -58,6 +58,10 @@ h3 {
 	padding-bottom: 19px;
 }
 
+.menu-items a {
+	text-decoration: none;
+}
+
 .nav-icons {
 	color: #A5A4BF;
 	height: 16px;
@@ -65,12 +69,14 @@ h3 {
 	margin-right: 10px;
 }
 
-.nav-item-active {
+.nav-items-active,
+.nav-items:hover {
 	background-color: #3C3B54;
 	border-left: 3px solid #A3A0FB;
 }
 
-.nav-icon-active {
+.nav-icon-active,
+.nav-items:hover i {
 	color: #A3A0FB;
 }
 

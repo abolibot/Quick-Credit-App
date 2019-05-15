@@ -1,4 +1,14 @@
 
+const user = {
+  isAdmin: true,
+  isVerifiedPlusLoan: false,
+  isVerifiedMinusLoan: false,
+  isPendingLoanApproval: false,
+  isPendingVerification: false,
+  isUnverified: false,
+  hasRejectedLoan: false,
+};
+
 let users = [
 	{
  		id: 1,
@@ -137,5 +147,6 @@ const checkUserType = (usersArray, index) => {
 };
 
 
-export { users }; 
+export { users };
+export { user };
 export { countDownToNextRepayment, getNextDueRepayment, getTotalDue, amountOfRepaymentsPosted, numberOfRepaymentsPosted, numberOfRepaymentsLeft, checkUserType};

@@ -1,3 +1,5 @@
+import { user } from '../components/user.js';
+
 const clientDashboard = document.querySelector('#client-dashboard');
 const pendingVerification = document.querySelector('#pending-verification');
 const unverified = document.querySelector('#unverified');
@@ -13,15 +15,6 @@ const viewLoanBtn = document.querySelector('#notification-view-loan');
 const currentLoanContent = document.querySelector('#current-loan-overview-content');
 const verificationStatusBtn = document.querySelector('#my-details-verification-status-btn');
 
-const user = {
-  isAdmin: true,
-  isVerifiedPlusLoan: false,
-  isVerifiedMinusLoan: false,
-  isPendingLoanApproval: false,
-  isPendingVerification: false,
-  isUnverified: false,
-  hasRejectedLoan: false,
-};
 
 if (user.isAdmin === true) {
   adminDashboard.classList.remove('hide');
