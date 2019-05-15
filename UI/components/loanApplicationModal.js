@@ -13,14 +13,13 @@ myLoansCloseApplyForLoanModal.addEventListener('click', () => {
 
 
 
-
 myLoansApplyForLoanForm.addEventListener('submit', () => {
 
 	event.preventDefault();
-	document.querySelector('.repayment-loader-modal').style.display = 'block';
+	document.querySelector('.apply-loader-modal').style.display = 'block';
 	setTimeout(function() {
-	    document.querySelector("#repayment-loader").style.display="none";
-	    document.querySelector('.repayment-loader-modal').style.display = 'none';
+	    document.querySelector("#apply-loader").style.display="none";
+	    document.querySelector('.apply-loader-modal').style.display = 'none';
 	    document.querySelector('.apply-for-loan-modal').style.display = 'none';
 	    document.querySelector('.loan-applied-modal').style.display = 'block';
 	}, 5000);
