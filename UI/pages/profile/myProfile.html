@@ -7,7 +7,6 @@
 		</title>
         <link rel = "stylesheet" href = "../../styles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	</head>
 	<body id = 'container'>
 		<div id = 'layout-content'>
@@ -19,6 +18,17 @@
 				<h2 id = 'page-title'>
 				</h2>
 				<div id = 'main-content'>
+
+					<div class = 'my-profile-valid-id-modal'>
+						<div class = 'my-profile-valid-id-modal-content'>
+							<div class = 'my-profile-valid-id-modal-content-body'>
+								<i class="far fa-window-close close-modal" id = 'my-profile-close-valid-id-modal'></i>
+								<div id = 'my-profile-valid-id-image-placeholder'>
+									<img src="../../resources/valid-id.png" id = 'my-profile-valid-id-image'>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class = 'my-profile-verification-status'>
 						<h3>Verification Status</h3>
 						<button class="my-profile-verification-status-button" disabled>verified</button>
@@ -53,7 +63,7 @@
 								</tr>
 								<tr>
 									<th>ID card</th>
-									<td><a href="">click to view</a></td>
+									<td><a class = 'my-profile-view-valid-id-btn'>click to view</a></td>
 								</tr>
 								
 							</table>
@@ -142,7 +152,7 @@
 		</script>
 		<script type = "module" src = "../../layouts/sidebar.js">
 		</script>
-		<script type = "module" src = "../../components/dashboardModal.js">
+		<script type = "text/javascript" src = "../../components/myProfilevalidIdModal.js">
 		</script>
 	</body>
 </html>

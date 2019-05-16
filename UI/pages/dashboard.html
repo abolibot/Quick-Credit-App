@@ -56,10 +56,9 @@
 						</div>
 						
 					</div>
-
-					<div class = 'repayment-loader-modal'>
-						<div class = 'repayment-loader-content'>
-							<div id = "repayment-loader"></div>
+					<div class = 'apply-loader-modal'>
+						<div class = 'apply-loader-content'>
+							<div id = "apply-loader"></div>
 						</div>
 					</div>
 
@@ -72,86 +71,246 @@
 							</div>
 						</div>
 					</div>
+					<div class = 'log-repayment-modal'>
+						<div class = 'log-repayment-modal-content'>
+							<h3>Log Repayment Form</h3>
+							<div class = 'log-repayment-modal-content-body'>
+								<i class="far fa-window-close close-modal" id = "close-log-repayment-modal" ></i>
+								<form id = 'log-repayment-modal-form'>
+									<label for = 'log-repayment-amount' id = ''><p>amount</p></label>
+						  			<input type = 'number' name = 'amount' id = 'log-repayment-amount' required>
 
-					<div class = 'dashboard-pending-verification'>
-						<h2 class = 'card-header'>Your profile is being verified!</h2>
-						<p>Sorry you cannot apply for a loan now, your profile is yet to be verified. Kindly check back in a few minutes.</p>
-						<button class = 'btn disabled' disabled>apply for loan</button>
+						  			<label for = 'log-repayment-proof' id = ''><p>proof of repayment</p></label>
+						  			<input type = 'file' name = 'repayment-proof' id = 'log-repayment-proof' required>
+
+						  			<input type="submit" value = 'save' class="btn" id = 'repayment-submit-btn'>
+								</form>
+							</div>
+						</div>
 					</div>
-					<div class = 'dashboard-unverified-profile'>
-						<h2 class = 'card-header'>Oops! We couldn't verify your account</h2>
-						<p>Sorry you cannot apply for a loan now, we couldn't confirm your details. Kindly review and update your profile.</p>
-						<button class = 'btn dashboard-unverified-profile-apply-button disabled' disabled>apply for loan</button>
-						<a href = './profile/updateProfile.html'><button class = 'btn dashboard-unverified-profile-update-button'>update profile</button></a>
+
+					<div class = 'repayment-loader-modal'>
+						<div class = 'repayment-loader-content'>
+							<div id = "repayment-loader"></div>
+						</div>
 					</div>
-					<div class = 'dashboard-verified-plus-loan'>
+
+
+					<div class = 'repayment-logged-modal'>
+						<div class = 'repayment-logged-modal-content'>
+							<div class = 'repayment-logged-modal-content-body'>
+								<i class="far fa-check-circle" id = 'logged-successfully'></i>
+								<h3>Your repayment has been logged successfully!</h3>
+								<p>Admin will confirm your repayment details and post the repayment for you. <a href = './loan/loanDetails.html'>go to loan details page</a>
+							</div>
+						</div>
+					</div>
+
+					<div id = 'client-dashboard' class = 'hide' >
 						<div class = 'dashboard-repayment-countdown'>
 							<div class = 'dashboard-exclamation-placeholder'>
 								<i class="fas fa-exclamation-circle"></i>
 							</div>
-							<h2 class = 'card-header'>Payment of &#8358;8,333 Due in 20 Days</h2>
-							<p>Please ensure you log repayments on time to maintain uninterrupted access to our service. Click the log repayment button to log a repayment transaction.</p>
-							<a href = './loan/logRepayment.html'><button class = 'btn'>log repayment</button></a>
+							<button id = 'dashboard-apply-button' class = 'btn disabled' disabled>apply for loan</button>
+
+							<a id = 'dashboard-log-repayment-btn' class = 'hide'><button class = 'btn'>log repayment</button></a>
+
+							<a href = './profile/updateProfile.html' id = 'notification-update-profile' class = 'hide'><button class = 'btn'>update profile</button></a>
+
+							<a href = './loan/loanDetails.html' id = 'notification-view-loan' class = 'hide'><button class = 'btn'>view loan</button></a>
+
+							<div id = 'verified-plus-loan' class="hide">
+								<h3>Payment of &#8358;8,333 Due in 20 Days</h3>
+								<p>Please ensure you log repayments on time to maintain uninterrupted access to our service. Click the log repayment button to log a repayment transaction.</p>
+							</div>
+							<div id = 'unverified' class="hide">
+								<h3>
+									Oops! We couldn't verify your account
+								</h3>
+								<p>
+									Sorry you cannot apply for a loan now, we couldn't confirm your details. Kindly review and update your profile.
+								</p>
+							</div>
+							<div id = 'pending-verification' class="hide">
+								<h3>
+									Your profile is being verified!
+								</h3>
+								<p>
+									Sorry you cannot apply for a loan now, your profile is yet to be verified. Kindly check back in a few minutes.
+								</p>
+							</div>
+							<div id = 'verified-minus-loan' class="hide">
+								<h3>
+									Need cash? Hit the apply for loan button!
+								</h3>
+							</div>
+							<div id = 'pending-loan-approval' class="hide">
+								<h3>
+									Your loan application is being reviewed!
+								</h3>
+								<p>
+									Your loan application is being reviewed and pending Admin's approval, please check back in a few minutes.
+								</p>
+							</div>
+							<div id = 'rejected-loan' class="hide">
+								<h3>
+									Oops! Your loan application was rejected
+								</h3>
+								<p>
+									Sorry your loan application was rejected. You can reapply in another 24 hours.
+								</p>
+							</div>
+							
 						</div>
 						<hr class = 'hr'>
-						<div class = 'dashboard-loan-overview'>
-							<h2 class = 'card-header'>Loan Overview</h2>
-							<p class = 'dashboard-loan-overview-amount'>Amount</p>
-							<p class = 'dashboard-loan-overview-amount-in-digit'><span id = 'money'>&#8358;50,000</span></p>
-							<hr id = 'line-separator'>
-							<div id = 'repayment-chart'>
-								
+						<div class = 'dashboard-loan-overview-card'>
+							<h3>My Current Loan</h3>
+							<div id = 'current-loan-overview-content'>
+								<p class = 'dashboard-loan-overview-amount'>Amount</p>
+								<p class = 'dashboard-loan-overview-amount-in-digit'><span id = 'money'>&#8358;50,000</span></p>
+								<hr id = 'line-separator'>
+								<div id = 'repayment-chart'>
+									
+								</div>
+								<i class="fas fa-circle dashboard-loan-overview-legend-pending-i"></i>
+								<p class = 'dashboard-loan-overview-legend-pending'>Pending</p>
+								<i class="fas fa-circle dashboard-loan-overview-legend-logged-i"></i>
+								<p class = 'dashboard-loan-overview-legend-logged'>Logged</p>
+								<p class = 'dashboard-loan-overview-legend-posted'>Posted</p>
+								<i class="fas fa-circle dashboard-loan-overview-legend-posted-i"></i>
+								<br />
+								<p class = 'dashboard-loan-overview-legend-pending-amount'>&#8358;25,000</p>
+								<p class = 'dashboard-loan-overview-legend-logged-amount'>&#8358;16,667</p>
+								<p class = 'dashboard-loan-overview-legend-posted-amount'>&#8358;8,333</p>
+								<a href = './loan/loanDetails.html' id = 'card-view-more-links'>View Details</a>
 							</div>
-							<i class="fas fa-circle dashboard-loan-overview-legend-pending-i"></i>
-							<p class = 'dashboard-loan-overview-legend-pending'>Pending</p>
-							<i class="fas fa-circle dashboard-loan-overview-legend-logged-i"></i>
-							<p class = 'dashboard-loan-overview-legend-logged'>Logged</p>
-							<p class = 'dashboard-loan-overview-legend-posted'>Posted</p>
-							<i class="fas fa-circle dashboard-loan-overview-legend-posted-i"></i>
-							<br />
-							<p class = 'dashboard-loan-overview-legend-pending-amount'>&#8358;25,000</p>
-							<p class = 'dashboard-loan-overview-legend-logged-amount'>&#8358;16,667</p>
-							<p class = 'dashboard-loan-overview-legend-posted-amount'>&#8358;8,333</p>
-							<hr class = 'dashboard-loan-overview-hr2'>
-							<a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View Loan Details</a>
-						</div>
+					</div>
 						<hr class = 'dashboard-vr'>
-						<div class = 'dashboard-repayment-post-pending'>
-							<h2 class = 'card-header'>Repayments Awaiting Admin's Posting</h2>
+						<div class = 'dashboard-my-details-card'>
+							<h3>My Details</h3>
 							<table>
 								<tr>
-									<th>Repayment Log ID</th>
-									<th>Amount</th>
+									<th>Status</th>
+									<td><button id = 'my-details-verification-status-btn'class = "verification-status-btn-verified">Verified</button></td>
 								</tr>
 								<tr>
-									<td>101</td>
-									<td class = 'amount-column'>&#8358;8,333</td>
+									<th>Name</th>
+									<td>Oluwatobi Alaran</td>
 								</tr>
 								<tr>
-									<td>102</td>
-									<td class = 'amount-column'>&#8358;8,333</td>
+									<th>Email</th>
+									<td>alarantobiloba@gmail.com</td>
+								</tr>
+								<tr>
+									<th>Bank</th>
+									<td>Guaranty Trust Bank</td>
+								</tr>
+								<tr>
+									<th>Account Number</th>
+									<td>0987654321</td>
 								</tr>
 							</table>
+							<a href = './profile/myProfile.html' id = 'card-view-more-links'>View More</a>
 						</div>
 						<hr class = 'dashboard-vr'>
 						<div class = 'usage-hint'>
 							<i class="fas fa-lightbulb"></i>
-							<h2 class = 'card-header'>Usage Hint</h2>
+							<h3>Usage Hint</h3>
 							<hr id = 'line-separator'>
 							<p></p>
 						</div>
+						<hr class = 'hr'>
+						<div id = 'loan-details-page-repayment-log-table'>
+							<h3>My Loan History</h3>
+							<table class = 'repayment-list-table'>
+								<tr>
+									<th>S/N</th>
+									<th>Loan ID</th>
+									<th>Date of Application</th>
+									<th>Amount</th>
+									<th>Approval Status</th>
+									<th>Repayment Status</th>
+									<th></th>
+
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><a href="./loan/loanDetails.html">123456</a></td>
+									<td>30 April 2019</td>
+									<td>&#8358;50,000</td>
+									<td><button class="activation-status-btn-active">Approved</button></td>
+									<td><button class="verification-status-btn-pending">Current</button></td>
+									<td>
+										<a href = './loan/loanDetails.html'>
+											<button class="btn">view details</button>
+										</a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>1</td>
+									<td><a href="./loan/loanDetails.html">123456</a></td>
+									<td>30 April 2019</td>
+									<td>&#8358;50,000</td>
+									<td><button class="activation-status-btn-active">Approved</button></td>
+									<td><button class="verification-status-btn-verified">Repaid</button></td>
+									<td>
+										<a href = './loan/loanDetails.html'>
+											<button class="btn">view details</button>
+										</a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>1</td>
+									<td><a href="./loan/loanDetails.html">123456</a></td>
+									<td>30 April 2019</td>
+									<td>&#8358;50,000</td>
+									<td><button class="activation-status-btn-active">Approved</button></td>
+									<td><button class="verification-status-btn-verified">Repaid</button></td>
+									<td>
+										<a href = './loan/loanDetails.html'>
+											<button class="btn">view details</button>
+										</a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>1</td>
+									<td><a href="./loan/loanDetails.html">123456</a></td>
+									<td>30 April 2019</td>
+									<td>&#8358;50,000</td>
+									<td><button class="activation-status-btn-active">Approved</button></td>
+									<td><button class="verification-status-btn-verified">Repaid</button></td>
+									<td>
+										<a href = './loan/loanDetails.html'>
+											<button class="btn">view details</button>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><a href="./loan/loanDetails.html">123456</a></td>
+									<td>30 April 2019</td>
+									<td>&#8358;50,000</td>
+									<td><button class="activation-status-btn-active">Approved</button></td>
+									<td><button class="verification-status-btn-verified">Repaid</button></td>
+									<td>
+										<a href = './loan/loanDetails.html'>
+											<button class="btn">view details</button>
+										</a>
+									</td>
+								</tr>
+							</table>
+							<a href = './loan/myLoans.html' id = 'card-view-more-links'>View More</a>
+						</div>
 					</div>
-					<div class = 'dashboard-verified-minus-loan'>
-						<h1>Forget everything you know about loans!</h1>
-						<p class = 'up-to'>get up to</p>
-						<p class = 'dashboard-verified-minus-loan-naira'>&#8358;</p>
-						<p class = 'dashboard-verified-minus-loan-amount'>100,000</p>
-						<p class = 'dashboard-verified-minus-loan-duration'>repay in 3 to 6 months</p>
-						<button class = 'btn' id = 'dashboard-apply-for-loan-btn'>Apply for loan</button>
-					</div>
-					<div class = 'dashboard-admin'>
+					
+
+
+					<div id = 'dashboard-admin' class = 'hide'>
 						<div class = 'dashboard-admin-interest'>
-							<h3 class = 'dashboard-admin-interest-card-header'>Loan Disbursed</h3>
+							<h3>Loan Disbursed</h3>
 							<p class = 'dashboard-admin-interest-amount-digit'>&#8358;5,000,000</p>
 							<p class = 'dashboard-admin-interest-interest-digit'>&#8358;500,000</p>
 							<p class = 'dashboard-admin-interest-amount'>Amount</p>
@@ -274,17 +433,6 @@
 							</table>
 							<a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View More</a>
 						</div>
-
-					</div>
-					<div class = 'dashboard-verified-plus-pending-loan-approval'>
-						<h2 class = 'card-header'>Your loan application is being reviewed!</h2>
-						<p>Your loan application is being reviewed and pending Admin's approval, please check back in a few minutes.</p>
-						<button class = 'btn disabled' disabled>apply for loan</button>
-					</div>
-					<div class = 'dashboard-verified-plus-rejected-loan'>
-						<h2 class = 'card-header'>Oops! Your loan application was rejected</h2>
-						<p>Sorry your loan application was rejected. You can reapply in another 24 hours.</p>
-						<button class = 'btn dashboard-unverified-profile-apply-button disabled' disabled>apply for loan</button>
 					</div>
 				</div>
 			</div>
@@ -302,6 +450,12 @@
 		<script type = "module" src = "../components/dashboardLoanApplicationModal.js">
 		</script>
 		<script type = "module" src = "../components/dashboardMonthlyRepaymentCalculator.js">
+		</script>
+		<script type = "module" src = "../components/dashboardViews.js">
+		</script>
+		<script type = "module" src = "../components/dashboardLogRepaymentModal.js">
+		</script>
+		<script type = "module" src = "../components/repaymentLoader.js">
 		</script>
 	</body>
 </html>

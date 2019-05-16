@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>
-			Loan Details
+			My Loan Details
 		</title>
         <link rel = "stylesheet" href = "../../styles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -23,7 +23,7 @@
 					<div class = 'proof-of-payment-modal'>
 						<div class = 'proof-of-payment-content'>
 							<div class = 'proof-of-payment-content-body'>
-								<i class="far fa-window-close" id = 'close-proof-of-payment-modal'></i>
+								<i class="far fa-window-close close-modal" id = 'close-proof-of-payment-modal'></i>
 								<div id = 'proof-of-payment-image-placeholder'>
 									<img src="../../resources/valid-id.png" id = 'proof-of-payment-image'>
 								</div>
@@ -41,8 +41,7 @@
 								<i class="far fa-window-close" id = 'close-log-repayment-modal'></i>
 								<form id = 'log-repayment-modal-form'>
 									<label for = 'log-repayment-amount' id = ''><p>amount</p></label>
-						  			<input type = 'text' name = 'amount' id = 'log-repayment-amount' required>
-
+						  			<input type = 'number' name = 'amount' id = 'log-repayment-amount' required>
 						  			<label for = 'log-repayment-proof' id = ''><p>proof of repayment</p></label>
 						  			<input type = 'file' name = 'repayment-proof' id = 'log-repayment-proof' required>
 
@@ -74,9 +73,9 @@
 						<div class = 'dashboard-exclamation-placeholder'>
 							<i class="fas fa-exclamation-circle"></i>
 						</div>
+						<a id = 'loan-details-page-log-repayment-btn'><button class = 'btn'>log repayment</button></a>
 						<h3>Payment of &#8358;8,333 Due in 20 Days</h3>
 						<p>Please ensure you log repayments on time to maintain uninterrupted access to our service. Click the log repayment button to log a repayment transaction.</p>
-						<a id = 'loan-details-page-log-repayment-btn'><button class = 'btn'>log repayment</button></a>
 					</div>
 					<hr class = 'hr'>
 					<div id = 'loan-details-page-details-card'>
