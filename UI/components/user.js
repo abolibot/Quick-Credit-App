@@ -1,7 +1,7 @@
 
 const user = {
-  isAdmin: true,
-  isVerifiedPlusLoan: false,
+  isAdmin: false,
+  isVerifiedPlusLoan: true,
   isVerifiedMinusLoan: false,
   isPendingLoanApproval: false,
   isPendingVerification: false,

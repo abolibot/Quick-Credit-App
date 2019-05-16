@@ -126,7 +126,7 @@ h3 {
 
 .name {
 	float: right;
-	margin: 23.5px 15px 26.5px 15px;
+	margin: 23.5px 15px 26.5px 5px;
 	width: auto;
 	height: auto;
 	font-size: 15px;
@@ -179,11 +179,10 @@ h3 {
 }
 
 .signup-content {
-	position: inherit;
-	top: 150px;
-	left:20%;
-	height: auto;
+	display: block;
+	margin: 150px auto;
 	width: 60%;
+	height: auto;
 }
 
 .signup-content h1 {
@@ -219,10 +218,10 @@ h3 {
 
 .signup-content input[type = submit] {
 	float: none;
-	width: 120px;
-	margin-left: 35%;
-	margin-bottom: 20px;
-	margin-top: 8px;
+	clear: both;
+	display: block;
+	margin: 10px auto;
+	width: 100px;
 }
 
 .btn {
@@ -266,6 +265,7 @@ h3 {
 /*incomplete profile*/
 .dashboard-incomplete-profile,
 .valid-id-modal,
+.my-profile-valid-id-modal,
 .proof-of-payment-modal,
 .log-repayment-modal,
 .repayment-logged-modal,
@@ -294,6 +294,7 @@ h3 {
 
 .dashboard-modal-content,
 .valid-id-modal-content,
+.my-profile-valid-id-modal-content,
 .proof-of-payment-content,
 .log-repayment-modal-content,
 .repayment-logged-modal-content,
@@ -311,14 +312,18 @@ h3 {
 .dashboard-loan-applied-modal-content {
 	background-color: #ffffff;
 	padding: 30px;
-	width: calc(50% - 60px);
+	width: calc(40% - 60px);
 	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2), 0px 7px 20px 0px rgba(0,0,0,0.17);
 	animation-name: modalContent;
 	animation-duration: 1s;
 	height: auto;
 	position: absolute;
 	top: 20%;
-	left: 32%;
+	left: 30%;
+}
+
+.log-repayment-modal-content {
+	padding: 20px;
 }
 
 @keyframes modalContent {
@@ -347,29 +352,6 @@ h3 {
 }
 
 /*pending verification*/
-.dashboard-pending-verification,
-.dashboard-verified-plus-pending-loan-approval,
-.dashboard-verified-plus-rejected-loan {
-	display: none;
-	height: auto;
-	padding: 70px;
-}
-
-.card-header {
-	font-weight: lighter;
-	font-size: 16px;
-	margin-bottom: 3px;
-	text-transform: none;
-}
-
-.dashboard-pending-verification p,
-.dashboard-verified-plus-rejected-loan p,
-.dashboard-verified-plus-pending-loan-approval p,
-.dashboard-unverified-profile p {
-	font-weight: lighter;
-	width: 300px;
-	display: inline-block;
-}
 
 .dashboard-pending-verification button,
 .dashboard-verified-plus-pending-loan-approval button,
@@ -391,18 +373,6 @@ h3 {
 .disabled {
 	background-color: #838296;
 	border-color: #838296;
-}
-
-/*unverified profile*/
-.dashboard-unverified-profile {
-	display: none;
-	height: auto;
-	padding: 70px;
-}
-
-.dashboard-unverified-profile-update-button {
-	display: block;
-	margin-top: 15px;
 }
 
 /*verified plus loan*/
@@ -1636,7 +1606,8 @@ option {
 	border: none;
 }
 
-#view-valid-id-btn:hover {
+.view-valid-id-btn:hover,
+.my-profile-view-valid-id-btn:hover {
 	cursor: pointer;
 	color: #A3A0FB;
 }
@@ -1646,6 +1617,7 @@ option {
 }
 
 #valid-id-image-placeholder,
+#my-profile-valid-id-image-placeholder,
 #proof-of-payment-image-placeholder {
 	margin: 10px auto;
 	height: 90%;
@@ -1654,10 +1626,11 @@ option {
 }
 
 #valid-id-image,
+#my-profile-valid-id-image,
 #proof-of-payment-image {
 	height: inherit;
 	width: inherit;
-    object-fit: cover;
+  object-fit: cover;
 }
 
 #close-valid-id-modal,
@@ -1666,7 +1639,6 @@ option {
 	font-size: 30px;
 	margin-bottom: 10px;
 	float: right;
-	clear: 
 }
 
 #close-log-repayment-modal {
@@ -1680,7 +1652,8 @@ option {
 #close-approve-loan-modal,
 #close-reject-loan-modal,
 #close-apply-for-loan-modal,
-#dashboard-close-apply-for-loan-modal {
+#dashboard-close-apply-for-loan-modal,
+.close-modal {
 	float: right;
 	display: block;
 	font-size: 30px;
@@ -1824,7 +1797,7 @@ option {
 
 .log-repayment-modal label
 {
-	height: 10px;
+	/*height: 10px;
 	width: auto;
   	line-height: 12px;
   	display: inline-block;
@@ -1836,16 +1809,17 @@ option {
 	padding: 10px;
 	font-size: 12px;
 	float: left;
-	clear: left;
+	clear: left;*/
 }
 
 .apply-for-loan-modal label,
-.dashboard-apply-for-loan-modal label {
-	height: 10px;
+.dashboard-apply-for-loan-modal label,
+.log-repayment-modal label {
+	height: auto;
 	width: 100px;
-  	line-height: 12px;
-  	display: inline-block;
-  	background-color: #43425D;
+	line-height: 12px;
+	display: inline-block;
+	background-color: #43425D;
 	color: #ffffff;
 	text-transform: uppercase;
 	text-align: center;
@@ -1893,13 +1867,13 @@ option {
 .log-repayment-modal input[type='text'],
 .log-repayment-modal input[type='file']
  {
-	float: left;
+	/*float: left;
 	display: inline-block;
 	width: auto;
 	height: 26px;
 	padding-left: 15px;
 	margin-bottom: 10px;
-	clear: right;
+	clear: right;*/
 }
 
 .post-repayment-modal input[type='text'],
@@ -1909,11 +1883,13 @@ option {
 	padding-left: 15px;
 	width: 150px;
 	margin: 10px auto;
-	display: inline-block;
+	display: block;
 }
 
 .apply-for-loan-modal input[type='number'],
-.dashboard-apply-for-loan-modal input[type='number'] {
+.dashboard-apply-for-loan-modal input[type='number'],
+.log-repayment-modal input[type='number'],
+.log-repayment-modal input[type='file'] {
 	height: 26px;
 	padding-left: 15px;
 	width: 150px;
@@ -1943,25 +1919,19 @@ option {
 	margin-bottom: 10px;
 }
 
-#log-repayment-modal-form input[type = 'file']{
-	border: none;
-	padding-top: 4px;
-}
-
-#log-repayment-modal-form input[type='submit'] {
-	display: block;
-	margin: 0px auto;
-	float: left;
-	clear: left;
-	width: 80px;
-	margin-left: 120px;
+#log-repayment-modal-form input[type = 'file'] {
+	padding-top: 10px;
+	width: 180px;
+	padding-left: 1px;
+	margin-right: calc((100% - 319px)/2)
 }
 
 #post-repayment-modal-form input[type='submit'],
 #approve-loan-modal-form input[type='submit'],
 #apply-for-loan-modal-form input[type='submit'],
 #dashboard-apply-for-loan-modal-form input[type='submit'], 
-#reject-loan-modal-form input[type='submit'] {
+#reject-loan-modal-form input[type='submit'],
+#log-repayment-modal-form input[type='submit'] {
 	display: block;
 	margin: 0 auto;
 	width: 80px;
@@ -2021,7 +1991,8 @@ option {
 .loan-applied-modal i,
 .dashboard-loan-applied-modal h3,
 .dashboard-loan-applied-modal p,
-.dashboard-loan-applied-modal i{
+.dashboard-loan-applied-modal i,
+.log-repayment-modal h3 {
 	text-align: center;
 }
 
@@ -2063,6 +2034,11 @@ option {
 	margin-right: 10px;
 }
 
+#loan-details-page-log-repayment-btn {
+  float: right;
+  margin-right: 40px;
+}
+
 .sign-out-dropdown-btn {
 	background-color: #ffffff;
 	color: #4D4F5C;
@@ -2087,5 +2063,238 @@ option {
   padding: 8px 16px;
   text-decoration: none;
   background-color: #ffffff;
+}
+
+.menu-toggler {
+	font-size: 30px;
+	margin: 20px 15px;
+	color: #43425D;
+	display: none;
+
+}
+
+@media only screen and (max-device-width: 430px){
+  .sign-up-image {
+    width: 100%;
+    display: block;
+    height: 30%;
+  }
+
+  .signup-container {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 65% auto;
+    margin-bottom: 10%;
+    width: 50%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 3em;
+  }
+
+  .signup-content h3 {
+    font-size: 2em;
+  }
+
+  .sign-in-alt {
+    font-size: 1.6em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    height: 50px;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1.5em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1.3em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 35%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1.3em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 150px;
+  }
+
+  #sidebar {
+  	display: none;
+  }
+
+  #content {
+  	width: 100%;
+  }
+
+  .dashboard-repayment-countdown {
+  	position: relative;
+  }
+
+  .dashboard-loan-overview-card,
+  .dashboard-my-details-card,
+  .usage-hint {
+  	display: block;
+  	clear: both;
+  	width: calc(90% - 40px);
+  	margin-bottom: 47px;
+  	height: auto;
+  }
+
+  .dashboard-vr {
+  	display: none;
+  }
+
+  #dashboard-log-repayment-btn, 
+  #notification-update-profile, 
+  #notification-view-loan,
+  #dashboard-apply-button {
+  	position: absolute;
+  	bottom: 0px;
+  }
+
+  h3 {
+  	font-size: 1.5em;
+  }
+
+  body {
+  	font-size: 2em;
+  }
+}
+
+@media only screen and (orientation: portrait) and (min-device-width: 430px) {
+  .sign-up-image {
+    width: 100%;
+    display: block;
+    height: 25%;
+  }
+
+  .signup-container {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 40% auto;
+    margin-bottom: 5%;
+    width: 50%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 2.5em;
+  }
+
+  .signup-content h3 {
+    font-size: 1.5em;
+  }
+
+  .sign-in-alt {
+    font-size: 1.3em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    height: 50px;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1.3em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1.2em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 35%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1.2em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 150px;
+  }
+
+}
+
+@media only screen and (min-device-width: 680px) and (max-device-width: 1100px) {
+  .sign-up-image {
+    width: 40%;
+    height: 100%;
+  }
+
+  .signup-container {
+    width: 60%;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 80px auto;
+    margin-bottom: 10px;
+    width: 60%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 2em;
+  }
+
+  .signup-content h3 {
+    font-size: 1.2em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 45%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 120px;
+  }
+
 }
 
