@@ -54,6 +54,10 @@ if (pageTitle === 'Client List') {
 const header = document.querySelector('#header');
 const pageHeader = document.querySelector('#page-title');
 const headerContent = `
+  <a href = '#' id = 'menu-toggler-anchor'>
+    <i class="fas fa-align-justify menu-toggler">
+    </i>
+  </a>
   <div class = 'header-profile-photo'>
       <img src = "${users[0].profilePhoto}" alt = "placeholder image" class = "header-user-image">
   </div>
@@ -85,3 +89,17 @@ window.onclick = (event) => {
     }
   }
 };
+
+const menuTogglerAnchor = document.querySelector('#menu-toggler-anchor');
+const sidebar = document.querySelector('#sidebar');
+const content = document.querySelector('#content');
+
+menuTogglerAnchor.addEventListener('click', () => {
+  if (sidebar.classList.contains('hide')) {
+    sidebar.classList.remove('hide');
+    content.style.width = '85%';
+  } else {
+    sidebar.classList.add('hide');
+    content.style.width = '100%';
+  }
+});
