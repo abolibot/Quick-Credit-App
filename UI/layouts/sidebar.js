@@ -104,12 +104,12 @@ if ((user.isAdmin === false) && (pageTitle === 'My Loan Details')) {
       <a href = './myLoans.html'>
         <li class = 'nav-items nav-items-active'>
           <i class="fas fa-money-check nav-icons nav-icon-active">
-          </i>loans
+          </i>my loans
         </li>
       </a>
       <a href = '../profile/myProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>my profile
         </li>
       </a>
     </ul>
@@ -161,12 +161,12 @@ if ((user.isAdmin === false) && (pageTitle === 'My Loans')) {
       <a href = '#'>
         <li class = 'nav-items nav-items-active'>
           <i class="fas fa-money-check nav-icons nav-icon-active">
-          </i>loans
+          </i>my loans
         </li>
       </a>
       <a href = '../profile/myProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>my profile
         </li>
       </a>
     </ul>
@@ -218,13 +218,13 @@ if ((user.isAdmin === false) && (pageTitle === 'Complete Profile')) {
       <a href = '../loan/myLoans.html'>
         <li class = 'nav-items'>
           <i class="fas fa-money-check nav-icons">
-          </i>loans
+          </i>my loans
         </li>
       </a>
       <a href = './myProfile.html'>
         <li class = 'nav-items nav-items-active'>          
           <i class="fas fa-address-card nav-icons nav-icon-active">
-          </i>profile
+          </i>my profile
         </li>
       </a>
     </ul>
@@ -276,13 +276,13 @@ if ((user.isAdmin === false) && (pageTitle === 'My Profile')) {
       <a href = '../loan/myLoans.html'>
         <li class = 'nav-items'>
           <i class="fas fa-money-check nav-icons">
-          </i>loans
+          </i>my loans
         </li>
       </a>
       <a href = '#'>
         <li class = 'nav-items nav-items-active'>          
           <i class="fas fa-address-card nav-icons nav-icon-active">
-          </i>profile
+          </i>my profile
         </li>
       </a>
     </ul>
@@ -305,13 +305,13 @@ if ((user.isAdmin === false) && (pageTitle === 'Update Profile')) {
       <a href = '../loan/myLoans.html'>
         <li class = 'nav-items'>
           <i class="fas fa-money-check nav-icons">
-          </i>loans
+          </i>my loans
         </li>
       </a>
       <a href = './myProfile.html'>
         <li class = 'nav-items nav-items-active'>          
           <i class="fas fa-address-card nav-icons nav-icon-active">
-          </i>profile
+          </i>my profile
         </li>
       </a>
     </ul>
