@@ -1148,7 +1148,7 @@ option {
 	padding: 5px 12px;
 	color: #ffffff;
 	box-shadow: none;
-	font-size: 12px
+	font-size: 12px;
 	font-weight: bolder;
 }
 
@@ -1597,7 +1597,9 @@ option {
     object-fit: cover;
 }
 
-#close-valid-id-modal {
+#close-valid-id-modal,
+#close-proof-of-payment-modal
+ {
 	font-size: 30px;
 	margin-bottom: 10px;
 }
