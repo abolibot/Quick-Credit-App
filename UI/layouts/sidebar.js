@@ -1,3 +1,4 @@
+
 import { user } from '../components/user.js';
 
 const sidebar = document.querySelector('#sidebar');
@@ -317,4 +318,3 @@ if ((user.isAdmin === false) && (pageTitle === 'Update Profile')) {
   `;
   sidebar.innerHTML = sidebarContent;
 }
-

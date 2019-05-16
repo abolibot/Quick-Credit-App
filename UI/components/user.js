@@ -146,7 +146,6 @@ const checkUserType = (usersArray, index) => {
 	}
 };
 
-
 export { users };
 export { user };
 export { countDownToNextRepayment, getNextDueRepayment, getTotalDue, amountOfRepaymentsPosted, numberOfRepaymentsPosted, numberOfRepaymentsLeft, checkUserType};

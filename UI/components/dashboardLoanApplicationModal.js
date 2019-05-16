@@ -1,3 +1,4 @@
+
 const dashboardApplyForLoanBtn = document.querySelector('#dashboard-apply-button');
 const dashboardApplyForLoanForm = document.querySelector('#dashboard-apply-for-loan-modal-form');
 const dashboardCloseApplyForLoanModal = document.querySelector('#dashboard-close-apply-for-loan-modal');

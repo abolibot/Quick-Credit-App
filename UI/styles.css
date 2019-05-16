@@ -352,7 +352,6 @@ h3 {
 }
 
 /*pending verification*/
-
 .dashboard-pending-verification button,
 .dashboard-verified-plus-pending-loan-approval button,
 .dashboard-verified-plus-rejected-loan button, 
@@ -554,7 +553,6 @@ h3 {
 	display: block;
 	clear: both;
 	text-align: center;
-}
 
 .dashboard-loan-overview-hr2 {
 	width: 100%;
@@ -609,6 +607,7 @@ h3 {
 .usage-hint i {
 	display: inline-block;
 }
+
 
 .usage-hint h3 {
 	display: inline-block;
@@ -1794,7 +1793,6 @@ option {
 }
 
 
-
 .log-repayment-modal label
 {
 	/*height: 10px;
@@ -2297,4 +2295,3 @@ option {
   }
 
 }
-

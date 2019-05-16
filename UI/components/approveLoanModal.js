@@ -1,3 +1,4 @@
+
 let approveLoanBtn = document.querySelector('#approve-loan-btn');
 let approveLoanForm = document.querySelector('#approve-loan-modal-form');
 let closeApproveLoanModal = document.querySelector('#close-approve-loan-modal');
@@ -24,5 +25,4 @@ approveLoanForm.addEventListener('submit', () => {
 	    document.querySelector('.approve-loan-modal').style.display = 'none';
 	    document.querySelector('.approved-loan-modal').style.display = 'block';
 	}, 5000);
-	
 });
