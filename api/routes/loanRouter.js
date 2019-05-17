@@ -6,6 +6,8 @@ const routes = () => {
   loanRouter.route('/')
     .post(Loan.createALoan)
     .get(Loan.getAllLoans);
+  loanRouter.route('/:loanId')
+    .get(Loan.getALoan);
 
   return loanRouter;
 };
