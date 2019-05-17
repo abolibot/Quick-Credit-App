@@ -33,6 +33,32 @@ const User = {
     if (!user) return res.status(404).json({ status: 404, error: 'user with given id not found' });
     return res.status(200).json({ status: 200, data: user });
   },
+
+  completeProfile: (req, res) => {
+    const user = users.find(u => u.email === req.params.email);
+    if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist' });
+    if (user.completedProfileAt) return res.status(403).json({ status: 403, error: 'user already completed profile, use the update feature to update profile' });
+
+    user.sex = req.body.sex;
+    user.dob = req.body.dob;
+    user.validIdUrl = req.body.validIdUrl;
+    user.displayPictureUrl = req.body.displayPictureUrl;
+    user.phoneNumber = req.body.phoneNumber;
+    user.homeAddress = req.body.homeAddress;
+    user.homeCity = req.body.homeCity;
+    user.homeState = req.body.homeState;
+    user.employmentStatus = req.body.employmentStatus;
+    user.employerName = req.body.employerName || null;
+    user.workAddress = req.body.workAddress || null;
+    user.workCity = req.body.workCity || null;
+    user.workState = req.body.workState || null;
+    user.bvn = req.body.bvn;
+    user.bank = req.body.bank;
+    user.accountNumber = req.body.accountNumber;
+    user.completedProfileAt = date.toUTCString();
+
+    return res.status(200).json({ status: 200, data: user });
+  },
 };
 
 module.exports = User;
