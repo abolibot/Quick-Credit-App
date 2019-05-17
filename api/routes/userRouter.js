@@ -9,6 +9,8 @@ const routes = () => {
     .get(User.getAUser);
   userRouter.route('/:email/completeProfile')
     .patch(User.completeProfile);
+  userRouter.route('/:email/verify')
+    .patch(User.verifyUser);
   return userRouter;
 };
 
