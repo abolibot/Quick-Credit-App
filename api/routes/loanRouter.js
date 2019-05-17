@@ -1,5 +1,6 @@
 const express = require('express');
 const Loan = require('../controllers/Loan');
+const LoanRepayment = require('../controllers/LoanRepayment');
 
 const routes = () => {
   const loanRouter = express.Router();
@@ -10,7 +11,8 @@ const routes = () => {
     .get(Loan.getALoan);
   loanRouter.route('/:loanId')
     .patch(Loan.approveOrRejectLoan);
-
+  loanRouter.route('/:loanId/repayments')
+    .get(LoanRepayment.getALoanRepayments);
   return loanRouter;
 };
 
