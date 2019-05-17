@@ -79,6 +79,30 @@ const User = {
     user.unverifiedAt = date.toUTCString();
     return res.status(200).json({ status: 200, data: user });
   },
+
+  updateProfile: (req, res) => {
+    const user = users.find(u => u.email === req.params.email);
+    if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist' });
+
+    user.sex = req.body.sex || user.sex;
+    user.dob = req.body.dob || user.dob;
+    user.validIdUrl = req.body.validIdUrl || user.validIdUrl;
+    user.displayPictureUrl = req.body.displayPictureUrl || user.displayPictureUrl;
+    user.phoneNumber = req.body.phoneNumber || user.phoneNumber;
+    user.homeAddress = req.body.homeAddress || user.homeAddress;
+    user.homeCity = req.body.homeCity || user.homeCity;
+    user.homeState = req.body.homeState || user.homeState;
+    user.employmentStatus = req.body.employmentStatus || user.employmentStatus;
+    user.employerName = req.body.employerName || user.employerName;
+    user.workAddress = req.body.workAddress || user.workAddress;
+    user.workCity = req.body.workCity || user.workCity;
+    user.workState = req.body.workState || user.workState;
+    user.bvn = req.body.bvn || user.bvn;
+    user.bank = req.body.bank || user.bank;
+    user.accountNumber = req.body.accountNumber || user.accountNumber;
+    user.modifiedAt = date.toUTCString();
+    return res.status(200).json({ status: 200, data: user });
+  },
 };
 
 module.exports = User;
