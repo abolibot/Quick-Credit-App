@@ -6,11 +6,23 @@
 /* user default layout page*/
 
 body {
-	font-family: 'source sans pro',serif;
-	font-size: 13px;
+	font-family: 'source sans pro', serif, helvetica;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #4D4F5C;
 }
 
-.sidebar {
+h2 {
+	text-transform: capitalize;
+}
+
+h3 {
+	font-size: 14px;
+	text-transform: capitalize;
+	margin-bottom: 10px;
+}
+
+#sidebar {
 	background-color: #43425D;
 	position: absolute;
 	top: 0px;
@@ -46,6 +58,10 @@ body {
 	padding-bottom: 19px;
 }
 
+.menu-items a {
+	text-decoration: none;
+}
+
 .nav-icons {
 	color: #A5A4BF;
 	height: 16px;
@@ -53,25 +69,28 @@ body {
 	margin-right: 10px;
 }
 
-.nav-item-active {
+.nav-items-active,
+.nav-items:hover {
 	background-color: #3C3B54;
 	border-left: 3px solid #A3A0FB;
 }
 
-.nav-icon-active {
+.nav-icon-active,
+.nav-items:hover i {
 	color: #A3A0FB;
 }
 
-.content {
+#content {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	width: 85%;
 	height: 100%;
 	background: #F0F0F7;
+	overflow: auto;
 }
 
-.header {
+#header {
 	height: 70px;
 	width: 100%;
 	position: absolute;
@@ -107,46 +126,30 @@ body {
 
 .name {
 	float: right;
-	margin: 26.5px 15px 26.5px 0px;
+	margin: 23.5px 15px 26.5px 5px;
 	width: auto;
-	height: 17px;
+	height: auto;
 	font-size: 15px;
 }
 
-.header-separator {
-	float: right;
-	margin: 15px 15px 15px 0px;
-	width: 1px;
-	height: 40px;
-	background-color: #BCBCCB;
-	border: 0px solid #BCBCCB;
-}
-
-.header-notification {
-	float: right;
-	margin: 26.5px 15px 26.5px 0px;
-	width: 20px;
-	height: 20px;
-	color: #BCBCCB;
-}
-
-.page-title {
+#page-title {
 	position: absolute;
-	top: 97px;
-	left: 10%;
+	top: 100px;
+	left: 5%;
 	text-transform: capitalize;
 	color: #43425D;
 	text-decoration: none;
 	width: auto;
 }
 
-.main-content {
+#main-content {
 	background-color: #ffffff;
 	position: absolute;
-	top: 160px;
-	left: 10%;
-	margin-right: 10%;
-	width: 80%;
+	top: 150px;
+	left: 5%;
+	margin-right: 5%;
+	margin-bottom: 47px;
+	width: 90%;
 	height: auto;
 }
 
@@ -157,7 +160,7 @@ body {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('sign-up-page/resources/wallpaper.jpg');
+	background-image:  linear-gradient(rgba(67, 66, 93, 0.4), rgba(112, 112, 112, 0.4)), url('resources/signup-image.jpg');
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
@@ -176,11 +179,10 @@ body {
 }
 
 .signup-content {
-	position: inherit;
-	top: 150px;
-	left:20%;
-	height: auto;
+	display: block;
+	margin: 150px auto;
 	width: 60%;
+	height: auto;
 }
 
 .signup-content h1 {
@@ -216,18 +218,34 @@ body {
 
 .signup-content input[type = submit] {
 	float: none;
-	width: 120px;
-	border-radius: 25px;
-	color: #43425D;
-	text-transform: uppercase;
-	border: 4px double #43425D;
-	background-color: #ffffff;
-	margin-left: 35%;
-	margin-bottom: 20px;
-	margin-top: 8px;
+	clear: both;
+	display: block;
+	margin: 10px auto;
+	width: 100px;
 }
 
-label p {
+.btn {
+	text-transform: capitalize;
+	border-radius: 25px;
+	padding: 6px 8px;
+	background-color: #43425D;
+	color: #ffffff;
+	box-shadow: none;
+	font-size: 12px;
+	border: 1px solid #43425D;
+}
+
+.btn:focus {
+	outline: 0;
+	background-color: #2F2E50;
+}
+
+.btn:hover {
+	cursor: pointer;
+	background-color: #2F2E50;
+}
+
+.signup-content label p {
 	display: inline-block;
 	width: 30%;
 	height: 25px;
@@ -240,3 +258,2043 @@ label p {
 	padding-top: 10px;
 	font-size: 12px
 }
+
+
+/* Dashboard */
+
+/*incomplete profile*/
+.dashboard-incomplete-profile,
+.valid-id-modal,
+.my-profile-valid-id-modal,
+.proof-of-payment-modal,
+.log-repayment-modal,
+.repayment-logged-modal,
+.repayment-loader-modal,
+.apply-loader-modal,
+.post-repayment-modal,
+.repayment-posted-modal,
+.approve-loan-modal,
+.reject-loan-modal,
+.approved-loan-modal,
+.rejected-loan-modal,
+.apply-for-loan-modal,
+.dashboard-apply-for-loan-modal,
+.loan-applied-modal,
+.dashboard-loan-applied-modal {
+	position: fixed;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	display: none;
+}
+
+.dashboard-modal-content,
+.valid-id-modal-content,
+.my-profile-valid-id-modal-content,
+.proof-of-payment-content,
+.log-repayment-modal-content,
+.repayment-logged-modal-content,
+.repayment-loader-modal-content,
+.apply-loader-content,
+.post-repayment-modal-content,
+.repayment-posted-modal-content,
+.approve-loan-modal-content,
+.approved-loan-modal-content,
+.reject-loan-modal-content,
+.rejected-loan-modal-content,
+.apply-for-loan-modal-content,
+.dashboard-apply-for-loan-modal-content,
+.loan-applied-modal-content,
+.dashboard-loan-applied-modal-content {
+	background-color: #ffffff;
+	padding: 30px;
+	width: calc(40% - 60px);
+	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2), 0px 7px 20px 0px rgba(0,0,0,0.17);
+	animation-name: modalContent;
+	animation-duration: 1s;
+	height: auto;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+}
+
+.log-repayment-modal-content {
+	padding: 20px;
+}
+
+@keyframes modalContent {
+	from{ opacity: 0 }
+	to{ opacity: 1 }
+}
+
+.dashboard-modal-content-button {
+	width: 150px;
+	margin-left: 175px;
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.dashboard-modal-content-header,
+.valid-id-modal-content-header {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.dashboard-modal-content-body h3 {
+	text-align: center;
+	font-weight: lighter;
+	padding: 0px 20px 0px 20px;
+}
+
+/*pending verification*/
+
+.dashboard-pending-verification button,
+.dashboard-verified-plus-pending-loan-approval button,
+.dashboard-verified-plus-rejected-loan button, 
+.dashboard-unverified-profile-apply-button {
+	position: absolute;
+	right: 70px;
+	top: 70px;
+	background-color: #838296;
+}
+
+.disabled:hover,
+.disabled:focus {
+	cursor: not-allowed;
+	background-color: #838296;
+	border-color: #838296;
+}
+
+.disabled {
+	background-color: #838296;
+	border-color: #838296;
+}
+
+/*verified plus loan*/
+#client-dashboard {
+	display: block;
+	height: auto;
+}
+
+.dashboard-repayment-countdown {
+	width: 100%;
+	padding: 20px;
+	height: auto;
+}
+
+.dashboard-exclamation-placeholder{
+	height: 38px;
+	width: 38px;
+	border-radius: 19px;
+	background-color: #FFF4E5;
+	float: left;
+	display: inline-block;
+	animation-name: modalContent;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+.dashboard-exclamation-placeholder i {
+	width: 16px;
+	height: 16px;
+	margin-left: 12px;
+	margin-top: 12px;
+	color: #FFCA83;
+}
+
+.dashboard-repayment-countdown h2,
+.dashboard-repayment-countdown h3{
+	display: inline-block;
+	margin-left: 10px;
+	width: auto; 
+	margin-bottom: 10px;
+}
+
+.dashboard-repayment-countdown p {
+	width: calc(100% - 88px);
+	margin-left: 48px;
+	font-weight: lighter;
+}
+
+#dashboard-apply-button {
+	float: right;
+	margin-right: 40px;
+}
+
+#dashboard-log-repayment-btn,
+#notification-update-profile,
+#notification-view-loan {
+	float: right;
+	margin-right: 10px;
+}
+
+.hr {
+	height: 47px;
+	width: 100%;
+	border: none;
+	background-color: #F0F0F7;
+}
+
+/*dashboard loan overview */
+.dashboard-loan-overview-card {
+	height: 300px;
+	padding: 20px;
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+}
+
+#current-loan-overview-content {
+	width: 100%;
+}
+
+.dashboard-loan-overview-amount{
+	float: left;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.dashboard-loan-overview-amount-in-digit {
+	float: right;
+	display: inline-block;
+}
+
+#money {
+	color: #4AD991;
+}
+
+#line-separator {
+	width: 100%;
+	border: 1px solid #E8E9EC;
+	display: block;
+}
+
+
+
+.dashboard-loan-overview-repayment-stats {
+	margin-top: 10px;
+}
+
+.dashboard-loan-overview-legend-pending-i {
+	float: left;
+	font-size: 10px;
+	margin-top: 7px;
+	color: #EDECFE;
+}
+
+.dashboard-loan-overview-legend-pending {
+	float: left;
+	margin-left: 5px;
+	display: inline-block;
+	color: #43425D;
+}
+
+.dashboard-loan-overview-legend-logged-i {
+	float: left;
+	font-size: 10px;
+	margin-top: 7px;
+	margin-left: 62px;
+	color: #A3A1FB;
+}
+
+.dashboard-loan-overview-legend-logged {
+	margin: 0px auto;
+	display: inline-block;
+	margin-left: 5px;
+	color: #43425D;
+	float: left;
+}
+
+.dashboard-loan-overview-legend-posted-i {
+	float: right;
+	font-size: 10px;
+	margin-top: 7px;
+	color: #6F6DCE;
+}
+
+.dashboard-loan-overview-legend-posted {
+	float: right;
+	margin-left: 5px;
+	display: inline-block;
+	color: #43425D;
+}
+
+.dashboard-loan-overview-legend-pending-amount {
+	float: left;
+	margin-left: 15px;
+	display: inline-block;
+	color: rgba(77, 79, 92, 0.5);
+}
+
+.dashboard-loan-overview-legend-logged-amount {
+	margin: 0px auto;
+	display: inline-block;
+	margin-left: 82px;
+	color: rgba(77, 79, 92, 0.5);
+	float: left;
+	margin-bottom: 10px;
+}
+
+.dashboard-loan-overview-legend-posted-amount {
+	float: right;
+	margin-left: 5px;
+	display: inline-block;
+	color: rgba(77, 79, 92, 0.5);
+	
+}
+
+.dashboard-loan-overview-a,
+#card-view-more-links {
+	font-size: 13px;
+	display: block;
+	clear: both;
+	text-align: center;
+}
+
+.dashboard-loan-overview-hr2 {
+	width: 100%;
+	border: 1px solid #E8E9EC;
+	display: none;
+}
+
+/*dashboard repayment awaiting admin's posting*/
+.dashboard-my-details-card {
+	height: 300px;
+	padding: 20px;
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+}
+
+
+.dashboard-my-details-card table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+.dashboard-my-details-card th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+}
+
+.dashboard-my-details-card td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
+}
+
+/*usage hint*/
+
+.usage-hint {
+	height: 300px;
+	padding: 20px;
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+}
+
+.usage-hint i {
+	display: inline-block;
+}
+
+.usage-hint h3 {
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+
+/*vertical separator*/
+.dashboard-vr {
+	height: 340px;
+	width: 2%;
+	border: none;
+	background-color: #F0F0F7;
+	float: left;
+	display: inline-block;
+}
+
+/*verified minus loan*/
+
+.dashboard-verified-minus-loan {
+	display: none;
+	background-image: url('resources/dashboard-background.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: auto;
+	width: 100%;
+	position: absolute;
+}
+
+.dashboard-verified-minus-loan h1 {
+	color: #43425D;
+	font-size: 50px;
+	width: 40%;
+	line-height: 50px;
+	margin-top: 60px;
+	margin-left: 60px;
+}
+
+.up-to {
+	font-size: 20px;
+	margin-left: 60px;
+	line-height: 40px;
+}
+
+.dashboard-verified-minus-loan-amount{
+	font-size: 60px;
+	font-weight: bold;
+	line-height: 40px;
+	display: inline-block;
+}
+
+.dashboard-verified-minus-loan-naira {
+	font-size: 20px;
+	display: inline-block;
+	margin-left: 60px;
+	position: relative;
+	bottom: 20px;
+}
+
+.dashboard-verified-minus-loan-duration {
+	font-size: 20px;
+	margin-left: 60px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+.dashboard-verified-minus-loan button {
+	margin: 10px 0px 60px 60px;
+}
+
+/*dashboard admin*/
+#dashboard-admin {
+	display: block;
+	height: auto;
+}
+
+.dashboard-admin-interest {
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+} 
+
+.dashboard-admin-interest-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-interest-amount-digit {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+}
+
+.dashboard-admin-interest-interest-digit {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+}
+
+.dashboard-admin-interest-amount {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-interest-interest {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-status {
+	width: calc(20.6% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-loan-status-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-loan-status-current-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-status-repaid-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-status-current {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-status-repaid {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-client {
+	width: calc(20.6% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-client-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-client-verified-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-client-unverified-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-client-verified {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-client-unverified {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-approval {
+	width: calc(20.6% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.dashboard-admin-loan-approval-card-header {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.dashboard-admin-loan-approval-approved-digit a {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-approval-rejected-digit a {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	font-weight: bolder;
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-loan-approval-approved {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-loan-approval-rejected {
+	float: right;
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+	font-size: 13px;
+	color: #A3A6B4;
+}
+
+.dashboard-admin-vr {
+	width: 2%;
+	border: none;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 108px;
+}
+
+#dashboard-admin-line-separator {
+	width: 100%;
+	background-color: #F0F0F7;
+	height: 47px;
+	border: none;
+}
+
+#dashboard-admin-table-card {
+	width: calc(32% - 40px);
+	float: left;
+	display: inline-block;
+	height: 302px;
+	padding: 10px 20px;
+}
+
+#dashboard-admin-table-card-header {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#dashboard-admin-table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+
+#dashboard-admin-table th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+}
+
+#dashboard-admin-table td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#dashboard-admin-table a,
+.client-list-table td > a,
+.repayment-list-table td > a {
+	color: #A3A0FB;
+	text-decoration: none;
+}
+
+.dashboard-admin-lower-vr {
+	width: 2%;
+	border: none;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 322px;
+}
+
+
+
+
+/* complete profile page */
+
+fieldset {
+	margin: 20px 40px;
+	padding: 20px 30px;
+	border: 3px solid #F5F6FA;
+}
+
+fieldset h3 {
+	margin: 0px 5px;
+}
+
+.complete-profile-form label {
+	width: 15%;
+	display: inline-block;
+}
+
+.complete-profile-form p {
+	display: inline-block;
+	width: 100%;
+	height: 25px;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 8px 0px 8px 0px;
+	padding-top: 10px;
+	font-size: 12px
+}
+
+.complete-profile-form input[type = 'text'],
+.complete-profile-form input[type = 'number'],
+.complete-profile-form input[type = 'email'],
+.complete-profile-form input[type = 'date'],
+.complete-profile-form input[type = 'file'],
+.complete-profile-form input[type = 'tel'] {
+	display: inline-block;
+	width: calc(35% - 104px);
+	height: 33px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.complete-profile-form select {
+	display: inline-block;
+	width: calc(35% - 72px);
+	height: 35px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.complete-profile-form input[type = 'file']{
+	border: none;
+	padding-top: 7px;
+}
+
+option {
+	width: 100%;
+	height: 100%;
+}
+
+
+#label-float-right {
+	margin-left: 40px;
+	float: right;
+}
+
+#label-float-left, #complete-profile-firstname,
+#complete-profile-sex, #complete-profile-valid-id,
+#complete-profile-phone, #complete-profile-home-address,
+#complete-profile-city, #complete-profile-employment-status,
+#complete-profile-work-address, #complete-profile-work-city, 
+#complete-profile-bvn, #complete-profile-bank{
+	float: left;
+}
+
+#complete-profile-lastname, #complete-profile-dob, 
+#complete-profile-display-picture, #complete-profile-email,
+#complete-profile-state, #complete-profile-employer-name,
+#complete-profile-work-state, #complete-profile-account-number {
+	float: right;
+}
+
+#complete-profile-home-address,
+#complete-profile-work-address {
+	width: calc(85% - 104px);
+}
+
+.complete-profile-form input[type = 'submit']{
+	margin: 20px auto;
+	display: block;
+	width: 10%;
+}
+
+
+/* update profile */
+.update-profile-form label {
+	width: 15%;
+	display: inline-block;
+}
+
+.update-profile-form p {
+	display: inline-block;
+	width: 100%;
+	height: 25px;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 8px 0px 8px 0px;
+	padding-top: 10px;
+	font-size: 12px
+}
+
+.update-profile-form input[type = 'text'],
+.update-profile-form input[type = 'number'],
+.update-profile-form input[type = 'email'],
+.update-profile-form input[type = 'date'],
+.update-profile-form input[type = 'file'],
+.update-profile-form input[type = 'tel'] {
+	display: inline-block;
+	width: calc(35% - 104px);
+	height: 33px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.update-profile-form select {
+	display: inline-block;
+	width: calc(35% - 72px);
+	height: 35px;
+	border: 1px solid #E9E9F0;
+	display: inline-block;
+	margin: 8px 0px 8px 0px;
+	padding: 0px 15px;
+}
+
+.update-profile-form input[type = 'file'] {
+	border: none;
+	padding-top: 7px;
+}
+
+#label-float-left, #update-profile-firstname,
+#update-profile-sex, #update-profile-valid-id,
+#update-profile-phone, #update-profile-home-address,
+#update-profile-city, #update-profile-employment-status,
+#update-profile-work-address, #update-profile-work-city, 
+#update-profile-bvn, #update-profile-bank{
+	float: left;
+}
+
+#update-profile-lastname, #update-profile-dob, 
+#update-profile-display-picture, #update-profile-email,
+#update-profile-state, #update-profile-employer-name,
+#update-profile-work-state, #update-profile-account-number {
+	float: right;
+}
+
+#update-profile-home-address,
+#update-profile-work-address {
+	width: calc(85% - 104px);
+}
+
+.update-profile-form input[type = 'submit']{
+	margin: 20px auto;
+	display: block;
+	width: 10%;
+}
+
+
+/* my profile page */
+
+.my-profile-verification-status {
+	width: calc(100% - 40px);
+	display: inline-block;
+	height: auto;
+	padding: 20px 20px;
+}
+
+.my-profile-update-profile {
+	float: right;
+}
+
+.my-profile-verification-status h3 {
+	display: inline-block;
+}
+
+.my-profile-verification-status-button {
+	background-color: #27AE60;
+	border: none;
+	margin-left: 10px;
+	padding: 5px 12px;
+	color: #ffffff;
+	box-shadow: none;
+	font-size: 12px;
+	font-weight: bolder;
+}
+
+.my-profile-personal-and-bank-details {
+	width: 100%;
+	height: auto;
+}
+
+.my-profile-personal-details {
+	width: calc(65.3% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-personal-details-picture-placeholder {
+	float: left;
+	margin: 10px 16px 0px 0px;
+	height: 200px;
+	width: 200px;
+}
+
+.my-profile-personal-details-picture {
+	height: inherit;
+	width: inherit;
+    object-fit: cover;
+}
+
+
+.my-profile-personal-details table {
+	width: calc(100% - 216px);
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin: 10px 0px;
+}
+
+.my-profile-bank-details table {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.my-profile-personal-and-bank-details th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+.my-profile-personal-and-bank-details td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
+}
+
+.my-profile-personal-and-bank-details a {
+	text-decoration: none;
+}
+
+
+
+.my-profile-bank-details,
+.a-client-verification-status {
+	width: calc(32.7% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-contact-details {
+	width: calc(49% - 40px);
+	float: left;
+	display: inline-block;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.my-profile-employment-details {
+	width: calc(49% - 40px);
+	float: left;
+	display: inline-block;
+	height: 88px;
+	padding: 10px 20px;
+}
+
+.my-profile-contact-details table,
+.my-profile-employment-details table {
+	width: 100%;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	text-align: left;
+}
+
+.my-profile-contact-details th,
+.my-profile-employment-details th {
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: left;
+}
+
+.my-profile-contact-details td,
+.my-profile-employment-details td {
+	padding: 8px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: right;
+}
+
+
+.my-profile-vr {
+	width: calc(2% - 2px);
+	border: 1px solid #F0F0F7;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 280px;
+}
+
+/* client list */
+
+.client-list {
+	padding: 20px 20px;
+	height: auto;
+}
+
+.client-list-label-for-filter {
+	float: left;
+	height: 10px;
+	width: auto;
+	line-height: 12px;
+	display: inline-block;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0px 0px 8px 0px;
+	padding: 10px;
+	font-size: 12px;
+}
+
+#client-list-filter {
+	float: left;
+	clear: right;
+}
+
+.client-list select, #client-list-search {
+	display: inline-block;
+	width: auto;
+	height: 30px;
+	border: 1px solid #E9E9F0;
+	margin: 0px 0px 8px 0px;
+	padding: 0px 25px 0px 15px;
+}
+
+#client-list-filter {
+	clear: right;
+}
+
+#client-list-records-per-page {
+	float: left;
+	margin-top: 10px;
+}
+
+.client-list-records-per-page-label {
+	margin-top: 10px;
+	float: left;
+	clear: left;
+}
+
+#client-list-search {
+	width: 200px;
+	float: right;
+	margin-top: 10px;
+	height: 28px;
+}
+
+.client-list-search-label {
+	float: right;
+	margin-top: 10px;
+}
+
+.client-list-table,
+.repayment-list-table {
+	width: 100%;
+	vertical-align: middle;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.client-list-table th,
+.repayment-list-table th {
+	background-color: #F5F6FA;
+	color: #A3A6B4;
+	font-weight: lighter;
+	border-bottom: 1px solid #F5F6FA;
+	text-align: left;
+	width: auto;
+	height: auto;
+	padding: 10px;
+}
+
+.client-list-table td,
+.repayment-list-table td {
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+	padding: 8px;
+}
+
+.activation-status-btn-active,
+.activation-status-btn-inactive,
+.verification-status-btn-pending,
+.verification-status-btn-verified,
+.verification-status-btn-unverified,
+#client-status-btn-pending,
+#client-status-btn-verified,
+#client-status-btn-unverified,
+.repayment-status-btn,
+.loan-status-btn-approved,
+.loan-status-btn-rejected ,
+#my-details-status-btn-verified {
+	padding: 6px;
+	border: none;
+	color: #ffffff;
+}
+
+.activation-status-btn-inactive,
+.verification-status-btn-unverified,
+#client-status-btn-unverified,
+.loan-status-btn-rejected {
+	background-color: #E74C3C;
+}
+
+.verification-status-btn-pending,
+#client-status-btn-pending {
+	background-color: #E5E7E9;
+	color: #4D4F5C;
+}
+
+.verification-status-btn-verified,
+.activation-status-btn-active,
+#client-status-btn-verified,
+.loan-status-btn-approved,
+#my-details-status-btn-verified {
+	background-color: #27AE60;
+}
+
+.activation-status-btn-active:hover,
+.activation-status-btn-active:focus,
+.activation-status-btn-inactive:hover,
+.activation-status-btn-inactive:focus,
+.verification-status-btn-unverified:hover,
+.verification-status-btn-unverified:focus,
+.verification-status-btn-pending:hover,
+.verification-status-btn-pending:focus,
+.verification-status-btn-verified:hover,
+.verification-status-btn-verified:focus,
+#client-status-btn-pending:focus,
+#client-status-btn-pending:hover,
+#client-status-btn-verified:focus,
+#client-status-btn-verified:hover,
+#client-status-btn-unverified:focus,
+#client-status-btn-unverified:hover,
+.repayment-status-btn:focus,
+.repayment-status-btn:hover,
+#my-details-status-btn-verified:focus,
+#my-details-status-btn-verified:hover {
+	outline: 0;
+	cursor: not-allowed;
+}
+
+
+/* Dropdown Button */
+.client-list-action-dropdown-btn,
+.change-status-dropdown-btn {
+	cursor: pointer;
+	background-color: #43425D;
+	border-radius: 25px;
+	padding: 6px 15px 6px 15px;
+	color: #ffffff;
+	box-shadow: none;
+	font-size: 12px;
+	border: 1px solid #43425D;
+	}
+
+/* Dropdown button on hover & focus */
+.client-list-action-dropdown-btn:hover,
+.client-list-action-dropdown-btn:focus,
+.change-status-dropdown-btn:hover,
+.change-status-dropdown-btn:focus {
+  background-color: #2F2E50;
+  border: 1px solid #2F2E50;
+  outline: 0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.client-list-action-dropdown, 
+.change-status-dropdown {
+	position: relative;
+	display: inline-block;
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.client-list-action-dropdown-content,
+.change-status-dropdown-content,
+.sign-out-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.client-list-action-dropdown-content a,
+.change-status-dropdown-content a {
+  color: #4D4F5C;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #ffffff;
+}
+
+/* Change color of dropdown links on hover */
+.client-list-action-dropdown-content a:hover,
+.change-status-dropdown-content a:hover,
+.sign-out-dropdown-content:hover {
+	color: #A3A0FB;
+	cursor: pointer;
+}
+
+/* Show the dropdown menu */
+.show {
+	display: block;
+}
+/* hide the dropdown menu */
+.hide {
+	display: none !important;
+}
+
+
+/* pagination for tables */
+
+.pagination a {
+  float: right;
+  padding: 2px 8px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  color: #4D4F5C;
+}
+
+.pagination a.active {
+  background-color: #43425D;
+  color: white;
+  border: 1px solid #43425D;
+}
+
+
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+
+/* A client page */
+
+#client-status-btn-pending,
+#client-status-btn-verified,
+#client-status-btn-unverified {
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+
+#client-status-h3 {
+	float: left;
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#my-profile-bank-details-h3 {
+	clear: both;
+	display: block;
+}
+
+.change-status-dropdown {
+	float: right;
+	margin: 10px 0px;
+}
+
+.my-profile-bank-details hr {
+	clear: both;
+	margin: 10px 0px;
+}
+
+.change-status-dropdown-btn i {
+	margin-right: 3px;
+	height: 12px;
+	width: 12px;
+}
+
+#a-client-page-line-separator {
+	width: 32.7%;
+	float: left;
+	display: inline-block;
+	background-color: #F0F0F7;
+	height: 20px;
+	border: none;
+}
+
+.view-valid-id-btn:hover,
+.my-profile-view-valid-id-btn:hover {
+	cursor: pointer;
+	color: #A3A0FB;
+}
+
+.valid-id-modal-content-body i {
+	float: right;
+}
+
+#valid-id-image-placeholder,
+#my-profile-valid-id-image-placeholder,
+#proof-of-payment-image-placeholder {
+	margin: 10px auto;
+	height: 90%;
+	width: 100%;
+	display: block;
+}
+
+#valid-id-image,
+#my-profile-valid-id-image,
+#proof-of-payment-image {
+	height: inherit;
+	width: inherit;
+  object-fit: cover;
+}
+
+#close-valid-id-modal,
+#close-proof-of-payment-modal
+ {
+	font-size: 30px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+#close-log-repayment-modal {
+	font-size: 30px;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+}
+
+#close-post-repayment-modal,
+#close-approve-loan-modal,
+#close-reject-loan-modal,
+#close-apply-for-loan-modal,
+#dashboard-close-apply-for-loan-modal,
+.close-modal {
+	float: right;
+	display: block;
+	font-size: 30px;
+}
+
+#close-post-repayment-modal h3 {
+	margin-top: 100px;
+}
+
+#close-valid-id-modal:hover,
+#close-valid-id-modal:focus,
+#close-proof-of-payment-modal:hover,
+#close-proof-of-payment-modal:focus,
+#close-log-repayment-modal:hover,
+#close-log-repayment-modal:focus,
+#close-post-repayment-modal:hover,
+#close-post-repayment-modal:focus,
+#close-approve-loan-modal:hover,
+#close-approve-loan-modal:focus,
+#close-reject-loan-modal:hover,
+#close-reject-loan-modal:focus,
+#close-apply-for-loan-modal:focus,
+#close-apply-for-loan-modal:hover,
+#dashboard-close-apply-for-loan-modal:focus,
+#dashboard-close-apply-for-loan-modal:hover{
+	cursor: pointer;
+}
+
+
+/* my loans page */
+#my-loan-list-records-per-page{
+	float: left;
+}
+
+#my-loan-list-apply-for-loan-btn {
+	float: right;
+}
+
+#all-loans-list-records-per-page,
+#all-loans-repayment-status-filter,
+#all-loans-approval-status-filter {
+	float: left;
+	margin-right: 30px;
+}
+
+
+/* loan details page */
+#loan-details-page-details-card {
+	padding: 20px;
+	width: calc(65.7% - 40px);
+	height: auto;
+	float: left;
+}
+
+#loan-details-page-repayment-stats,
+#loan-details-page-client-details {
+	padding: 20px;
+	width: calc(32.3% - 40px);
+	height: auto;
+	float: left;
+}
+
+#loan-details-page-repayment-log-table {
+	padding: 20px;
+	width: calc(100% - 40px);
+	height: auto;
+}
+
+#loan-page-overview-table-one {
+	float: left;
+	display: inline-block;
+	width: calc(40% - 40px);
+	margin-right: 20px;
+}
+
+#loan-page-overview-table-two {
+	display: inline-block;
+	float: right;
+	width: calc(60% - 40px);
+	margin-left: 20px;
+}
+
+#loan-page-overview-table-one th,
+#loan-page-overview-table-two th,
+#loan-details-page-client-details th {
+	text-align: left;
+	background-color: #F5F6FA;
+	padding: 10px;
+	color: #A3A6B4;
+	font-weight: lighter;
+	width: 40%;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#loan-page-overview-table-one td,
+#loan-page-overview-table-two td,
+#loan-details-page-client-details td{
+	text-align: right;
+	padding: 6px;
+	margin: 0px;
+	border-bottom: 1px solid #F5F6FA;
+}
+
+
+#loan-page-overview-table-one,
+#loan-page-overview-table-two,
+#loan-details-page-client-details table {
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	text-align: left;
+}
+
+#loan-details-page-vr {
+	width: calc(2% - 2px);
+	border: 1px solid #F0F0F7;
+	background-color: #F0F0F7;
+	display: inline-block;
+	float: left;
+	height: 255px;
+}
+
+.repayment-status {
+
+}
+
+.repayment-status-btn-pending {
+	background-color: #EDECFE;
+	color: #4D4F5C;
+}
+
+.repayment-status-btn-logged {
+	background-color: #A3A1FB;
+}
+
+.repayment-status-btn-posted {
+	background-color: #6F6DCE;
+}
+
+
+
+.log-repayment-modal label
+{
+	/*height: 10px;
+	width: auto;
+  	line-height: 12px;
+  	display: inline-block;
+  	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0px 0px 10px 0px;
+	padding: 10px;
+	font-size: 12px;
+	float: left;
+	clear: left;*/
+}
+
+.apply-for-loan-modal label,
+.dashboard-apply-for-loan-modal label,
+.log-repayment-modal label {
+	height: auto;
+	width: 100px;
+	line-height: 12px;
+	display: inline-block;
+	background-color: #43425D;
+	color: #ffffff;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px;
+	font-size: 12px;
+	margin: 10px 0px 10px calc((100% - 289px)/2);
+}
+
+#dashboard-apply-for-loan-modal-table,
+#apply-for-loan-modal-table {
+	width: 289px;
+	margin: 10px calc((100% - 289px)/2) 10px calc((100% - 289px)/2);
+	border-bottom: 1px solid #F5F6FA;
+}
+
+#dashboard-apply-for-loan-modal-table th,
+#apply-for-loan-modal-table th {
+	text-align: left;
+	font-size: 14px;
+	display: inline-block;
+}
+
+#dashboard-apply-for-loan-modal-table th:hover,
+#apply-for-loan-modal-table th:hover,
+#dashboard-apply-for-loan-modal-table th:focus,
+#apply-for-loan-modal-table th:focus {
+	cursor: default;
+}
+
+#dashboard-apply-for-loan-modal-table td:hover,
+#apply-for-loan-modal-table td:hover,
+#dashboard-apply-for-loan-modal-table td:focus,
+#apply-for-loan-modal-table td:focus {
+	cursor: default;
+}
+
+#dashboard-apply-for-loan-modal-table td,
+#apply-for-loan-modal-table td{
+	text-align: right;
+	vertical-align: middle;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+.log-repayment-modal input[type='text'],
+.log-repayment-modal input[type='file']
+ {
+	/*float: left;
+	display: inline-block;
+	width: auto;
+	height: 26px;
+	padding-left: 15px;
+	margin-bottom: 10px;
+	clear: right;*/
+}
+
+.post-repayment-modal input[type='text'],
+.approve-loan-modal input[type='text'],
+.reject-loan-modal input[type='text'] {
+	height: 26px;
+	padding-left: 15px;
+	width: 150px;
+	margin: 10px auto;
+	display: block;
+}
+
+.apply-for-loan-modal input[type='number'],
+.dashboard-apply-for-loan-modal input[type='number'],
+.log-repayment-modal input[type='number'],
+.log-repayment-modal input[type='file'] {
+	height: 26px;
+	padding-left: 15px;
+	width: 150px;
+	margin: 10px calc((100% - 289px)/2) 10px 0px;
+	display: inline-block;
+	float: right;
+}
+
+#log-repayment-modal-form,
+#post-repayment-modal-form,
+#approve-loan-modal-form,
+#reject-loan-modal-form,
+#apply-for-loan-modal-form,
+#dashboard-apply-for-loan-modal-form {
+	width: calc(100% - 60px);
+	height: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.log-repayment-modal-content h3,
+.post-repayment-modal-content h3,
+.approve-loan-modal-content h3,
+.reject-loan-modal-content h3,
+.apply-for-loan-modal-content h3,
+.dashboard-apply-for-loan-modal-content h3 {
+	margin-bottom: 10px;
+}
+
+#log-repayment-modal-form input[type = 'file'] {
+	padding-top: 10px;
+	width: 180px;
+	padding-left: 1px;
+	margin-right: calc((100% - 319px)/2)
+}
+
+#post-repayment-modal-form input[type='submit'],
+#approve-loan-modal-form input[type='submit'],
+#apply-for-loan-modal-form input[type='submit'],
+#dashboard-apply-for-loan-modal-form input[type='submit'], 
+#reject-loan-modal-form input[type='submit'],
+#log-repayment-modal-form input[type='submit'] {
+	display: block;
+	margin: 0 auto;
+	width: 80px;
+}
+
+.log-repayment-modal-content,
+.repayment-logged-modal-content,
+.post-repayment-modal-content,
+.repayment-posted-modal-content,
+.approve-loan-modal-content,
+.approved-loan-modal-content,
+.reject-loan-modal-content,
+.rejected-loan-modal-content,
+.apply-for-loan-modal-content,
+.dashboard-apply-for-loan-modal-content,
+.loan-applied-modal-content,
+.dashboard-loan-applied-modal-content{
+	width: calc(40% - 60px);
+}
+
+#repayment-loader,
+#apply-loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #43425D; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+  display: block;
+  margin: 15% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.repayment-logged-modal h3,
+.repayment-logged-modal p,
+.repayment-logged-modal i,
+.repayment-posted-modal h3,
+.repayment-posted-modal p,
+.repayment-posted-modal i,
+.post-repayment-modal h3,
+.approved-loan-modal h3,
+.approve-loan-modal h3,
+.approved-loan-modal p,
+.approved-loan-modal i,
+.rejected-loan-modal h3,
+.reject-loan-modal h3,
+.rejected-loan-modal p,
+.rejected-loan-modal i,
+.apply-for-loan-modal h3,
+.dashboard-apply-for-loan-modal h3,
+.loan-applied-modal h3,
+.loan-applied-modal p,
+.loan-applied-modal i,
+.dashboard-loan-applied-modal h3,
+.dashboard-loan-applied-modal p,
+.dashboard-loan-applied-modal i,
+.log-repayment-modal h3 {
+	text-align: center;
+}
+
+.repayment-logged-modal i,
+#posted-successfully,
+#approved-successfully,
+#rejected-successfully,
+#loan-applied-successfully,
+#dashboard-loan-applied-successfully {
+	font-size: 100px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	animation-name: modalContent;
+	animation-duration: 2s;
+}
+
+#loan-details-page-client-details th{
+	width: 55%;
+}
+
+.loan-status-btn-rejected:hover,
+.loan-status-btn-rejected:focus {
+	background-color: #CB4335;
+}
+
+.loan-status-btn-approved:hover,
+.loan-status-btn-approved:focus {
+	background-color: #229954;
+}
+
+.loan-status-btn-rejected,
+.loan-status-btn-approved {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.loan-status-btn-approved {
+	margin-right: 10px;
+}
+
+#loan-details-page-log-repayment-btn {
+  float: right;
+  margin-right: 40px;
+}
+
+.sign-out-dropdown-btn {
+	background-color: #ffffff;
+	color: #4D4F5C;
+	border: none;
+	width: auto;
+	height: auto;
+}
+
+.sign-out-dropdown-btn:hover,
+.sign-out-dropdown-btn:focus {
+	outline: 0;
+}
+
+.name-and-dropdown-icon {
+	float: right;
+	display: inline-block;
+}
+
+.sign-out-dropdown-content {
+	margin-top: -6px;
+	color: #4D4F5C;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+.menu-toggler {
+	font-size: 30px;
+	margin: 20px 15px;
+	color: #43425D;
+	display: none;
+
+}
+
+@media only screen and (max-device-width: 430px){
+  .sign-up-image {
+    width: 100%;
+    display: block;
+    height: 30%;
+  }
+
+  .signup-container {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 65% auto;
+    margin-bottom: 10%;
+    width: 50%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 3em;
+  }
+
+  .signup-content h3 {
+    font-size: 2em;
+  }
+
+  .sign-in-alt {
+    font-size: 1.6em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    height: 50px;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1.5em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1.3em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 35%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1.3em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 150px;
+  }
+
+  #sidebar {
+  	display: none;
+  }
+
+  #content {
+  	width: 100%;
+  }
+
+  .dashboard-repayment-countdown {
+  	position: relative;
+  }
+
+  .dashboard-loan-overview-card,
+  .dashboard-my-details-card,
+  .usage-hint {
+  	display: block;
+  	clear: both;
+  	width: calc(90% - 40px);
+  	margin-bottom: 47px;
+  	height: auto;
+  }
+
+  .dashboard-vr {
+  	display: none;
+  }
+
+  #dashboard-log-repayment-btn, 
+  #notification-update-profile, 
+  #notification-view-loan,
+  #dashboard-apply-button {
+  	position: absolute;
+  	bottom: 0px;
+  }
+
+  h3 {
+  	font-size: 1.5em;
+  }
+
+  body {
+  	font-size: 2em;
+  }
+}
+
+@media only screen and (orientation: portrait) and (min-device-width: 430px) {
+  .sign-up-image {
+    width: 100%;
+    display: block;
+    height: 25%;
+  }
+
+  .signup-container {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 40% auto;
+    margin-bottom: 5%;
+    width: 50%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 2.5em;
+  }
+
+  .signup-content h3 {
+    font-size: 1.5em;
+  }
+
+  .sign-in-alt {
+    font-size: 1.3em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    height: 50px;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1.3em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1.2em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 35%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1.2em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 150px;
+  }
+
+}
+
+@media only screen and (min-device-width: 680px) and (max-device-width: 1100px) {
+  .sign-up-image {
+    width: 40%;
+    height: 100%;
+  }
+
+  .signup-container {
+    width: 60%;
+  }
+
+  .signup-content {
+    display: block;
+    margin: 80px auto;
+    margin-bottom: 10px;
+    width: 60%;
+    height: auto;
+  }
+
+  .signup-content h1 {
+    font-size: 2em;
+  }
+
+  .signup-content h3 {
+    font-size: 1.2em;
+  }
+
+  .signup-content input {
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-top: 0px;
+    font-size: 1em;
+  }
+
+  .signup-content input[type = submit] {
+    font-size: 1em;
+  }
+
+  .signup-content label p {
+    display: block;
+    width: 45%;
+    height: auto;
+    clear: both;
+    text-align: left;
+    margin: 12px 0px 0px 0px;
+    padding: 8px 10px 8px 10px;
+    font-size: 1em;
+  }
+
+  .signup-content input[type = submit] {
+    margin: 10px auto;
+    width: 120px;
+  }
+
+}
+

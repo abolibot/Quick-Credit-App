@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			My Loan Details
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+
+					<div class = 'proof-of-payment-modal'>
+						<div class = 'proof-of-payment-content'>
+							<div class = 'proof-of-payment-content-body'>
+								<i class="far fa-window-close close-modal" id = 'close-proof-of-payment-modal'></i>
+								<div id = 'proof-of-payment-image-placeholder'>
+									<img src="../../resources/valid-id.png" id = 'proof-of-payment-image'>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+
+					
+
+					<div class = 'log-repayment-modal'>
+						<div class = 'log-repayment-modal-content'>
+							<h3 id = 'log-repayment-modal-h3'>Log Repayment Form</h3>
+							<div class = 'log-repayment-modal-content-body'>
+								<i class="far fa-window-close" id = 'close-log-repayment-modal'></i>
+								<form id = 'log-repayment-modal-form'>
+									<label for = 'log-repayment-amount' id = ''><p>amount</p></label>
+						  			<input type = 'number' name = 'amount' id = 'log-repayment-amount' required>
+						  			<label for = 'log-repayment-proof' id = ''><p>proof of repayment</p></label>
+						  			<input type = 'file' name = 'repayment-proof' id = 'log-repayment-proof' required>
+
+						  			<input type="submit" value = 'save' class="btn" id = 'repayment-submit-btn'>
+								</form>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class = 'repayment-loader-modal'>
+						<div class = 'repayment-loader-content'>
+							<div id = "repayment-loader"></div>
+						</div>
+					</div>
+
+
+					<div class = 'repayment-logged-modal'>
+						<div class = 'repayment-logged-modal-content'>
+							<div class = 'repayment-logged-modal-content-body'>
+								<i class="far fa-check-circle" id = 'logged-successfully'></i>
+								<h3>Your repayment has been logged successfully!</h3>
+								<p>Admin will confirm your repayment details and post the repayment for you. <a href = '../loan/loanDetails.html'>return to loan details page</a>
+							</div>
+						</div>
+					</div>
+
+					<div class = 'dashboard-repayment-countdown'>
+						<div class = 'dashboard-exclamation-placeholder'>
+							<i class="fas fa-exclamation-circle"></i>
+						</div>
+						<a id = 'loan-details-page-log-repayment-btn'><button class = 'btn'>log repayment</button></a>
+						<h3>Payment of &#8358;8,333 Due in 20 Days</h3>
+						<p>Please ensure you log repayments on time to maintain uninterrupted access to our service. Click the log repayment button to log a repayment transaction.</p>
+					</div>
+					<hr class = 'hr'>
+					<div id = 'loan-details-page-details-card'>
+						<h3>Loan Overview</h3>
+						<table id = 'loan-page-overview-table-one'>
+							<tr>
+								<th>Loan ID</th>
+								<td>123456</td>
+							</tr>
+							<tr>
+								<th>Amount</th>
+								<td>&#8358;50,000</td>
+							</tr>
+							<tr>
+								<th>Term</th>
+								<td>6 Months</td>
+							</tr>
+							<tr>
+								<th>Total Due</th>
+								<td>&#8358;41,667</td>
+							</tr>
+						</table>
+
+						<table id = 'loan-page-overview-table-two'>
+							<tr>
+								<th>Approval Status</th>
+								<td><button class="verification-status-btn-verified" disabled>approved</button></td>
+							</tr>
+							<tr>
+								<th>Repayment Status</th>
+								<td><button class="verification-status-btn-pending" disabled>current</button></td>
+							</tr>
+							<tr>
+								<th>Date of Application</th>
+								<td>30 March 2019</td>
+							</tr>
+						</table>
+					</div>
+
+					<hr id = 'loan-details-page-vr'>
+
+					<div id = 'loan-details-page-repayment-stats'>
+						<div id = 'repayment-chart'>
+							
+						</div>
+						<i class="fas fa-circle dashboard-loan-overview-legend-pending-i"></i>
+						<p class = 'dashboard-loan-overview-legend-pending'>Pending</p>
+						<i class="fas fa-circle dashboard-loan-overview-legend-logged-i"></i>
+						<p class = 'dashboard-loan-overview-legend-logged'>Logged</p>
+						<p class = 'dashboard-loan-overview-legend-posted'>Posted</p>
+						<i class="fas fa-circle dashboard-loan-overview-legend-posted-i"></i>
+						<br />
+						<p class = 'dashboard-loan-overview-legend-pending-amount'>&#8358;25,000</p>
+						<p class = 'dashboard-loan-overview-legend-logged-amount'>&#8358;16,667</p>
+						<p class = 'dashboard-loan-overview-legend-posted-amount'>&#8358;8,333</p>
+						<hr class = 'dashboard-loan-overview-hr2'>
+					</div>
+					<hr class = 'hr'>
+					<div id = 'loan-details-page-repayment-log-table'>
+						<h3>Repayment History</h3>
+						<table class = 'repayment-list-table'>
+							<tr>
+								<th>S/N</th>
+								<th>Repayment ID</th>
+								<th>Due Date</th>
+								<th>Amount Due</th>
+								<th>Status</th>
+								<th>Proof of Payment</th>
+
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-posted">posted</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn'>click to view</a></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-logged">logged</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn'>click to view</a></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-logged">logged</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn'>click to view</a></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hidden'>click to view</a></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hidden'>click to view</a></td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>123456</td>
+								<td>30 April 2019</td>
+								<td>&#8358;8,333</td>
+								<td><button class="repayment-status-btn repayment-status-btn-pending">pending</button></td>
+								<td><a href = '#' class = 'view-proof-of-payment-btn hidden'>click to view</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../../components/repaymentChart.js">
+		</script>
+		<script type = "module" src = "../../components/proofOfPaymentModal.js">
+		</script>
+		<script type = "module" src = "../../components/logRepaymentModal.js">
+		</script>
+		</script>
+		<script type = "module" src = "../../components/repaymentLoader.js">
+		</script>
+	</body>
+</html>

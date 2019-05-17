@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Client List
+		</title>
+        <link rel = "stylesheet" href = "../../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body id = 'container'>
+		<div id = 'layout-content'>
+			<div id = 'sidebar'>
+			</div>
+			<div id = content>
+				<div id = 'header'>
+				</div>
+				<h2 id = 'page-title'>
+				</h2>
+				<div id = 'main-content'>
+					<div class = 'client-list'>
+						<label for = 'client-list-filter' class = 'client-list-label-for-filter'><p>filter by status</p></label>
+						<select name="status-filter" size="1" id = 'client-list-filter'>
+						    <option value="allClients" selected>All Clients</option>
+						  	<option value="pending">Pending</option>
+						  	<option value="verified">Verified</option>
+						  	<option value="unverified">Unverified</option>
+					  	</select>
+
+					  	
+					  	<label for = 'client-list-records-per-page' class = "client-list-label-for-filter client-list-records-per-page-label"><p>records per page</p></label>
+					  	<select name="records-per-page" size="1" id = 'client-list-records-per-page'>
+						    <option value="ten" selected>10</option>
+						  	<option value="twenty-five">25</option>
+						  	<option value="fifty">50</option>
+						  	<option value="hundred">100</option>
+					  	</select>
+
+					  	<input type = 'text' name = 'search' id = 'client-list-search'>
+					  	<label for = 'client-list-search' class = 'client-list-label-for-filter client-list-search-label'><p>search list</p></label>
+
+					  	<table class = 'client-list-table'>
+							<tr>
+								<th>S/N</th>
+								<th>Name</th>
+								<th>Email Address</th>
+								<th>Phone Number</th>
+
+								<th>Verification Status</th>
+								<th></th>
+
+							</tr>
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-pending">Pending</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-unverified">Unverified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td><a href="./viewAProfile.html">Oluwatobi Alaran</a></td>
+								<td>alarantobiloba@gmail.com</td>
+								<td>09012345678</td>
+								<td><button class="verification-status-btn-verified">Verified</button></td>
+								<td>
+									<a href = './viewAProfile.html'>
+										<button class="btn">view profile</button>
+									</a>
+								</td>
+							</tr>
+							
+						</table>
+						<p>showing 1 to 10 of 135 entries</p>
+						<div class="pagination">
+						  <a href="#">Next</a>
+						  <a href="#">14</a>
+						  <a href="#">...</a>
+						  <a href="#">5</a>
+						  <a href="#">4</a>
+						  <a href="#">3</a>
+						  <a href="#">2</a>
+						  <a href="#" class="active">1</a>
+						  <a href="#">Previous</a>
+						</div>				
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+		<script type = "module" src = "../../layouts/header.js">
+		</script>
+		<script type = "module" src = "../../layouts/sidebar.js">
+		</script>
+		<script type = "module" src = "../../components/dashboardModal.js">
+		</script>
+		<script type = "text/javascript" src = "../../components/dropdown.js">
+		</script>
+	</body>
+</html>

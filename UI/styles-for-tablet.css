@@ -1,0 +1,6 @@
+@media only screen and (device-width: 360px){
+  .sign-up-image {
+    width: 40%;
+    display: none;
+  }
+}
