@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const authRouter = require('./api/routes/authRouter')();
 const userRouter = require('./api/routes/userRouter')();
+const loanRouter = require('./api/routes/loanRouter')();
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3000;
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/loans', loanRouter);
 
 app.listen(port, () => {
   console.log(`Running on port ${port}`);
