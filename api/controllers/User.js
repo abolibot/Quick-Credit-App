@@ -59,6 +59,16 @@ const User = {
 
     return res.status(200).json({ status: 200, data: user });
   },
+
+  verifyUser: (req, res) => {
+    const user = users.find(u => u.email === req.params.email);
+    if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist' });
+    if (!user.completedProfileAt) return res.status(403).json({ status: 403, error: 'user cannot be verified, complete profile first' });
+    if (user.status === 'verified') return res.status(403).json({ status: 403, error: 'user is already marked as verified' });
+    user.status = 'verified';
+    user.verifiedAt = date.toUTCString();
+    return res.status(200).json({ status: 200, data: user });
+  },
 };
 
 module.exports = User;
