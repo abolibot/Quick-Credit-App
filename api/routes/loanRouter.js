@@ -4,7 +4,8 @@ const Loan = require('../controllers/Loan');
 const routes = () => {
   const loanRouter = express.Router();
   loanRouter.route('/')
-    .post(Loan.createALoan);
+    .post(Loan.createALoan)
+    .get(Loan.getAllLoans);
 
   return loanRouter;
 };
