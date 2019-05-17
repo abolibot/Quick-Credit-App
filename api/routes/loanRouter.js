@@ -15,6 +15,8 @@ const routes = () => {
     .get(LoanRepayment.getALoanRepayments);
   loanRouter.route('/:loanId/log-repayment/:id')
     .patch(LoanRepayment.logRepayment);
+  loanRouter.route('/:loanId/post-repayment/:id')
+    .patch(LoanRepayment.postRepayment);
   return loanRouter;
 };
 
