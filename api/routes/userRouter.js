@@ -7,6 +7,8 @@ const routes = () => {
     .get(User.getAllUsers);
   userRouter.route('/:id')
     .get(User.getAUser);
+  userRouter.route('/:email/completeProfile')
+    .patch(User.completeProfile);
   return userRouter;
 };
 
