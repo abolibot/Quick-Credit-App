@@ -27,6 +27,12 @@ const User = {
     }
     return res.status(200).json({ status: 200, data: users });
   },
+
+  getAUser: (req, res) => {
+    const user = users.find(u => u.id === parseInt(req.params.id, 10));
+    if (!user) return res.status(404).json({ status: 404, error: 'user with given id not found' });
+    return res.status(200).json({ status: 200, data: user });
+  },
 };
 
 module.exports = User;

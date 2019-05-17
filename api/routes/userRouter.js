@@ -5,6 +5,8 @@ const routes = () => {
   const userRouter = express.Router();
   userRouter.route('/')
     .get(User.getAllUsers);
+  userRouter.route('/:id')
+    .get(User.getAUser);
   return userRouter;
 };
 
