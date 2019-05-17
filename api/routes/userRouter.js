@@ -11,6 +11,8 @@ const routes = () => {
     .patch(User.completeProfile);
   userRouter.route('/:email/verify')
     .patch(User.verifyUser);
+  userRouter.route('/:email/unverify')
+    .patch(User.unVerifyUser);
   return userRouter;
 };
 
