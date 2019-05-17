@@ -16,6 +16,17 @@ const User = {
     if ((!user) || (user.password !== req.body.password)) return res.status(401).json({ status: 401, error: 'invalid login details' });
     return res.status(200).json({ status: 200, data: user });
   },
+
+  getAllUsers: (req, res) => {
+    const query = {};
+    if (req.query.status) {
+      query.status = req.query.status;
+      const pendingVerificationUsers = users.filter(u => u.status === query.status);
+      if (pendingVerificationUsers.length === 0) return res.status(404).json({ status: 404, error: `no clients with ${query.status} status` });
+      return res.status(200).json({ status: 200, data: pendingVerificationUsers });
+    }
+    return res.status(200).json({ status: 200, data: users });
+  },
 };
 
 module.exports = User;
