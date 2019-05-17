@@ -13,6 +13,8 @@ const routes = () => {
     .patch(User.verifyUser);
   userRouter.route('/:email/unverify')
     .patch(User.unVerifyUser);
+  userRouter.route('/:email/updateProfile')
+    .patch(User.updateProfile);
   return userRouter;
 };
 
