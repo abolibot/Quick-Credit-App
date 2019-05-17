@@ -1,8 +1,11 @@
+const moment = require('moment');
 const LoanModel = require('../models/Loan');
 const UserModel = require('../models/User');
+const loanRepaymentModel = require('../models/LoanRepayment');
 
 const { loans } = LoanModel;
 const { users } = UserModel;
+const date = new Date();
 
 const getAUserApprovedLoans = (userLoans) => {
   const userApprovedLoans = userLoans.filter(loan => loan.status === 'approved');
@@ -52,6 +55,27 @@ const Loan = {
   getALoan: (req, res) => {
     const loan = loans.find(l => l.loanId === parseInt(req.params.loanId, 10));
     if (!loan) return res.status(404).json({ status: 404, error: 'loan with given id not found' });
+    return res.status(200).json({ status: 200, data: loan });
+  },
+
+  approveOrRejectLoan: (req, res) => {
+    const loan = loans.find(l => l.loanId === parseInt(req.params.loanId, 10));
+    if (!loan) return res.status(404).json({ status: 404, error: 'loan with given id doesn\'t exist' });
+    if (req.body.status === 'approved') {
+      if (loan.status === 'approved') return res.status(403).json({ status: 403, error: 'loan is already approved' });
+      loan.status = 'approved';
+      loan.approvedAt = new Date();
+
+      for (let i = 1; i <= loan.tenor; i += 1) {
+        const loanRepayment = loanRepaymentModel.createLoanRepayment(loan);
+        loanRepayment.dueDate = moment().add(i * 30, 'days').format('Do MMM YY');
+      }
+    }
+    if (req.body.status === 'rejected') {
+      if (loan.status === 'rejected') return res.status(403).json({ status: 403, error: 'loan is already rejected' });
+      loan.status = 'rejected';
+      loan.rejectedAt = date.toUTCString();
+    }
     return res.status(200).json({ status: 200, data: loan });
   },
 };

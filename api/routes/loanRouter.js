@@ -8,6 +8,8 @@ const routes = () => {
     .get(Loan.getAllLoans);
   loanRouter.route('/:loanId')
     .get(Loan.getALoan);
+  loanRouter.route('/:loanId')
+    .patch(Loan.approveOrRejectLoan);
 
   return loanRouter;
 };
