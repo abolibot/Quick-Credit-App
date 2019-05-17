@@ -13,6 +13,8 @@ const routes = () => {
     .patch(Loan.approveOrRejectLoan);
   loanRouter.route('/:loanId/repayments')
     .get(LoanRepayment.getALoanRepayments);
+  loanRouter.route('/:loanId/log-repayment/:id')
+    .patch(LoanRepayment.logRepayment);
   return loanRouter;
 };
 
