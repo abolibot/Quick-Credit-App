@@ -48,6 +48,12 @@ const Loan = {
 
     return res.status(200).json({ status: 200, data: loans });
   },
+
+  getALoan: (req, res) => {
+    const loan = loans.find(l => l.loanId === parseInt(req.params.loanId, 10));
+    if (!loan) return res.status(404).json({ status: 404, error: 'loan with given id not found' });
+    return res.status(200).json({ status: 200, data: loan });
+  },
 };
 
 
