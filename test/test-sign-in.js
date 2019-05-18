@@ -23,7 +23,7 @@ describe('signin', () => {
         res.body.data.email.should.equal('alarantobiloba@gmail.com');
         res.body.data.password.should.equal('password1');
         done();
-      });
+      }); 
   });
 
   it('should return error if email does not exists on /api/v1/auth POST', (done) => {
