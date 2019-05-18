@@ -1,7 +1,9 @@
+const bcrypt = require('bcryptjs');
 const UserModel = require('../models/User');
 
 const date = new Date();
 const { users } = UserModel;
+const { passwords } = UserModel;
 
 const User = {
   signup: (req, res) => {
@@ -13,8 +15,13 @@ const User = {
 
   signin: (req, res) => {
     const user = users.find(u => u.email === req.body.email);
-    if ((!user) || (user.password !== req.body.password)) return res.status(401).json({ status: 401, error: 'invalid login details' });
-    return res.status(200).json({ status: 200, data: user });
+    if (!user) return res.status(401).json({ status: 401, error: 'invalid login details' });
+    return bcrypt.compare(req.body.password, passwords.find(password => password.userId === user.id).hashedPassword, (err, isMatch) => {
+      if (isMatch) {
+        return res.status(200).json({ status: 200, data: user });
+      }
+      return res.status(401).json({ status: 401, error: 'invalid login details' });
+    });
   },
 
   getAllUsers: (req, res) => {
