@@ -1,7 +1,6 @@
 const LoanModel = require('../models/Loan');
 
 const { loans } = LoanModel;
-const date = new Date();
 
 class LoanRepayment {
   constructor() {
@@ -11,7 +10,7 @@ class LoanRepayment {
   createLoanRepayment(data) {
     const newLoanRepayment = {
       id: this.loanRepayments.length + 1,
-      createdOn: date.toUTCString(),
+      createdOn: new Date().toLocaleString(),
       loanId: data.loanId,
       loanAmount: data.amount,
       monthlyInstallment: data.paymentInstallment,
