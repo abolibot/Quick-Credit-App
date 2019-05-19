@@ -1,11 +1,18 @@
-const randtoken = require('rand-token');
 const bcrypt = require('bcryptjs');
 
 class User {
   constructor() {
-    this.users = [];
+    this.users = [
+      {
+        id: 1,
+        firstName: 'Super',
+        lastName: 'Admin',
+        email: 'admin@quickcredit.com',
+        isAdmin: true,
+        password: this.createPassword(1, 'pass4321'),
+      },
+    ];
     this.passwords = [];
-    this.date = new Date();
   }
 
   createUser(data) {
@@ -14,7 +21,6 @@ class User {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      token: randtoken.generate(16),
       sex: null,
       dob: null,
       validIdUrl: null,
@@ -33,7 +39,7 @@ class User {
       accountNumber: null,
       isAdmin: false,
       status: 'pending verification',
-      createdOn: this.date.toUTCString(),
+      createdOn: new Date().toLocaleString(),
     };
     this.createPassword(newUser.id, data.password);
     this.users.push(newUser);

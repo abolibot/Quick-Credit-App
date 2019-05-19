@@ -4,17 +4,17 @@ const User = require('../controllers/User');
 const routes = () => {
   const userRouter = express.Router();
   userRouter.route('/')
-    .get(User.getAllUsers);
+    .get(User.verifyToken, User.getAllUsers);
   userRouter.route('/:id')
-    .get(User.getAUser);
+    .get(User.verifyToken, User.getAUser);
   userRouter.route('/:email/completeProfile')
-    .patch(User.completeProfile);
+    .patch(User.verifyToken, User.completeProfile);
   userRouter.route('/:email/verify')
-    .patch(User.verifyUser);
+    .patch(User.verifyToken, User.verifyUser);
   userRouter.route('/:email/unverify')
-    .patch(User.unVerifyUser);
+    .patch(User.verifyToken, User.unVerifyUser);
   userRouter.route('/:email/updateProfile')
-    .patch(User.updateProfile);
+    .patch(User.verifyToken, User.updateProfile);
   return userRouter;
 };
 

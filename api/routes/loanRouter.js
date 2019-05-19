@@ -1,22 +1,23 @@
 const express = require('express');
 const Loan = require('../controllers/Loan');
 const LoanRepayment = require('../controllers/LoanRepayment');
+const User = require('../controllers/User');
 
 const routes = () => {
   const loanRouter = express.Router();
   loanRouter.route('/')
-    .post(Loan.createALoan)
-    .get(Loan.getAllLoans);
+    .post(User.verifyToken, Loan.createALoan)
+    .get(User.verifyToken, Loan.getAllLoans);
   loanRouter.route('/:loanId')
-    .get(Loan.getALoan);
+    .get(User.verifyToken, Loan.getALoan);
   loanRouter.route('/:loanId')
-    .patch(Loan.approveOrRejectLoan);
+    .patch(User.verifyToken, Loan.approveOrRejectLoan);
   loanRouter.route('/:loanId/repayments')
-    .get(LoanRepayment.getALoanRepayments);
+    .get(User.verifyToken, LoanRepayment.getALoanRepayments);
   loanRouter.route('/:loanId/log-repayment/:id')
-    .patch(LoanRepayment.logRepayment);
+    .patch(User.verifyToken, LoanRepayment.logRepayment);
   loanRouter.route('/:loanId/post-repayment/:id')
-    .patch(LoanRepayment.postRepayment);
+    .patch(User.verifyToken, LoanRepayment.postRepayment);
   return loanRouter;
 };
 

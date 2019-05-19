@@ -1,7 +1,6 @@
 class Loan {
   constructor() {
     this.loans = [];
-    this.date = new Date();
   }
 
   createLoan(data, user) {
@@ -14,7 +13,7 @@ class Loan {
         firstName: user.firstName,
         lastName: user.lastName,
       },
-      createdOn: this.date.toUTCString(),
+      createdOn: new Date().toLocaleString(),
       status: 'pending',
       repaid: false,
       tenor: parseInt(data.tenor, 10),
