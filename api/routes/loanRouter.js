@@ -2,22 +2,23 @@ const express = require('express');
 const Loan = require('../controllers/Loan');
 const LoanRepayment = require('../controllers/LoanRepayment');
 const User = require('../controllers/User');
+const { validateBody, validateIdParam, validateQuery, schemas } = require('../validator');
 
 const routes = () => {
   const loanRouter = express.Router();
   loanRouter.route('/')
-    .post(User.verifyToken, Loan.createALoan)
-    .get(User.verifyToken, Loan.getAllLoans);
+    .post(validateBody(schemas.createLoanSchema), User.verifyToken, Loan.createALoan)
+    .get(validateQuery(schemas.loanByCategorySchema), User.verifyToken, Loan.getAllLoans);
   loanRouter.route('/:loanId')
-    .get(User.verifyToken, Loan.getALoan);
+    .get(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, Loan.getALoan);
   loanRouter.route('/:loanId')
-    .patch(User.verifyToken, Loan.approveOrRejectLoan);
+    .patch(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, Loan.approveOrRejectLoan);
   loanRouter.route('/:loanId/repayments')
-    .get(User.verifyToken, LoanRepayment.getALoanRepayments);
+    .get(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, LoanRepayment.getALoanRepayments);
   loanRouter.route('/:loanId/log-repayment/:id')
-    .patch(User.verifyToken, LoanRepayment.logRepayment);
+    .patch(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, LoanRepayment.logRepayment);
   loanRouter.route('/:loanId/post-repayment/:id')
-    .patch(User.verifyToken, LoanRepayment.postRepayment);
+    .patch(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, LoanRepayment.postRepayment);
   return loanRouter;
 };
 
