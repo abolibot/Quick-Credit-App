@@ -64,7 +64,7 @@ module.exports = {
       amount: Joi.number().integer().min(5000).max(100000).required(),
     }),
     loanByCategorySchema: Joi.object().keys({
-      status: Joi.string().equal('approved', 'rejected').max(20),
+      status: Joi.string().equal('approved', 'rejected'),
       repaid: Joi.boolean(),
       email: Joi.string().email(),
     }),
@@ -75,19 +75,46 @@ module.exports = {
       id: Joi.number().integer().min(1),
     }),
     userByStatusSchema: Joi.object().keys({
-      status: Joi.string().equal('pending').max(20),
+      status: Joi.string().equal('pending'),
     }),
     completeProfileSchema: Joi.object().keys({
-      
-    }),
+      sex: Joi.string().equal('male', 'female').required(),
+      dob: Joi.date().min('1919-12-31').max('2000-12-31').iso().required(),
+      validIdUrl: Joi.string().max(100).required(),
+      displayPictureUrl: Joi.string().required(),
+      phoneNumber: Joi.string().min(11).max(11).regex(/^[0]{1}[7,8,9]{1}[0,1]{1}[0-9]{8}$/).required(),
+      homeAddress: Joi.string().max(100).required(),
+      homeCity: Joi.string().max(20).required(),
+      homeState: Joi.string().equal('abia', 'adamawa', 'akwaIbom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'bornu', 'crossRiver', 'delta', 'ebonyi', 'enugu', 'edo', 'ekiti', 'gombe', 'imo', 'jigawa', 'kaduna', 'katsina', 'kano', 'kebbi', 'kogi', 'kwara', 'lagos', 'nasarawa', 'niger', 'ogun', 'ondo', 'osun', 'oyo', 'plateau', 'rivers', 'sokoto', 'taraba', 'yobe', 'zamfara', 'fct').required(),
+      employmentStatus: Joi.string().equal('employed', 'unemployed').required(),
+      employerName: Joi.string().max(50),
+      workAddress: Joi.string().max(100).required(),
+      workCity: Joi.string().max(20).required(),
+      workState: Joi.string().equal('abia', 'adamawa', 'akwaIbom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'bornu', 'crossRiver', 'delta', 'ebonyi', 'enugu', 'edo', 'ekiti', 'gombe', 'imo', 'jigawa', 'kaduna', 'katsina', 'kano', 'kebbi', 'kogi', 'kwara', 'lagos', 'nasarawa', 'niger', 'ogun', 'ondo', 'osun', 'oyo', 'plateau', 'rivers', 'sokoto', 'taraba', 'yobe', 'zamfara', 'fct').required(),
+      bvn: Joi.string().min(11).max(11).required(),
+      bank: Joi.string().equal('access', 'citi', 'eco', 'fidelity', 'fcmb', 'first', 'gtb', 'heritage', 'jaiz', 'keystone', 'polaris', 'providus', 'stanbic', 'standardChartered', 'sterling', 'SunTrust', 'union', 'uba', 'unity', 'wema', 'zenith').required(),
+      accountNumber: Joi.string().min(10).max(10).required(),
+    }).and('employerName', 'workAddress', 'workState'),
     updateProfileSchema: Joi.object().keys({
-      
-    }),
+      sex: Joi.string().equal('male', 'female'),
+      dob: Joi.date().min('1919-12-31').max('2000-12-31').iso(),
+      validIdUrl: Joi.string().max(100),
+      displayPictureUrl: Joi.string(),
+      phoneNumber: Joi.string().min(11).max(11).regex(/^[0]{1}[7,8,9]{1}[0,1]{1}[0-9]{8}$/),
+      homeAddress: Joi.string().max(100),
+      homeCity: Joi.string().max(20),
+      homeState: Joi.string().equal('abia', 'adamawa', 'akwaIbom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'bornu', 'crossRiver', 'delta', 'ebonyi', 'enugu', 'edo', 'ekiti', 'gombe', 'imo', 'jigawa', 'kaduna', 'katsina', 'kano', 'kebbi', 'kogi', 'kwara', 'lagos', 'nasarawa', 'niger', 'ogun', 'ondo', 'osun', 'oyo', 'plateau', 'rivers', 'sokoto', 'taraba', 'yobe', 'zamfara', 'fct'),
+      employmentStatus: Joi.string().equal('employed', 'unemployed'),
+      employerName: Joi.string().max(50),
+      workAddress: Joi.string().max(100),
+      workCity: Joi.string().max(20),
+      workState: Joi.string().equal('abia', 'adamawa', 'akwaIbom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'bornu', 'crossRiver', 'delta', 'ebonyi', 'enugu', 'edo', 'ekiti', 'gombe', 'imo', 'jigawa', 'kaduna', 'katsina', 'kano', 'kebbi', 'kogi', 'kwara', 'lagos', 'nasarawa', 'niger', 'ogun', 'ondo', 'osun', 'oyo', 'plateau', 'rivers', 'sokoto', 'taraba', 'yobe', 'zamfara', 'fct'),
+      bvn: Joi.string().min(11).max(11),
+      bank: Joi.string().equal('access', 'citi', 'eco', 'fidelity', 'fcmb', 'first', 'gtb', 'heritage', 'jaiz', 'keystone', 'polaris', 'providus', 'stanbic', 'standardChartered', 'sterling', 'SunTrust', 'union', 'uba', 'unity', 'wema', 'zenith'),
+      accountNumber: Joi.string().min(10).max(10),
+    }).and('employerName', 'workAddress', 'workState'),
     approveLoanSchema: Joi.object().keys({
-      
-    }),
-    RejectLoanSchema: Joi.object().keys({
-      
+      status: Joi.string().equal('approved', 'rejected'),
     }),
   },
 };

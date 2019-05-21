@@ -23,9 +23,9 @@
 						<fieldset class="complete-profile-personal-details">
 						  <legend><h3>Personal Details:</h3></legend>
 						  <label for = 'complete-profile-firstname' id = 'label-float-left'><p>first name</p></label>
-						  <input type = 'text' name = 'firstname' id = 'complete-profile-firstname' required value="Oluwatobi">
+						  <input type = 'text' name = 'firstname' id = 'complete-profile-firstname' required value="Oluwatobi" readonly>
 
-						  <input type = 'text' name = 'lastname' id = 'complete-profile-lastname' required value="Alaran">
+						  <input type = 'text' name = 'lastname' id = 'complete-profile-lastname' required value="Alaran" readonly>
 						  <label for = 'complete-profile-lastname' id = 'label-float-right'><p>last name</p></label>
 
 						  <label for = 'complete-profile-sex' id = 'label-float-left'><p>sex</p></label>
@@ -48,10 +48,10 @@
 						</fieldset>
 						<fieldset>
 							<legend><h3>Contact Details:</h3></legend>
-							<label for = 'complete-profile-phone' id = 'label-float-left'><p>phone number</p></label>
-							<input type = 'tel' name = 'phone' id = 'complete-profile-phone' required>
+							<label for = 'complete-profile-phone' id = 'label-float-left' ><p>phone number</p></label>
+							<input type = 'tel' name = 'phone' id = 'complete-profile-phone' placeholder = 'e.g. 08012345678' required pattern = '[0]{1}[7,8,9]{1}[0,1]{1}[0-9]{8}'>
 
-							<input type = 'email' name = 'email' id = 'complete-profile-email' required value="alarantobiloba@gmail.com">
+							<input type = 'email' name = 'email' id = 'complete-profile-email' required value="alarantobiloba@gmail.com" readonly>
 							<label for = 'complete-profile-email' id = 'label-float-right'><p>email address</p></label>
 							
 							<label for = 'complete-profile-home-address' id = 'label-float-left'><p>home address</p></label>

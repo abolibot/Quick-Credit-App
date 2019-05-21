@@ -2,7 +2,12 @@ const express = require('express');
 const Loan = require('../controllers/Loan');
 const LoanRepayment = require('../controllers/LoanRepayment');
 const User = require('../controllers/User');
-const { validateBody, validateIdParam, validateQuery, schemas } = require('../validator');
+const {
+  validateBody,
+  validateIdParam,
+  validateQuery,
+  schemas,
+} = require('../validator');
 
 const routes = () => {
   const loanRouter = express.Router();
@@ -12,7 +17,7 @@ const routes = () => {
   loanRouter.route('/:loanId')
     .get(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, Loan.getALoan);
   loanRouter.route('/:loanId')
-    .patch(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, Loan.approveOrRejectLoan);
+    .patch(validateIdParam(schemas.loanIdParamSchema), validateBody(schemas.approveLoanSchema), User.verifyToken, Loan.approveOrRejectLoan);
   loanRouter.route('/:loanId/repayments')
     .get(validateIdParam(schemas.loanIdParamSchema), User.verifyToken, LoanRepayment.getALoanRepayments);
   loanRouter.route('/:loanId/log-repayment/:id')
