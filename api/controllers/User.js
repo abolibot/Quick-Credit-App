@@ -2,7 +2,10 @@ require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/User');
+const usersDb = require('../usingDB/controllers/QuickCredit');
 
+const { createUser } = usersDb;
+const { getAll } = usersDb;
 const { users } = UserModel;
 const { passwords } = UserModel;
 
@@ -10,10 +13,12 @@ const User = {
   signup: (req, res) => {
     const doesEmailExist = users.find(u => u.email === req.value.body.email);
     if (doesEmailExist) return res.status(409).json({ status: 409, error: 'email address already exists, kindly enter a different email address' });
-    const user = UserModel.createUser(req.value.body);
-    return jwt.sign({ id: user.id, email: user.email, isAdmin: user.isAdmin }, process.env.JWT_SECRET_KEY, { expiresIn: '1200s' }, (err, token) => {
-      user.token = token;
-      return res.status(201).json({ status: 201, data: user });
+    return jwt.sign({ email: req.value.body.email, isAdmin: false }, process.env.JWT_SECRET_KEY, { expiresIn: '1200s' }, (err, tkn) => {
+      const userToken = tkn;
+      bcrypt.hash(req.value.body.password, 10, (err, hash) => {
+        const hashedPassword = hash;
+        return createUser(req, res, hashedPassword, userToken);
+      });
     });
   },
 

@@ -1,6 +1,11 @@
 const express = require('express');
 const User = require('../controllers/User');
-const { validateIdParam, validateQuery, schemas } = require('../validator');
+const {
+  validateBody,
+  validateIdParam,
+  validateQuery,
+  schemas,
+} = require('../validator');
 
 const routes = () => {
   const userRouter = express.Router();
@@ -9,13 +14,13 @@ const routes = () => {
   userRouter.route('/:id')
     .get(validateIdParam(schemas.userIdParamSchema), User.verifyToken, User.getAUser);
   userRouter.route('/:email/completeProfile')
-    .patch(validateIdParam(schemas.userEmailParamSchema), User.verifyToken, User.completeProfile);
+    .patch(validateIdParam(schemas.userEmailParamSchema), validateBody(schemas.completeProfileSchema), User.verifyToken, User.completeProfile);
   userRouter.route('/:email/verify')
     .patch(validateIdParam(schemas.userEmailParamSchema), User.verifyToken, User.verifyUser);
   userRouter.route('/:email/unverify')
     .patch(validateIdParam(schemas.userEmailParamSchema), User.verifyToken, User.unVerifyUser);
   userRouter.route('/:email/updateProfile')
-    .patch(validateIdParam(schemas.userEmailParamSchema), User.verifyToken, User.updateProfile);
+    .patch(validateIdParam(schemas.userEmailParamSchema), validateBody(schemas.updateProfileSchema), User.verifyToken, User.updateProfile);
   return userRouter;
 };
 
