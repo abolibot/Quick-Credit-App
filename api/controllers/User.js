@@ -4,16 +4,14 @@ const jwt = require('jsonwebtoken');
 const UserModel = require('../models/User');
 const usersDb = require('../usingDB/controllers/QuickCredit');
 
-const { createUser } = usersDb;
-const { getAll } = usersDb;
+const { createUser, signIn } = usersDb;
 const { users } = UserModel;
-const { passwords } = UserModel;
 
 const User = {
   signup: (req, res) => {
     const doesEmailExist = users.find(u => u.email === req.value.body.email);
     if (doesEmailExist) return res.status(409).json({ status: 409, error: 'email address already exists, kindly enter a different email address' });
-    return jwt.sign({ email: req.value.body.email, isAdmin: false }, process.env.JWT_SECRET_KEY, { expiresIn: '1200s' }, (err, tkn) => {
+    return jwt.sign({ email: req.value.body.email, is_admin: false }, process.env.JWT_SECRET_KEY, { expiresIn: '86400s' }, (err, tkn) => {
       const userToken = tkn;
       bcrypt.hash(req.value.body.password, 10, (err, hash) => {
         const hashedPassword = hash;
@@ -22,22 +20,7 @@ const User = {
     });
   },
 
-  signin: (req, res) => {
-    const user = users.find(u => u.email === req.value.body.email);
-    if (!user) return res.status(400).json({ status: 400, error: 'invalid login details' });
-    return bcrypt.compare(req.value.body.password, passwords.find(password => password.userId === user.id).hashedPassword, (err, isMatch) => {
-      if (isMatch) {
-        return jwt.sign({ id: user.id, email: user.email, isAdmin: user.isAdmin }, process.env.JWT_SECRET_KEY, { expiresIn: '1200s' }, (error, token) => {
-          if (token) {
-            user.token = token;
-            return res.status(200).json({ status: 200, data: user });
-          }
-          return res.status(401).json({ status: 401, data: 'invalid token' });
-        });
-      }
-      return res.status(400).json({ status: 400, error: 'invalid login details' });
-    });
-  },
+  signin: (req, res) => signIn(req, res),
 
   getAllUsers: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
