@@ -1,18 +1,13 @@
 import '@babel/polyfill';
 
+require('dotenv').config();
 const moment = require('moment');
-// const bcrypt = require('bcryptjs');
-// const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const db = require('../db');
 
 const QuickCredit = {
-  /**
-   * Create A Reflection
-   * @param {object} req 
-   * @param {object} res
-   * @returns {object} reflection object 
-   */
   async createUser(req, res, hash, token) {
     const text = `INSERT INTO
       users(first_name, last_name, email, password, token)
@@ -30,15 +25,25 @@ const QuickCredit = {
       const { rows } = await db.query(text, values);
       return res.status(201).json({ status: 201, data: rows[0] });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).json({ status: 400, data: error });
     }
   },
-  /**
-   * Get All Reflection
-   * @param {object} req 
-   * @param {object} res 
-   * @returns {object} reflections array
-   */
+
+  async updateSignupToken(req, res, token) {
+    const updateOneQuery = `UPDATE users
+      SET token=$2
+      WHERE email=$1 returning *`;
+    const values = [
+      req.value.body.email,
+      token,
+    ];
+    try {
+      const response = await db.query(updateOneQuery, values);
+      return res.status(200).json({ status: 200, data: response.rows[0] });
+    } catch (err) {
+      return res.status(400).json({ status: 400, data: err });
+    }
+  },
   async getAll(req, res) {
     const findAllQuery = 'SELECT * FROM users';
     try {
@@ -48,22 +53,27 @@ const QuickCredit = {
       return res.status(400).send(error);
     }
   },
-  /**
-   * Get A Reflection
-   * @param {object} req 
-   * @param {object} res
-   * @returns {object} reflection object
-   */
-  async getOne(req, res) {
-    const text = 'SELECT * FROM reflections WHERE id = $1';
+  async signIn(req, res) {
+    const text = 'SELECT * FROM users WHERE email = $1';
     try {
-      const { rows } = await db.query(text, [req.params.id]);
-      if (!rows[0]) {
-        return res.status(404).send({'message': 'reflection not found'});
+      const { rows } = await db.query(text, [req.value.body.email]);
+      if (rows[0]) {
+        const user = rows[0];
+        return bcrypt.compare(req.value.body.password, user.password, (err, isMatch) => {
+          if (isMatch) {
+            return jwt.sign({ id: user.id, email: user.email, is_admin: user.is_admin }, process.env.JWT_SECRET_KEY, { expiresIn: '86400s' }, (error, token) => {
+              if (token) {
+                return QuickCredit.updateSignupToken(req, res, token);
+              }
+              return res.status(400).json({ status: 400, data: error });
+            });
+          }
+          return res.status(400).json({ status: 400, error: 'invalid login details' });
+        });
       }
-      return res.status(200).send(rows[0]);
-    } catch(error) {
-      return res.status(400).send(error)
+      return res.status(400).json({ status: 400, error: 'invalid login details' });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
     }
   },
   /**
@@ -74,7 +84,7 @@ const QuickCredit = {
    */
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
-    const updateOneQuery =`UPDATE reflections
+    const updateOneQuery = `UPDATE reflections
       SET success=$1,low_point=$2,take_away=$3,modified_date=$4
       WHERE id=$5 returning *`;
     try {
