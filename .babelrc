@@ -1,0 +1,5 @@
+{
+  "presets": ["@babel/preset-env"],
+  "ignore" : ["test"],
+  "plugins": ["@babel/plugin-transform-runtime"]
+}
