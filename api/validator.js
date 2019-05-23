@@ -75,7 +75,7 @@ module.exports = {
       id: Joi.number().integer().min(1),
     }),
     userByStatusSchema: Joi.object().keys({
-      status: Joi.string().equal('pending'),
+      status: Joi.string().equal('pending', 'verified', 'unverified', 'null'),
     }),
     completeProfileSchema: Joi.object().keys({
       sex: Joi.string().equal('male', 'female').required(),
