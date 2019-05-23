@@ -25,7 +25,7 @@ if ((user.isAdmin === true) && (pageTitle === 'Dashboard')) {
       </a>
       <a href = '../pages/profile/viewAllProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>clients
         </li>
       </a>
     </ul>
