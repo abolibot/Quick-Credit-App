@@ -10,8 +10,8 @@ const db = require('../db');
 const QuickCredit = {
   async createUser(req, res, hash, token) {
     const text = `INSERT INTO
-      users(first_name, last_name, email, password, token)
-      VALUES($1, $2, $3, $4, $5)
+      users(first_name, last_name, email, password, token, is_admin)
+      VALUES($1, $2, $3, $4, $5, $6)
       returning *`;
     const values = [
       req.value.body.firstName,
@@ -19,6 +19,7 @@ const QuickCredit = {
       req.value.body.email,
       hash,
       token,
+      false,
     ];
 
     try {
@@ -45,14 +46,32 @@ const QuickCredit = {
     }
   },
   async getAll(req, res) {
-    const findAllQuery = 'SELECT * FROM users';
+    const findAllQuery = 'SELECT * FROM users WHERE is_admin = $1';
     try {
-      const { rows, rowCount } = await db.query(findAllQuery);
-      return res.status(200).send({ rows, rowCount });
+      const { rows, rowCount } = await db.query(findAllQuery, [false]);
+      return res.status(200).json({ status: 200, count: rowCount, data: rows });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).json({ status: 400, data: error });
     }
   },
+
+  async getClientsByStatus(req, res) {
+    const findAllQuery = 'SELECT * FROM users WHERE status = $1 AND is_admin = $2';
+    const values = [
+      String(req.value.query.status),
+      false,
+    ];
+    try {
+      const { rows, rowCount } = await db.query(findAllQuery, values);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: `no clients with ${req.value.query.status} status` });
+      }
+      return res.status(200).json({ status: 200, count: rowCount, data: rows });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
   async signIn(req, res) {
     const text = 'SELECT * FROM users WHERE email = $1';
     try {
