@@ -115,6 +115,50 @@ const QuickCredit = {
       return res.status(400).json({ status: 400, data: error });
     }
   },
+
+  async completeProfileDB(req, res, authData) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1 AND is_admin = $2';
+    try {
+      const { rows } = await db.query(findAllQuery, [req.value.params.email, false]);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'client with given email not found' });
+      }
+      if ((authData.is_admin === false) || (authData.email === req.value.params.email)) {
+        if (rows[0].completedProfileAt) return res.status(401).json({ status: 401, error: 'client already completed profile, use the update feature to update profile' });
+        const updateOneQuery = `UPDATE users 
+        SET sex=$1,date_of_birth=$2,valid_id_url=$3,display_picture_url=$4,phone_number=$5,home_address=$6,home_city=$7,home_state=$8,employment_status=$9,employer_name=$10,work_address=$11,work_city=$12,work_state=$13,bvn=$14,bank=$15,account_number=$16,status=$17,completed_profile_at=$18
+        WHERE email=$19 returning *`;
+        const values = [
+          req.value.body.sex,
+          req.value.body.dob,
+          req.value.body.validIdUrl,
+          req.value.body.displayPictureUrl,
+          req.value.body.phoneNumber,
+          req.value.body.homeAddress,
+          req.value.body.homeCity,
+          req.value.body.homeState,
+          req.value.body.employmentStatus,
+          req.value.body.employerName,
+          req.value.body.workAddress,
+          req.value.body.workCity,
+          req.value.body.workState,
+          req.value.body.bvn,
+          req.value.body.bank,
+          req.value.body.accountNumber,
+          'pending',
+          moment(new Date()),
+          req.value.params.email,
+          
+        ];
+        const response = await db.query(updateOneQuery, values);
+        console.log('working');
+        return res.status(200).json({ status: 200, data: response.rows[0] });
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+    } catch (err) {
+      return res.status(400).send(err);
+    }
+  },
   /**
    * Update A Reflection
    * @param {object} req 
@@ -128,7 +172,7 @@ const QuickCredit = {
       WHERE id=$5 returning *`;
     try {
       const { rows } = await db.query(findOneQuery, [req.params.id]);
-      if(!rows[0]) {
+      if (!rows[0]) {
         return res.status(404).send({'message': 'reflection not found'});
       }
       const values = [
