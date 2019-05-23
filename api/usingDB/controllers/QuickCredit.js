@@ -146,25 +146,47 @@ const QuickCredit = {
           req.value.body.bank,
           req.value.body.accountNumber,
           'pending',
-          moment(new Date()),
+          new Date().toLocaleString(),
           req.value.params.email,
           
         ];
         const response = await db.query(updateOneQuery, values);
-        console.log('working');
         return res.status(200).json({ status: 200, data: response.rows[0] });
       }
       return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
     } catch (err) {
-      return res.status(400).send(err);
+      res.status(400).json({ status: 400, data: err });
     }
   },
-  /**
-   * Update A Reflection
-   * @param {object} req 
-   * @param {object} res 
-   * @returns {object} updated reflection
-   */
+
+  async verifyClientDB(req, res, authData) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1';
+    try {
+      const { rows } = await db.query(findAllQuery, [req.value.params.email]);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'client with given email not found' });
+      }
+      if (authData.is_admin === true) {
+        if (!rows[0].completed_profile_at) return res.status(403).json({ status: 403, error: 'client cannot be verified, complete profile first' });
+        if (rows[0].status === 'verified') return res.status(403).json({ status: 403, error: 'client is already marked as verified' });
+        if (rows[0].status === 'unverified') return res.status(403).json({ status: 403, error: 'client is already marked as unverified' });
+        const updateOneQuery = `UPDATE users 
+        SET status=$1,verified_at=$2 
+        WHERE email=$3 returning *`;
+        const values = [
+          'verified',
+          new Date().toLocaleString(),
+          req.value.params.email,
+        ];
+        const response = await db.query(updateOneQuery, values);
+        return res.status(200).json({ status: 200, data: response.rows[0] });
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+    } catch (err) {
+      res.status(400).json({ status: 400, data: err });
+    }
+  },
+
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
     const updateOneQuery = `UPDATE reflections
@@ -188,12 +210,7 @@ const QuickCredit = {
       return res.status(400).send(err);
     }
   },
-  /**
-   * Delete A Reflection
-   * @param {object} req 
-   * @param {object} res 
-   * @returns {void} return statuc code 204 
-   */
+ 
   async delete(req, res) {
     const deleteQuery = 'DELETE FROM reflections WHERE id=$1 returning *';
     try {
