@@ -5,7 +5,6 @@ const pendingVerification = document.querySelector('#pending-verification');
 const unverified = document.querySelector('#unverified');
 const verifiedPlusLoan = document.querySelector('#verified-plus-loan');
 const verifiedMinusLoan = document.querySelector('#verified-minus-loan');
-const adminDashboard = document.querySelector('#dashboard-admin');
 const pendingLoanApproval = document.querySelector('#pending-loan-approval');
 const rejectedLoan = document.querySelector('#rejected-loan');
 const logRepaymentBtn = document.querySelector('#dashboard-log-repayment-btn');
@@ -15,10 +14,6 @@ const viewLoanBtn = document.querySelector('#notification-view-loan');
 const currentLoanContent = document.querySelector('#current-loan-overview-content');
 const verificationStatusBtn = document.querySelector('#my-details-verification-status-btn');
 
-
-if (user.isAdmin === true) {
-  adminDashboard.classList.remove('hide');
-}
 
 if (user.isVerifiedPlusLoan === true) {
   clientDashboard.classList.remove('hide');

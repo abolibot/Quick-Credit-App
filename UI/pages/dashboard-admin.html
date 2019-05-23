@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Dashboard
+    </title>
+        <link rel = "stylesheet" href = "../styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  </head>
+  <body id = 'container'>
+    <div id = 'layout-content'>
+      <div id = 'sidebar'>
+      </div>
+      <div id = content>
+        <div id = 'header'>
+        </div>
+        <h2 id = 'page-title'>
+        </h2>
+        <div id = 'main-content'>
+          <div id = 'dashboard-admin'>
+              <div class = 'dashboard-admin-interest'>
+                <h3>Loan Disbursed</h3>
+                <p class = 'dashboard-admin-interest-amount-digit'>&#8358;5,000,000</p>
+                <p class = 'dashboard-admin-interest-interest-digit'>&#8358;500,000</p>
+                <p class = 'dashboard-admin-interest-amount'>Amount</p>
+                <p class = 'dashboard-admin-interest-interest'>Interest Accrued</p>
+              </div>
+              <hr class = 'dashboard-admin-vr'>
+              <div class = 'dashboard-admin-loan-status'>
+                <h2 class = 'dashboard-admin-loan-status-card-header'>Loan Status</h2>
+                <p class = 'dashboard-admin-loan-status-current-digit'><a href = './loan/viewAllLoans.html'>2640</a></p>
+                <p class = 'dashboard-admin-loan-status-repaid-digit'><a href = './loan/viewAllLoans.html'>4013</a></p>
+                <p class = 'dashboard-admin-loan-status-current'>Current</p>
+                <p class = 'dashboard-admin-loan-status-repaid'>Repaid</p>
+              </div>
+              <hr class = 'dashboard-admin-vr'>
+              <div class = 'dashboard-admin-client'>
+                <h2 class = 'dashboard-admin-client-card-header'>Clients</h2>
+                <p class = 'dashboard-admin-client-verified-digit'><a href = './profile/viewAllProfile.html'>7650</a></p>
+                <p class = 'dashboard-admin-client-unverified-digit'><a href = './profile/viewAllProfile.html'>102</a></p>
+                <p class = 'dashboard-admin-client-verified'>Verified</p>
+                <p class = 'dashboard-admin-client-unverified'>Unverified</p>
+              </div>
+              <hr class = 'dashboard-admin-vr'>
+              <div class = 'dashboard-admin-loan-approval'>
+                <h2 class = 'dashboard-admin-loan-approval-card-header'>Loan Approvals</h2>
+                <p class = 'dashboard-admin-loan-approval-approved-digit'><a href = './loan/viewAllLoans.html' class = ''>6653</a></p>
+                <p class = 'dashboard-admin-loan-approval-rejected-digit'><a href = './loan/viewAllLoans.html' class = ''>2019</a></p>
+                <p class = 'dashboard-admin-loan-approval-approved'>Approved</p>
+                <p class = 'dashboard-admin-loan-approval-rejected'>Rejected</p>
+              </div>
+              <hr id = 'dashboard-admin-line-separator'>
+              <div class = 'dashboard-admin-pending-loan-application' id = 'dashboard-admin-table-card'>
+                <h3 id = 'dashboard-admin-table-card-header'>Loan Applications Pending Approval</h3>
+                <table id = 'dashboard-admin-table'>
+                  <tr>
+                    <th>Loan ID</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>101</a></td>
+                    <td class = 'amount-column'>&#8358;40,000</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>102</a></td>
+                    <td class = 'amount-column'>&#8358;52,000</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>103</a></td>
+                    <td class = 'amount-column'>&#8358;52,000</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>104</a></td>
+                    <td class = 'amount-column'>&#8358;52,000</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>105</a></td>
+                    <td class = 'amount-column'>&#8358;52,000</td>
+                  </tr>
+                </table>
+                <a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View More</a>
+              </div>
+              <hr class = 'dashboard-admin-lower-vr'>
+              <div class = 'dashboard-admin-repayments-past-duedates' id = 'dashboard-admin-table-card'>
+                <h2 id = 'dashboard-admin-table-card-header'>Repayments Past Due Date</h2>
+                <table id = 'dashboard-admin-table'>
+                  <tr>
+                    <th>Loan ID</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>930</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>432</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>433</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>434</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>435</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                </table>
+                <a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View More</a>
+              </div>
+              <hr class = 'dashboard-admin-lower-vr'>
+              <div class = 'dashboard-admin-pending-repayment' id = 'dashboard-admin-table-card'>
+                <h2 id = 'dashboard-admin-table-card-header'>Repayments Awaiting Admin's Posting</h2>
+                <table id = 'dashboard-admin-table'>
+                  <tr>
+                    <th>Loan ID</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>212</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>198</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>198</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>198</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                  <tr>
+                    <td><a href = ' ' class = ''>198</a></td>
+                    <td class = 'amount-column'>&#8358;8,333</td>
+                  </tr>
+                </table>
+                <a href = '../loan/loanDetails.html' class = 'dashboard-loan-overview-a'>View More</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script type = "module" src = "../layouts/header-admin.js">
+    </script>
+    <script type = "module" src = "../layouts/sidebar-admin.js">
+    </script>
+  </body>
+</html>

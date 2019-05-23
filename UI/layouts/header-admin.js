@@ -1,28 +1,30 @@
 const pageTitle = document.title;
 let signOutUrl;
+let imgUrl;
 
 if (pageTitle === 'Dashboard') {
-  signOutUrl = './sign-in.html';
+  signOutUrl = './sign-in-admin.html';
+  imgUrl = './resources/admin.jpg';
 }
 
-if (pageTitle === 'My Loan Details') {
-  signOutUrl = '../sign-in.html';
+if (pageTitle === 'Loan Details') {
+  signOutUrl = '../sign-in-admin.html';
+  imgUrl = '../resources/admin.jpg';
 }
 
-if (pageTitle === 'My Loans') {
-  signOutUrl = '../sign-in.html';
+if (pageTitle === 'All Loans') {
+  signOutUrl = '../sign-in-admin.html';
+  imgUrl = '../resources/admin.jpg';
 }
 
-if (pageTitle === 'Complete Profile') {
-  signOutUrl = '../sign-in.html';
+if (pageTitle === 'Client Profile') {
+  signOutUrl = '../sign-in-admin.html';
+  imgUrl = '../resources/admin.jpg';s
 }
 
-if (pageTitle === 'My Profile') {
-  signOutUrl = '../sign-in.html';
-}
-
-if (pageTitle === 'Update Profile') {
-  signOutUrl = '../sign-in.html';
+if (pageTitle === 'Client List') {
+  signOutUrl = '../sign-in-admin.html';
+  imgUrl = '../resources/admin.jpg';
 }
 
 const header = document.querySelector('#header');
@@ -33,12 +35,12 @@ const headerContent = `
     </i>
   </a>
   <div class = 'header-profile-photo'>
-      <img src = "./resources/profile-photo.jpg" alt = "placeholder image" class = "header-user-image">
+      <img src = "${imgUrl}" alt = "placeholder image" class = "header-user-image">
   </div>
   
   <div class = 'name-and-dropdown-icon'>
     <button class = 'sign-out-dropdown-btn'>
-      <i class="fas fa-angle-down menu-dropdown-icon"></i><span class = 'name'>Oluwatobi Alaran</span>
+      <i class="fas fa-angle-down menu-dropdown-icon"></i><span class = 'name'>Admin</span>
     </button>
     <div>
       <a href = '${signOutUrl}' class = "sign-out-dropdown-content">sign out</a>
