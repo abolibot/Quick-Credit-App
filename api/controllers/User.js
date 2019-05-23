@@ -13,6 +13,7 @@ const {
   completeProfileDB,
   verifyClientDB,
   unVerifyClientDB,
+  updateProfileDB,
 } = usersDb;
 const { users } = UserModel;
 
@@ -75,29 +76,7 @@ const User = {
   updateProfile: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      const user = users.find(u => u.email === req.value.params.email);
-      if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist' });
-      if ((authData.isAdmin === false) && (authData.email === req.value.params.email)) { 
-        user.sex = req.value.body.sex || user.sex;
-        user.dob = req.value.body.dob || user.dob;
-        user.validIdUrl = req.value.body.validIdUrl || user.validIdUrl;
-        user.displayPictureUrl = req.value.body.displayPictureUrl || user.displayPictureUrl;
-        user.phoneNumber = req.value.body.phoneNumber || user.phoneNumber;
-        user.homeAddress = req.value.body.homeAddress || user.homeAddress;
-        user.homeCity = req.value.body.homeCity || user.homeCity;
-        user.homeState = req.value.body.homeState || user.homeState;
-        user.employmentStatus = req.value.body.employmentStatus || user.employmentStatus;
-        user.employerName = req.value.body.employerName || user.employerName;
-        user.workAddress = req.value.body.workAddress || user.workAddress;
-        user.workCity = req.value.body.workCity || user.workCity;
-        user.workState = req.value.body.workState || user.workState;
-        user.bvn = req.value.body.bvn || user.bvn;
-        user.bank = req.value.body.bank || user.bank;
-        user.accountNumber = req.value.body.accountNumber || user.accountNumber;
-        user.modifiedAt = new Date().toLocaleString();
-        return res.status(200).json({ status: 200, data: user });
-      }
-      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      return updateProfileDB(req, res, authData);
     });
   },
   // Format of token

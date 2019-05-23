@@ -123,8 +123,8 @@ const QuickCredit = {
       if (!rows[0]) {
         return res.status(404).json({ status: 404, error: 'client with given email not found' });
       }
-      if ((authData.is_admin === false) || (authData.email === req.value.params.email)) {
-        if (rows[0].completedProfileAt) return res.status(401).json({ status: 401, error: 'client already completed profile, use the update feature to update profile' });
+      if ((authData.is_admin === false) && (authData.email === req.value.params.email)) {
+        if (rows[0].completed_profile_at) return res.status(401).json({ status: 401, error: 'client already completed profile, use the update feature to update profile' });
         const updateOneQuery = `UPDATE users 
         SET sex=$1,date_of_birth=$2,valid_id_url=$3,display_picture_url=$4,phone_number=$5,home_address=$6,home_city=$7,home_state=$8,employment_status=$9,employer_name=$10,work_address=$11,work_city=$12,work_state=$13,bvn=$14,bank=$15,account_number=$16,status=$17,completed_profile_at=$18
         WHERE email=$19 returning *`;
@@ -205,6 +205,49 @@ const QuickCredit = {
           'unverified',
           new Date().toLocaleString(),
           req.value.params.email,
+        ];
+        const response = await db.query(updateOneQuery, values);
+        return res.status(200).json({ status: 200, data: response.rows[0] });
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+    } catch (err) {
+      res.status(400).json({ status: 400, data: err });
+    }
+  },
+
+  async updateProfileDB(req, res, authData) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1 AND is_admin = $2';
+    try {
+      const { rows } = await db.query(findAllQuery, [req.value.params.email, false]);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'client with given email not found' });
+      }
+      if ((authData.is_admin === false) && (authData.email === req.value.params.email)) {
+        if (!rows[0].completed_profile_at) return res.status(401).json({ status: 401, error: 'client needs to complete profile first to use the update feature to update profile' });
+        const updateOneQuery = `UPDATE users 
+        SET sex=$1,date_of_birth=$2,valid_id_url=$3,display_picture_url=$4,phone_number=$5,home_address=$6,home_city=$7,home_state=$8,employment_status=$9,employer_name=$10,work_address=$11,work_city=$12,work_state=$13,bvn=$14,bank=$15,account_number=$16,status=$17,modified_date=$18
+        WHERE email=$19 returning *`;
+        const values = [
+          req.value.body.sex || rows[0].sex,
+          req.value.body.dob || rows[0].date_of_birth,
+          req.value.body.validIdUrl || rows[0].valid_id_url,
+          req.value.body.displayPictureUrl || rows[0].display_picture_url,
+          req.value.body.phoneNumber || rows[0].phone_number,
+          req.value.body.homeAddress || rows[0].home_address,
+          req.value.body.homeCity || rows[0].home_city,
+          req.value.body.homeState || rows[0].home_state,
+          req.value.body.employmentStatus || rows[0].employment_status,
+          req.value.body.employerName || rows[0].employer_name,
+          req.value.body.workAddress || rows[0].work_address,
+          req.value.body.workCity || rows[0].work_city,
+          req.value.body.workState || rows[0].work_state,
+          req.value.body.bvn || rows[0].bvn,
+          req.value.body.bank || rows[0].bank,
+          req.value.body.accountNumber || rows[0].account_number,
+          'pending',
+          new Date().toLocaleString(),
+          req.value.params.email,
+          
         ];
         const response = await db.query(updateOneQuery, values);
         return res.status(200).json({ status: 200, data: response.rows[0] });
