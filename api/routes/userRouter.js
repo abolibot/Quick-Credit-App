@@ -11,8 +11,8 @@ const routes = () => {
   const userRouter = express.Router();
   userRouter.route('/')
     .get(validateQuery(schemas.userByStatusSchema), User.verifyToken, User.getAllUsers);
-  userRouter.route('/:id')
-    .get(validateIdParam(schemas.userIdParamSchema), User.verifyToken, User.getAUser);
+  userRouter.route('/:email')
+    .get(validateIdParam(schemas.userEmailParamSchema), User.verifyToken, User.getAUser);
   userRouter.route('/:email/completeProfile')
     .patch(validateIdParam(schemas.userEmailParamSchema), validateBody(schemas.completeProfileSchema), User.verifyToken, User.completeProfile);
   userRouter.route('/:email/verify')

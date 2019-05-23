@@ -58,7 +58,7 @@ const QuickCredit = {
   async getClientsByStatus(req, res) {
     const findAllQuery = 'SELECT * FROM users WHERE status = $1 AND is_admin = $2';
     const values = [
-      String(req.value.query.status),
+      req.value.query.status,
       false,
     ];
     try {
@@ -67,6 +67,26 @@ const QuickCredit = {
         return res.status(404).json({ status: 404, error: `no clients with ${req.value.query.status} status` });
       }
       return res.status(200).json({ status: 200, count: rowCount, data: rows });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
+  async getAClientByEmail(req, res, authData) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1 AND is_admin = $2';
+    const values = [
+      req.value.params.email,
+      false,
+    ];
+    try {
+      const { rows } = await db.query(findAllQuery, values);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'client with given email not found' });
+      }
+      if ((authData.is_admin === true) || (authData.email === req.value.params.email)) {
+        return res.status(200).json({ status: 200, data: rows[0] });
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
     } catch (error) {
       return res.status(400).json({ status: 400, data: error });
     }

@@ -4,7 +4,13 @@ const jwt = require('jsonwebtoken');
 const UserModel = require('../models/User');
 const usersDb = require('../usingDB/controllers/QuickCredit');
 
-const { createUser, signIn, getClientsByStatus, getAll } = usersDb;
+const {
+  createUser,
+  signIn,
+  getClientsByStatus,
+  getAll,
+  getAClientByEmail,
+  } = usersDb;
 const { users } = UserModel;
 
 const User = {
@@ -38,12 +44,7 @@ const User = {
   getAUser: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      const user = users.find(u => u.id === parseInt(req.value.params.id, 10));
-      if (!user) return res.status(404).json({ status: 404, error: 'user with given id not found' });
-      if ((authData.isAdmin === true) || (authData.id === parseInt(req.value.params.id, 10))) {
-        return res.status(200).json({ status: 200, data: user });
-      }
-      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      return getAClientByEmail(req, res, authData);
     });
   },
 
