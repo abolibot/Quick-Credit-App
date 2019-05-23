@@ -2096,6 +2096,12 @@ option {
 
 }
 
+.approve-loan-modal-content-body h3,
+.post-repayment-modal-content-body h3,
+#approve-loan-modal-h3 {
+	text-transform: none;
+}
+
 @media only screen and (max-device-width: 430px){
   .sign-up-image {
     width: 100%;

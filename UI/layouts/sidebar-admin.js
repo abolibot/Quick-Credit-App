@@ -22,7 +22,7 @@ if (pageTitle === 'Dashboard') {
       </a>
       <a href = '../pages/profile/viewAllProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>users
         </li>
       </a>
     </ul>
@@ -50,7 +50,7 @@ if (pageTitle === 'Loan Details') {
       </a>
       <a href = '../profile/viewAllProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>users
         </li>
       </a>
     </ul>
@@ -78,7 +78,7 @@ if (pageTitle === 'All Loans') {
       </a>
       <a href = '../profile/viewAllProfile.html'>
         <li class = 'nav-items'>          <i class="fas fa-address-card nav-icons">
-          </i>profile
+          </i>users
         </li>
       </a>
     </ul>
@@ -107,7 +107,7 @@ if (pageTitle === 'Client Profile') {
       <a href = './viewAllProfile.html'>
         <li class = 'nav-items nav-items-active'>          
           <i class="fas fa-address-card nav-icons nav-icon-active">
-          </i>profile
+          </i>users
         </li>
       </a>
     </ul>
@@ -136,7 +136,7 @@ if (pageTitle === 'Client List') {
       <a href = '#'>
         <li class = 'nav-items nav-items-active'>          
           <i class="fas fa-address-card nav-icons nav-icon-active">
-          </i>profile
+          </i>users
         </li>
       </a>
     </ul>

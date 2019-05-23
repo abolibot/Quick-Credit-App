@@ -19,7 +19,7 @@ if (pageTitle === 'All Loans') {
 
 if (pageTitle === 'Client Profile') {
   signOutUrl = '../sign-in-admin.html';
-  imgUrl = '../resources/admin.jpg';s
+  imgUrl = '../resources/admin.jpg';
 }
 
 if (pageTitle === 'Client List') {
