@@ -86,6 +86,7 @@ module.exports = {
       homeAddress: Joi.string().max(100).required(),
       homeCity: Joi.string().max(20).required(),
       homeState: Joi.string().equal('abia', 'adamawa', 'akwaIbom', 'anambra', 'bauchi', 'bayelsa', 'benue', 'bornu', 'crossRiver', 'delta', 'ebonyi', 'enugu', 'edo', 'ekiti', 'gombe', 'imo', 'jigawa', 'kaduna', 'katsina', 'kano', 'kebbi', 'kogi', 'kwara', 'lagos', 'nasarawa', 'niger', 'ogun', 'ondo', 'osun', 'oyo', 'plateau', 'rivers', 'sokoto', 'taraba', 'yobe', 'zamfara', 'fct').required(),
+
       employmentStatus: Joi.string().equal('employed', 'unemployed').required(),
       employerName: Joi.string().max(50),
       workAddress: Joi.string().max(100).required(),
