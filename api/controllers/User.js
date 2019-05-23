@@ -12,6 +12,7 @@ const {
   getAClientByEmail,
   completeProfileDB,
   verifyClientDB,
+  unVerifyClientDB,
 } = usersDb;
 const { users } = UserModel;
 
@@ -67,17 +68,7 @@ const User = {
   unVerifyUser: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      const user = users.find(u => u.email === req.value.params.email);
-      if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist' });
-      if (authData.isAdmin === true) {
-        if (!user.completedProfileAt) return res.status(403).json({ status: 403, error: 'user cannot be unverified, complete profile first' });
-        if (user.status === 'unverified') return res.status(403).json({ status: 403, error: 'user is already marked as unverified' });
-        if (user.status === 'verified') return res.status(403).json({ status: 403, error: 'user is already marked as verified' });
-        user.status = 'unverified';
-        user.unverifiedAt = new Date().toLocaleString();
-        return res.status(200).json({ status: 200, data: user });
-      }
-      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      return unVerifyClientDB(req, res, authData);
     });
   },
 
