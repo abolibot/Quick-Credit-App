@@ -1,28 +1,35 @@
 const pageTitle = document.title;
 let signOutUrl;
+let imgUrl;
 
 if (pageTitle === 'Dashboard') {
   signOutUrl = './sign-in.html';
+  imgUrl = './resources/profile-photo.jpg';
 }
 
 if (pageTitle === 'My Loan Details') {
   signOutUrl = '../sign-in.html';
+  imgUrl = '../resources/profile-photo.jpg';
 }
 
 if (pageTitle === 'My Loans') {
   signOutUrl = '../sign-in.html';
+  imgUrl = '../resources/profile-photo.jpg';
 }
 
 if (pageTitle === 'Complete Profile') {
   signOutUrl = '../sign-in.html';
+  imgUrl = '../resources/profile-photo.jpg';
 }
 
 if (pageTitle === 'My Profile') {
   signOutUrl = '../sign-in.html';
+  imgUrl = '../resources/profile-photo.jpg';
 }
 
 if (pageTitle === 'Update Profile') {
   signOutUrl = '../sign-in.html';
+  imgUrl = '../resources/profile-photo.jpg';
 }
 
 const header = document.querySelector('#header');
@@ -33,7 +40,7 @@ const headerContent = `
     </i>
   </a>
   <div class = 'header-profile-photo'>
-      <img src = "./resources/profile-photo.jpg" alt = "placeholder image" class = "header-user-image">
+      <img src = "${imgUrl}" alt = "placeholder image" class = "header-user-image">
   </div>
   
   <div class = 'name-and-dropdown-icon'>
