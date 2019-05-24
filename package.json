@@ -9,7 +9,7 @@
     "build": "babel api --out-dir dist",
     "test": "mocha",
     "lint": "eslint .",
-    "start": "nodemon ./app.js",
+    "start": "babel-node ./app.js",
     "setup-db": "babel-node db.js --out-dir build"
   },
   "repository": {

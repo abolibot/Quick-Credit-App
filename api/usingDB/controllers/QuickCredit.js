@@ -304,6 +304,73 @@ const QuickCredit = {
     }
   },
 
+  async approveOrRejectLoanDB(req, res, authData) {
+    const findLoanQuery = 'SELECT * FROM loans WHERE loan_id = $1';
+    const values = [
+      parseInt(req.value.params.loanId, 10),
+    ];
+    try {
+      const { rows } = await db.query(findLoanQuery, values);
+      const loan = rows[0];
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'loan with given loan ID not found' });
+      }
+      if (authData.is_admin === true) {
+        if (req.value.body.status === 'approved') {
+          if (rows[0].status === 'approved') return res.status(403).json({ status: 403, error: 'loan has already being approved' });
+          if (rows[0].status === 'rejected') return res.status(403).json({ status: 403, error: 'loan cannot be approved, it has already being rejected' });
+          const updateOneQuery = `UPDATE loans 
+          SET status=$1,approved_at=$2 
+          WHERE loan_id=$3 returning *`;
+          const vals = [
+            'approved',
+            new Date().toLocaleString(),
+            parseInt(req.value.params.loanId, 10),
+          ];
+          const response = await db.query(updateOneQuery, vals);
+          for (let i = 1; i <= loan.tenor; i += 1) {
+            const text = `INSERT INTO 
+            repayments(loan_id, status, due_date, created_at)
+            VALUES($1, $2, $3, $4)
+            returning *`;
+            const vall = [
+              loan.id,
+              'pending',
+              moment().add(i * 30, 'days'),
+              new Date().toLocaleString(),
+            ];
+
+            try {
+              const { rows } = await db.query(text, vall);
+              return res.status(201).json({ status: 201, data: rows[0] });
+            } catch (error) {
+              return res.status(400).json({ status: 400, data: error });
+            }
+          }
+          return res.status(200).json({ status: 200, data: response.rows[0] });
+        }
+
+        if (req.value.body.status === 'rejected') {
+          if (rows[0].status === 'rejected') return res.status(403).json({ status: 403, error: 'loan has already being rejected' });
+          if (rows[0].status === 'approved') return res.status(403).json({ status: 403, error: 'loan cannot be rejected, it has already being approved' });
+          const updateRejectedQuery = `UPDATE loans 
+          SET status=$1,rejected_at=$2 
+          WHERE loan_id=$3 returning *`;
+          const val = [
+            'rejected',
+            new Date().toLocaleString(),
+            parseInt(req.value.params.loanId, 10),
+          ];
+          const response = await db.query(updateRejectedQuery, val);
+          return res.status(200).json({ status: 200, data: response.rows[0] });
+        }
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+    } catch (err) {
+      res.status(400).json({ status: 400, data: err });
+    }
+  },
+
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
     const updateOneQuery = `UPDATE reflections
@@ -328,19 +395,6 @@ const QuickCredit = {
     }
   },
  
-  async delete(req, res) {
-    const deleteQuery = 'DELETE FROM reflections WHERE id=$1 returning *';
-    try {
-      const { rows } = await db.query(deleteQuery, [req.params.id]);
-      if(!rows[0]) {
-        return res.status(404).send({'message': 'reflection not found'});
-      }
-      return res.status(204).send({ 'message': 'deleted' });
-    } catch(error) {
-      return res.status(400).send(error);
-    }
-  },
-
   async getAClient(req, res) {
     const findAllQuery = 'SELECT * FROM users WHERE email = $1';
     const values = [
