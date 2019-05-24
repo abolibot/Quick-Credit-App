@@ -317,6 +317,36 @@ const QuickCredit = {
     }
   },
 
+  async getALoanDB(req, res, authData) {
+    const findLoanQuery = 'SELECT * FROM loans WHERE loan_id = $1';
+    const values = [
+      parseInt(req.value.params.loanId, 10),
+    ];
+    try {
+      const { rows } = await db.query(findLoanQuery, values);
+      if (!rows[0]) {
+        return res.status(404).json({ status: 404, error: 'loan with given loan ID not found' });
+      }
+      const loan = rows[0];
+      const findAllQuery = 'SELECT * FROM users WHERE email = $1';
+      const vals = [
+        authData.email,
+      ];
+      try {
+        const { rows } = await db.query(findAllQuery, vals);
+        const user = rows[0];
+        if ((authData.is_admin === true) || (loan.user_id === user.id)) {
+          return res.status(200).json({ status: 200, data: loan });
+        }
+        return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      } catch (error) {
+        return res.status(400).json({ status: 400, data: error });
+      }
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
     const updateOneQuery = `UPDATE reflections
