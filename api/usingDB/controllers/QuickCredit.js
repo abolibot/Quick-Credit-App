@@ -9,6 +9,16 @@ const db = require('../db');
 
 const QuickCredit = {
   async createUser(req, res, hash, token) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1';
+    const vals = [
+      req.value.body.email,
+    ];
+    try {
+      const { rows } = await db.query(findAllQuery, vals);
+      if (rows[0]) return res.status(409).json({ status: 409, error: 'email address already exists, kindly enter a different email address' });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
     const text = `INSERT INTO
       users(first_name, last_name, email, password, token, is_admin)
       VALUES($1, $2, $3, $4, $5, $6)
@@ -24,7 +34,9 @@ const QuickCredit = {
 
     try {
       const { rows } = await db.query(text, values);
-      return res.status(201).json({ status: 201, data: rows[0] });
+      const { first_name, last_name, email, status, token, created_date } = rows[0];
+      const result = { first_name, last_name, email, status, token, created_date };
+      return res.status(201).json({ status: 201, message: 'user created successfully', data: result });
     } catch (error) {
       return res.status(400).json({ status: 400, data: error });
     }
@@ -40,7 +52,9 @@ const QuickCredit = {
     ];
     try {
       const response = await db.query(updateOneQuery, values);
-      return res.status(200).json({ status: 200, data: response.rows[0] });
+      const { first_name, last_name, email, status, token, created_date } = response.rows[0];
+      const result = { first_name, last_name, email, status, token, created_date };
+      return res.status(200).json({ status: 200, data: result });
     } catch (err) {
       return res.status(400).json({ status: 400, data: err });
     }

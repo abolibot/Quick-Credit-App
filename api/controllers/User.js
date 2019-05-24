@@ -18,8 +18,6 @@ const { users } = UserModel;
 
 const User = {
   signup: (req, res) => {
-    const doesEmailExist = users.find(u => u.email === req.value.body.email);
-    if (doesEmailExist) return res.status(409).json({ status: 409, error: 'email address already exists, kindly enter a different email address' });
     return jwt.sign({ email: req.value.body.email, is_admin: false }, process.env.JWT_SECRET_KEY, { expiresIn: '86400s' }, (err, tkn) => {
       const userToken = tkn;
       bcrypt.hash(req.value.body.password, 10, (err, hash) => {
