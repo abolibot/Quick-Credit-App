@@ -4,9 +4,15 @@ const jwt = require('jsonwebtoken');
 const LoanModel = require('../models/Loan');
 const UserModel = require('../models/User');
 const loanRepaymentModel = require('../models/LoanRepayment');
+const usersDb = require('../usingDB/controllers/QuickCredit');
 
 const { loans } = LoanModel;
 const { users } = UserModel;
+const {
+  getAClient,
+  getAClientCurrentLoans,
+  createALoanDB,
+} = usersDb;
 
 const getAUserApprovedLoans = (userLoans) => {
   const userApprovedLoans = userLoans.filter(loan => loan.status === 'approved');
@@ -20,22 +26,12 @@ const getAUserPendingLoans = (userLoans) => {
 
 const Loan = {
   createALoan: (req, res) => {
-    console.log(req.value.body);
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      const user = users.find(u => u.email === req.value.body.email);
-      if (!user) return res.status(404).json({ status: 404, error: 'user with email doesn\'t exist, you need to sign up first' });
-      if (authData.isAdmin === false) {
-        if (user.status !== 'verified') return res.status(403).json({ status: 403, error: 'user cannot apply for loan because user is not verified' });
-        const userLoans = LoanModel.getAUserLoans(user.email);
-        const userPendingLoans = getAUserPendingLoans(userLoans);
-        if (userPendingLoans.length !== 0) return res.status(403).json({ status: 403, error: 'user cannot apply for more than one loan at a time' });
-        const userCurrentLoans = getAUserApprovedLoans(userLoans).filter(loan => loan.repaid === false);
-        if (userCurrentLoans.length !== 0) return res.status(403).json({ status: 403, error: 'user has a current loan' });
-        const loan = LoanModel.createLoan(req.value.body, user);
-        return res.status(201).json({ status: 201, data: loan });
-      }
-      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      return createALoanDB(req, res, authData);
+      
+        // const userCurrentLoans = getAUserApprovedLoans(userLoans).filter(loan => loan.repaid === false);
+        // if (userCurrentLoans.length !== 0) return res.status(403).json({ status: 403, error: 'user has a current loan' });
     });
   },
 

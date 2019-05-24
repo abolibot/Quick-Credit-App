@@ -215,6 +215,55 @@ const QuickCredit = {
     }
   },
 
+  async createALoanDB(req, res, authData) {
+    const findUserQuery = 'SELECT * FROM users WHERE email = $1';
+    const values = [
+      req.value.body.email,
+    ];
+    try {
+      const { rows } = await db.query(findUserQuery, values);
+      const user = rows[0];
+      if (!user) return res.status(404).json({ status: 404, error: 'Client with email doesn\'t exist, you need to sign up first' });
+      if (authData.is_admin === false) {
+        if (user.status !== 'verified') return res.status(403).json({ status: 403, error: 'user cannot apply for loan because user is not verified' });
+        // const userLoans = LoanModel.getAUserLoans(user.email);
+        const findAllQuery = 'SELECT * FROM loans WHERE user_id = $1 AND (status = $2 OR repaid = $3)';
+        console.log(user);
+        const val = [
+          user.id, 'pending', false,
+        ];
+        try {
+          const { rows } = await db.query(findAllQuery, val);
+          const userPendingOrCurrentLoans = rows;
+          if (userPendingOrCurrentLoans.length !== 0) return res.status(403).json({ status: 403, error: 'user cannot apply for more than one loan at a time' });
+          const text = `INSERT INTO 
+          loans(user_id, status, tenor, amount, interest, created_at) 
+          VALUES($1, $2, $3, $4, $5, $6)
+          returning *`;
+          const vals = [
+            user.id,
+            'pending',
+            req.value.body.tenor,
+            req.value.body.amount,
+            0.05 * parseInt(req.value.body.amount, 10),
+            new Date().toLocaleString(),
+          ];
+          try {
+            const { rows } = await db.query(text, vals);
+            return res.status(201).json({ status: 201, message: 'loan created successfully', data: rows[0] });
+          } catch (error) {
+            return res.status(400).json({ status: 400, data: error });
+          }
+        } catch (error) {
+          return res.status(400).json({ status: 400, data: error });
+        }
+      }
+      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
     const updateOneQuery = `UPDATE reflections
@@ -250,7 +299,35 @@ const QuickCredit = {
     } catch(error) {
       return res.status(400).send(error);
     }
-  }
-}
+  },
+
+  async getAClient(req, res) {
+    const findAllQuery = 'SELECT * FROM users WHERE email = $1';
+    const values = [
+      req.value.body.email,
+    ];
+    try {
+      const { rows } = await db.query(findAllQuery, values);
+      return rows;
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
+  async getAClientCurrentLoans(req, res, user) {
+    const findAllQuery = 'SELECT * FROM loans WHERE user_id = $1 AND (status = $2 OR repaid = $3';
+    const values = [
+      user.id, 'pending', false,
+    ];
+    try {
+      const { rows } = await db.query(findAllQuery, values);
+      return rows;
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
+
+};
 
 module.exports = QuickCredit;
