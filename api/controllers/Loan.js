@@ -9,9 +9,8 @@ const usersDb = require('../usingDB/controllers/QuickCredit');
 const { loans } = LoanModel;
 const { users } = UserModel;
 const {
-  getAClient,
-  getAClientCurrentLoans,
   createALoanDB,
+  getAllLoansDB
 } = usersDb;
 
 const getAUserApprovedLoans = (userLoans) => {
@@ -29,38 +28,28 @@ const Loan = {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
       return createALoanDB(req, res, authData);
-      
-        // const userCurrentLoans = getAUserApprovedLoans(userLoans).filter(loan => loan.repaid === false);
-        // if (userCurrentLoans.length !== 0) return res.status(403).json({ status: 403, error: 'user has a current loan' });
     });
   },
 
   getAllLoans: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      if ((authData.isAdmin === true) || (authData.email === req.value.query.email)) {
-        const query = {};
-        if (req.value.query.status && req.value.query.repaid) {
-          query.status = req.value.query.status;
-          query.repaid = req.value.query.repaid;
-          const loansByStatus = loans.filter(loan => loan.status === query.status);
-          const loansByRepayment = loansByStatus.filter(loan => loan.repaid.toString() === query.repaid);
-          if (loansByRepayment.length === 0) return res.status(404).json({ status: 404, error: `there are no ${query.status} loans with repaid: ${query.repaid}` });
-          return res.status(200).json({ status: 200, data: loansByRepayment });
-        }
+      if (authData.is_admin === true) {
         if (req.value.query.status) {
-          query.status = req.value.query.status;
-          const loansByStatus = loans.filter(l => l.status === query.status);
-          if (loansByStatus.length === 0) return res.status(404).json({ status: 404, error: `there are no loans with ${query.status} status` });
-          return res.status(200).json({ status: 200, data: loansByStatus });
+          return getLoansByStatus(req, res);
         }
-        if (req.value.query.email) {
-          query.email = req.value.query.email;
-          const loansByUser = loans.filter(l => l.userDetails.email === query.email);
-          if (loansByUser.length === 0) return res.status(404).json({ status: 404, error: `user with email ${query.email} has no loans` });
+        if (req.value.query.status && req.value.query.repaid) {
+          if ((req.value.query.status === 'approved') && (req.value.query.repaid === false)) {
+            return getCurrentLoans(req, res);
+          }
+          if ((req.value.query.status === 'approved') && (req.value.query.repaid === true)) {
+            return getRepaidLoans(req, res);
+          }
+          if (req.value.query.email) {
+            return getLoansByEmail(req, res);
+          }
         }
-
-        return res.status(200).json({ status: 200, data: loans });
+        return getAllLoansDB(req, res);
       }
       return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
     });

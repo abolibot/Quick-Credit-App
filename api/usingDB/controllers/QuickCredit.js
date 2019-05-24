@@ -264,6 +264,16 @@ const QuickCredit = {
     }
   },
 
+  async getAllLoansDB(req, res) {
+    const findAllQuery = 'SELECT * FROM loans';
+    try {
+      const { rows, rowCount } = await db.query(findAllQuery);
+      return res.status(200).json({ status: 200, count: rowCount, data: rows });
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
+
   async update(req, res) {
     const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
     const updateOneQuery = `UPDATE reflections
