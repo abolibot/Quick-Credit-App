@@ -1,5 +1,5 @@
 {
   "presets": ["@babel/preset-env"],
-  "ignore" : ["test"],
+  "ignore" : ["UI"],
   "plugins": ["@babel/plugin-transform-runtime"]
 }
