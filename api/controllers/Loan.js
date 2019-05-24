@@ -10,7 +10,8 @@ const { loans } = LoanModel;
 const { users } = UserModel;
 const {
   createALoanDB,
-  getAllLoansDB
+  getAllLoansDB,
+  getALoanDB,
 } = usersDb;
 
 const getAUserApprovedLoans = (userLoans) => {
@@ -58,12 +59,7 @@ const Loan = {
   getALoan: (req, res) => {
     jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
       if (err) return res.status(401).json({ status: 401, error: 'invalid token' });
-      const loan = loans.find(l => l.loanId === parseInt(req.value.params.loanId, 10));
-      if (!loan) return res.status(404).json({ status: 404, error: 'loan with given id not found' });
-      if ((authData.isAdmin === true) || (authData.email === loans.find(l => l.loanId === parseInt(req.value.params.loanId, 10)).userDetails.email)) {
-        return res.status(200).json({ status: 200, data: loan });
-      }
-      return res.status(401).json({ status: 401, error: 'You do not have permissions to access this endpoint' });
+      return getALoanDB(req, res, authData);
     });
   },
 
