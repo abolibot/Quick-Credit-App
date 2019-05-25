@@ -343,23 +343,7 @@ const QuickCredit = {
           ];
           const response = await db.query(updateOneQuery, vals);
           for (let i = 1; i <= loan.tenor; i += 1) {
-            const text = `INSERT INTO 
-            repayments(loan_id, status, due_date, created_at)
-            VALUES($1, $2, $3, $4)
-            returning *`;
-            const vall = [
-              loan.id,
-              'pending',
-              moment().add(i * 30, 'days'),
-              new Date().toLocaleString(),
-            ];
-
-            try {
-              const { rows } = await db.query(text, vall);
-              return res.status(201).json({ status: 201, data: rows[0] });
-            } catch (error) {
-              return res.status(400).json({ status: 400, data: error });
-            }
+            QuickCredit.createRepayments(req, res, loan, i);
           }
           return res.status(200).json({ status: 200, data: response.rows[0] });
         }
@@ -385,30 +369,6 @@ const QuickCredit = {
     }
   },
 
-  async update(req, res) {
-    const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
-    const updateOneQuery = `UPDATE reflections
-      SET success=$1,low_point=$2,take_away=$3,modified_date=$4
-      WHERE id=$5 returning *`;
-    try {
-      const { rows } = await db.query(findOneQuery, [req.params.id]);
-      if (!rows[0]) {
-        return res.status(404).send({'message': 'reflection not found'});
-      }
-      const values = [
-        req.body.success || rows[0].success,
-        req.body.low_point || rows[0].low_point,
-        req.body.take_away || rows[0].take_away,
-        moment(new Date()),
-        req.params.id
-      ];
-      const response = await db.query(updateOneQuery, values);
-      return res.status(200).send(response.rows[0]);
-    } catch(err) {
-      return res.status(400).send(err);
-    }
-  },
- 
   async getAClient(req, res) {
     const findAllQuery = 'SELECT * FROM users WHERE email = $1';
     const values = [
@@ -429,13 +389,30 @@ const QuickCredit = {
     ];
     try {
       const { rows } = await db.query(findAllQuery, values);
-      return rows;
     } catch (error) {
       return res.status(400).json({ status: 400, data: error });
     }
   },
 
+  async createRepayments(req, res, loan, i) {
+    const text = `INSERT INTO 
+    repayments(loan_id, status, due_date, created_at)
+    VALUES($1, $2, $3, $4)
+    returning *`;
+    const vall = [
+      loan.loan_id,
+      'pending',
+      moment().add(i * 30, 'days'),
+      new Date().toLocaleString(),
+    ];
 
+    try {
+      const { rows } = await db.query(text, vall);
+      return rows;
+    } catch (error) {
+      return res.status(400).json({ status: 400, data: error });
+    }
+  },
 };
 
 module.exports = QuickCredit;

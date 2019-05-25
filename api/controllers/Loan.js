@@ -1,7 +1,6 @@
 require('dotenv').config();
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
-
 const usersDb = require('../usingDB/controllers/QuickCredit');
 
 const {
